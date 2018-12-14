@@ -14,7 +14,10 @@ class CreateHistorialClienteTable extends Migration
     public function up()
     {
         Schema::create('historial_cliente', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_registro');
+            $table->date('fecha');
+            $table->integer('id_tipo_accion');
+            $table->integer('id_cliente');
             $table->timestamps();
         });
     }

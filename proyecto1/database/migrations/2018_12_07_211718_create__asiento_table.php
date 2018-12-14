@@ -14,7 +14,11 @@ class CreateAsientoTable extends Migration
     public function up()
     {
         Schema::create('asiento', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_asiento');
+            $table->integer('numero_asiento');
+            $table->char('letra_asiento',1);
+            $table->integer('id_clase');
+            $table->integer('id_avion');
             $table->timestamps();
         });
     }

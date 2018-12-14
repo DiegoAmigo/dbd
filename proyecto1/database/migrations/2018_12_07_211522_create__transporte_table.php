@@ -14,7 +14,13 @@ class CreateTransporteTable extends Migration
     public function up()
     {
         Schema::create('transporte', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('patente');
+            $table->integer('tipo_transporte');
+            $table->float('monto');
+            $table->string('empresa_transporte', 32);
+            $table->float('precio_total');
+            $table->integer('capacidad_transporte');
+            $table->string('pais', 28);
             $table->timestamps();
         });
     }
