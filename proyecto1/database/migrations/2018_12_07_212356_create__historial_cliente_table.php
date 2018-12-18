@@ -13,7 +13,7 @@ class CreateHistorialClienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('historial_cliente', function (Blueprint $table) {
+        Schema::create('historial_clientes', function (Blueprint $table) {
             $table->increments('id_registro');
             $table->date('fecha');
             $table->integer('id_tipo_accion');
@@ -29,6 +29,6 @@ class CreateHistorialClienteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('historial_cliente');
+        Schema::dropIfExists('historial_clientes');
     }
 }

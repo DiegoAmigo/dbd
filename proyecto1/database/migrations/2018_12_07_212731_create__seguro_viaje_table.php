@@ -13,7 +13,7 @@ class CreateSeguroViajeTable extends Migration
      */
     public function up()
     {
-        Schema::create('seguro_viaje', function (Blueprint $table) {
+        Schema::create('seguro_viajes', function (Blueprint $table) {
             $table->increments('id_seguro');
             $table->integer('tipo_seguro');
             $table->text('descripcion');
@@ -28,6 +28,6 @@ class CreateSeguroViajeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seguro_viaje');
+        Schema::dropIfExists('seguro_viajes');
     }
 }

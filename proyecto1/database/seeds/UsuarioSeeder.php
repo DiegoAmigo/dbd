@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
 class UsuarioSeeder extends Seeder
 {
     /**

@@ -13,7 +13,7 @@ class AvionAeropuerto extends Migration
      */
     public function up()
     {
-        Schema::create('avion_aeropuerto', function (Blueprint $table) {
+        Schema::create('avion_aeropuertos', function (Blueprint $table) {
             $table->integer('id_aeropuerto');
             $table->integer('id_avion');
             $table->timestamps();
@@ -27,6 +27,6 @@ class AvionAeropuerto extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avion_aeropuerto');
+        Schema::dropIfExists('avion_aeropuertos');
     }
 }

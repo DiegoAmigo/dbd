@@ -13,7 +13,7 @@ class CreateTransporteTable extends Migration
      */
     public function up()
     {
-        Schema::create('transporte', function (Blueprint $table) {
+        Schema::create('transportes', function (Blueprint $table) {
             $table->increments('patente');
             $table->integer('tipo_transporte');
             $table->float('monto');
@@ -32,6 +32,6 @@ class CreateTransporteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transporte');
+        Schema::dropIfExists('transportes');
     }
 }

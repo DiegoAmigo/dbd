@@ -13,7 +13,7 @@ class CreateAerolineaTable extends Migration
      */
     public function up()
     {
-        Schema::create('aerolinea', function (Blueprint $table) {
+        Schema::create('aerolineas', function (Blueprint $table) {
             $table->increments('id_aerolinea');
             $table->string('nombre_aerolinea', 60);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateAerolineaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aerolinea');
+        Schema::dropIfExists('aerolineas');
     }
 }

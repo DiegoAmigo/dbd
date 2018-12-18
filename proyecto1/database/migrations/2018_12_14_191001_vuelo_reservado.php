@@ -13,7 +13,7 @@ class VueloReservado extends Migration
      */
     public function up()
     {
-        Schema::create('vuelo_reservado', function (Blueprint $table) {
+        Schema::create('vuelo_reservados', function (Blueprint $table) {
             $table->integer('id_reserva');
             $table->integer('id_vuelo');
             $table->timestamps();
@@ -27,6 +27,6 @@ class VueloReservado extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vuelo_reservado');
+        Schema::dropIfExists('vuelo_reservados');
     }
 }

@@ -13,7 +13,7 @@ class AsientoReservado extends Migration
      */
     public function up()
     {
-        Schema::create('asiento_reservado', function (Blueprint $table) {
+        Schema::create('asiento_reservados', function (Blueprint $table) {
             $table->integer('id_vuelo');
             $table->integer('id_asiento');
             $table->integer('disponible_Asiento');
@@ -28,6 +28,6 @@ class AsientoReservado extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asiento_reservado');
+        Schema::dropIfExists('asiento_reservados');
     }
 }

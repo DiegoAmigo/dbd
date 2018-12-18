@@ -13,7 +13,7 @@ class CreateAsientoTable extends Migration
      */
     public function up()
     {
-        Schema::create('asiento', function (Blueprint $table) {
+        Schema::create('asientos', function (Blueprint $table) {
             $table->increments('id_asiento');
             $table->integer('numero_asiento');
             $table->char('letra_asiento',1);
@@ -30,6 +30,6 @@ class CreateAsientoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asiento');
+        Schema::dropIfExists('asientos');
     }
 }

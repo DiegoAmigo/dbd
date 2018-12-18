@@ -13,7 +13,7 @@ class Paquete extends Migration
      */
     public function up()
     {
-        Schema::create('paquete', function (Blueprint $table) {
+        Schema::create('paquetes', function (Blueprint $table) {
             $table->increments('codigo_paquete');
             $table->integer('cupos');
             $table->integer('cantidad_dias');
@@ -29,6 +29,6 @@ class Paquete extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paquete');
+        Schema::dropIfExists('paquetes');
     }
 }

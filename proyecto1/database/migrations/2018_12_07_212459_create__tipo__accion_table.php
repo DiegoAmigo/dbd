@@ -13,7 +13,7 @@ class CreateTipoAccionTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_accion', function (Blueprint $table) {
+        Schema::create('tipo_accions', function (Blueprint $table) {
             $table->increments('id_tipo_accion');
             $table->string('accion', 32);
             $table->string('descripcion', 100);
@@ -28,6 +28,6 @@ class CreateTipoAccionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_accion');
+        Schema::dropIfExists('tipo_accions');
     }
 }

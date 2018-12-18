@@ -13,7 +13,7 @@ class CreateBoletaTable extends Migration
      */
     public function up()
     {
-        Schema::create('boleta', function (Blueprint $table) {
+        Schema::create('boletas', function (Blueprint $table) {
             $table->increments('id_boleta');
             $table->float('monto_total');
             $table->date('fecha_pago');
@@ -30,6 +30,6 @@ class CreateBoletaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('boleta');
+        Schema::dropIfExists('boletas');
     }
 }

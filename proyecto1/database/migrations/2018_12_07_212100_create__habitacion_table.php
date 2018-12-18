@@ -13,7 +13,7 @@ class CreateHabitacionTable extends Migration
      */
     public function up()
     {
-        Schema::create('habitacion', function (Blueprint $table) {
+        Schema::create('habitacions', function (Blueprint $table) {
             $table->increments('id_habitacion');
             $table->integer('capacidad_habitacion');
             $table->boolean('disponibilidad_habitacion');
@@ -30,6 +30,6 @@ class CreateHabitacionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('habitacion');
+        Schema::dropIfExists('habitacions');
     }
 }

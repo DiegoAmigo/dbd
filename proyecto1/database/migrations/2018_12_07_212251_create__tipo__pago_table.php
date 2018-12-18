@@ -13,7 +13,7 @@ class CreateTipoPagoTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_pago', function (Blueprint $table) {
+        Schema::create('tipo_pagos', function (Blueprint $table) {
             $table->increments('id_tipo_pago');
             $table->char('nombre_tipo', 32);
             $table->char('detalle_pago', 100);
@@ -28,6 +28,6 @@ class CreateTipoPagoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_pago');
+        Schema::dropIfExists('tipo_pagos');
     }
 }

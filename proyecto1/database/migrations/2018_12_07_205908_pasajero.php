@@ -13,7 +13,7 @@ class Pasajero extends Migration
      */
     public function up()
     {
-        Schema::create('pasajero', function (Blueprint $table) {
+        Schema::create('pasajeros', function (Blueprint $table) {
             $table->integer('numero_documento');
             $table->integer('tipo_documento_p');
             $table->primary('numero_documento');
@@ -31,6 +31,6 @@ class Pasajero extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pasajero');
+        Schema::dropIfExists('pasajeros');
     }
 }

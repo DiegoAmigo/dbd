@@ -13,7 +13,7 @@ class CreateAvionTable extends Migration
      */
     public function up()
     {
-        Schema::create('avion', function (Blueprint $table) {
+        Schema::create('avions', function (Blueprint $table) {
             $table->increments('id_avion');
             $table->string('marca', 15);
             $table->string('modelo', 15);
@@ -29,6 +29,6 @@ class CreateAvionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avion');
+        Schema::dropIfExists('avions');
     }
 }
