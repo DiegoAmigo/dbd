@@ -25,7 +25,7 @@ class CreateBoletaTable extends Migration
                 ->references('id')
                 ->on('reservas')
                 ->onDelete('cascade');
-
+            
             $table->foreign('id_tipo_pago')
                 ->references('id')
                 ->on('tipo_pagos')
