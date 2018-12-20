@@ -14,7 +14,7 @@ class Paquete extends Migration
     public function up()
     {
         Schema::create('paquetes', function (Blueprint $table) {
-            $table->increments('codigo_paquete');
+            $table->increments('id');
             $table->integer('cupos');
             $table->integer('cantidad_dias');
             $table->integer('cantidad_noches');

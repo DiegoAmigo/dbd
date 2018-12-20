@@ -14,12 +14,22 @@ class CreateAsientoTable extends Migration
     public function up()
     {
         Schema::create('asientos', function (Blueprint $table) {
-            $table->increments('id_asiento');
+            $table->increments('id');
             $table->integer('numero_asiento');
             $table->char('letra_asiento',1);
-            $table->integer('id_clase');
-            $table->integer('id_avion');
+            $table->unsignedInteger('id_clase');
+            $table->unsignedInteger('id_avion');
             $table->timestamps();
+
+            $table->foreign('id_clase')
+                ->references('id')
+                ->on('clases')
+                ->onDelete('cascade');
+
+            $table->foreign('id_avion')
+                ->references('id')
+                ->on('avions')
+                ->onDelete('cascade');
         });
     }
 
