@@ -14,7 +14,7 @@ class Cliente extends Migration
     public function up()
     {
         Schema::create('clientes', function (Blueprint $table) {
-            $table->increments('id_cliente');
+            $table->increments('id');
             $table->integer('numero_documento');
             $table->integer('tipo_doc');
             $table->string('nombre_cl',60);
