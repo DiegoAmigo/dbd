@@ -14,6 +14,7 @@ class Pasajero extends Migration
     public function up()
     {
         Schema::create('pasajeros', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('numero_documento');
             $table->integer('tipo_documento_p');
             $table->primary('numero_documento');

@@ -14,11 +14,21 @@ class CreateHistorialClienteTable extends Migration
     public function up()
     {
         Schema::create('historial_clientes', function (Blueprint $table) {
-            $table->increments('id_registro');
+            $table->increments('id');
             $table->date('fecha');
-            $table->integer('id_tipo_accion');
-            $table->integer('id_cliente');
+            $table->unsignedInteger('id_tipo_accion');
+            $table->unsignedInteger('id_cliente');
             $table->timestamps();
+
+            $table->foreign('id_tipo_accion')
+                ->references('id')
+                ->on('tipo_accions')
+                ->onDelete('cascade');
+
+            $table->foreign('id_cliente')
+                ->references('id')
+                ->on('clientes')
+                ->onDelete('cascade');
         });
     }
 

@@ -14,7 +14,7 @@ class CreateReservaTable extends Migration
     public function up()
     {
         Schema::create('reservas', function (Blueprint $table) {
-            $table->increments('id_reserva');
+            $table->increments('id');
             $table->boolean('checkin');
             $table->boolean('pagado');
             $table->float('total_reserva');

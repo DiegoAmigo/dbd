@@ -14,7 +14,7 @@ class Vuelo extends Migration
     public function up()
     {
         Schema::create('vuelos', function (Blueprint $table) {
-            $table->increments('id_serial');
+            $table->increments('id');
             $table->time('hora_fin');
             $table->char('origen', 58);
             $table->time('hora_inicio');
