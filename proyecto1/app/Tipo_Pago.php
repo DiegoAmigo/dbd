@@ -11,7 +11,7 @@ class Tipo_Pago extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'id_tipo_pago' ,'nombre_tipo', 'detalle_pago'
+    	'nombre_tipo', 'detalle_pago'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos

@@ -11,7 +11,7 @@ class Pais extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'id_pais', 'nombre_pais'
+    	'nombre_pais'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos

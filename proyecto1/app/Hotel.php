@@ -11,7 +11,7 @@ class Hotel extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'id_hotel', 'nombre_hotel', 'monto', 'id_ciudad', 'direccion_hotel', 'cantidad_estrellas', 'id_ciudad'
+    	'nombre_hotel', 'monto', 'id_ciudad', 'direccion_hotel', 'cantidad_estrellas', 'id_ciudad'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos

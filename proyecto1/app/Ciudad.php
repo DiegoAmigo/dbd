@@ -11,7 +11,7 @@ class Ciudad extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'id_ciudad', 'nombre_ciudad', 'id_pais'
+    	'nombre_ciudad', 'id_pais'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos

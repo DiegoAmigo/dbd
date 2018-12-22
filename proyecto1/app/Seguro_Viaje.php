@@ -11,7 +11,7 @@ class Seguro_Viaje extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'id_seguro', 'descripcion', 'tipo_plan'
+    	'descripcion', 'tipo_plan'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos
