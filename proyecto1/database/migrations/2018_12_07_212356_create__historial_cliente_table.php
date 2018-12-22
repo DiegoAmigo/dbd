@@ -22,12 +22,12 @@ class CreateHistorialClienteTable extends Migration
 
             $table->foreign('id_tipo_accion')
                 ->references('id')
-                ->on('tipo_accions')
+                ->on('acciones')
                 ->onDelete('cascade');
 
             $table->foreign('id_cliente')
                 ->references('id')
-                ->on('clientes')
+                ->on('cliente')
                 ->onDelete('cascade');
         });
     }

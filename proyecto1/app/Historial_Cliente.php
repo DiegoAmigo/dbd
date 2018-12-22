@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Historial_Cliente extends Model
 {
     //nombre de la tabla
-    protected $table='historial';
+    protected $table='historial_clientes';
     //atributos
     protected $nombre_aerolinea;
     //rellenar con atributos
     protected $fillable=[
-    	'id_tipo_accion', 'fecha', 'id_cliente', 'id_tipo_accion'
+    	'fecha', 'id_cliente', 'id_tipo_accion'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos
