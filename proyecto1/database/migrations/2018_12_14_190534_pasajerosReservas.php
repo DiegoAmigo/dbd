@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Pasajeros extends Migration
+class PasajerosReservas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Pasajeros extends Migration
      */
     public function up()
     {
-        Schema::create('pasajeross', function (Blueprint $table) {
+        Schema::create('pasajerosReservas', function (Blueprint $table) {
             //en caso de
             $table->increments('id');
             $table->unsignedInteger('numero_documento');
@@ -39,6 +39,6 @@ class Pasajeros extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pasajeros');
+        Schema::dropIfExists('pasajerosReservas');
     }
 }
