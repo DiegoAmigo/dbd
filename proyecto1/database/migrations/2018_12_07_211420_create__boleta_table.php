@@ -14,12 +14,22 @@ class CreateBoletaTable extends Migration
     public function up()
     {
         Schema::create('boletas', function (Blueprint $table) {
-            $table->increments('id_boleta');
+            $table->increments('id');
             $table->float('monto_total');
             $table->date('fecha_pago');
-            $table->integer('id_reserva');
-            $table->integer('id_tipo_pago');
+            $table->unsignedInteger('id_reserva');
+            $table->unsignedInteger('id_tipo_pago');
             $table->timestamps();
+
+            $table->foreign('id_reserva')
+                ->references('id')
+                ->on('reservas')
+                ->onDelete('cascade');
+            
+            $table->foreign('id_tipo_pago')
+                ->references('id')
+                ->on('tipo_pagos')
+                ->onDelete('cascade');
         });
     }
 

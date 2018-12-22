@@ -1,0 +1,23 @@
+[2018-12-20 00:25:17] local.ERROR: rename(/home/vagrant/projects/dbd/proyecto1/bootstrap/cache/packages.phpYPVRDg,/home/vagrant/projects/dbd/proyecto1/bootstrap/cache/packages.php): Operation not permitted {"exception":"[object] (ErrorException(code: 0): rename(/home/vagrant/projects/dbd/proyecto1/bootstrap/cache/packages.phpYPVRDg,/home/vagrant/projects/dbd/proyecto1/bootstrap/cache/packages.php): Operation not permitted at /home/vagrant/projects/dbd/proyecto1/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php:146)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'rename(/home/va...', '/home/vagrant/p...', 146, Array)
+#1 /home/vagrant/projects/dbd/proyecto1/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(146): rename('/home/vagrant/p...', '/home/vagrant/p...')
+#2 /home/vagrant/projects/dbd/proyecto1/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(172): Illuminate\\Filesystem\\Filesystem->replace('/home/vagrant/p...', '<?php return ar...')
+#3 /home/vagrant/projects/dbd/proyecto1/vendor/laravel/framework/src/Illuminate/Foundation/PackageManifest.php(127): Illuminate\\Foundation\\PackageManifest->write(Array)
+#4 /home/vagrant/projects/dbd/proyecto1/vendor/laravel/framework/src/Illuminate/Foundation/Console/PackageDiscoverCommand.php(32): Illuminate\\Foundation\\PackageManifest->build()
+#5 [internal function]: Illuminate\\Foundation\\Console\\PackageDiscoverCommand->handle(Object(Illuminate\\Foundation\\PackageManifest))
+#6 /home/vagrant/projects/dbd/proyecto1/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /home/vagrant/projects/dbd/proyecto1/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(87): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#8 /home/vagrant/projects/dbd/proyecto1/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(31): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#9 /home/vagrant/projects/dbd/proyecto1/vendor/laravel/framework/src/Illuminate/Container/Container.php(572): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#10 /home/vagrant/projects/dbd/proyecto1/vendor/laravel/framework/src/Illuminate/Console/Command.php(183): Illuminate\\Container\\Container->call(Array)
+#11 /home/vagrant/projects/dbd/proyecto1/vendor/symfony/console/Command/Command.php(255): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#12 /home/vagrant/projects/dbd/proyecto1/vendor/laravel/framework/src/Illuminate/Console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#13 /home/vagrant/projects/dbd/proyecto1/vendor/symfony/console/Application.php(901): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 /home/vagrant/projects/dbd/proyecto1/vendor/symfony/console/Application.php(262): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\PackageDiscoverCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#15 /home/vagrant/projects/dbd/proyecto1/vendor/symfony/console/Application.php(145): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 /home/vagrant/projects/dbd/proyecto1/vendor/laravel/framework/src/Illuminate/Console/Application.php(89): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 /home/vagrant/projects/dbd/proyecto1/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(122): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 /home/vagrant/projects/dbd/proyecto1/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 {main}
+"} 

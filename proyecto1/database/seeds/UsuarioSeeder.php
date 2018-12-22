@@ -10,6 +10,6 @@ class UsuarioSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory('App\Usuario', 30)->create();
     }
 }

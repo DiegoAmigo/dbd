@@ -14,7 +14,7 @@ class CreateSeguroViajeTable extends Migration
     public function up()
     {
         Schema::create('seguro_viajes', function (Blueprint $table) {
-            $table->increments('id_seguro');
+            $table->increments('id');
             $table->integer('tipo_seguro');
             $table->text('descripcion');
             $table->timestamps();

@@ -14,9 +14,21 @@ class VueloReservado extends Migration
     public function up()
     {
         Schema::create('vuelo_reservados', function (Blueprint $table) {
-            $table->integer('id_reserva');
-            $table->integer('id_vuelo');
+            //en caso de
+            $table->increments('id');
+            $table->unsignedInteger('id_reserva');
+            $table->unsignedInteger('id_vuelo');
             $table->timestamps();
+
+            $table->foreign('id_reserva')
+                ->references('id')
+                ->on('reservas')
+                ->onDelete('cascade');
+
+            $table->foreign('id_vuelo')
+                ->references('id')
+                ->on('vuelos')
+                ->onDelete('cascade');
         });
     }
 

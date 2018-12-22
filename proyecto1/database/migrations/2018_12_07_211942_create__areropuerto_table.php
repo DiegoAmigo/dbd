@@ -14,7 +14,7 @@ class CreateAreropuertoTable extends Migration
     public function up()
     {
         Schema::create('aeropuertos', function (Blueprint $table) {
-            $table->increments('id_aeropuerto');
+            $table->increments('id');
             $table->string('nombre_aeropuerto', 32);
             $table->integer('capacidad_avion');
             $table->timestamps();

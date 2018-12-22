@@ -14,10 +14,21 @@ class AsientoReservado extends Migration
     public function up()
     {
         Schema::create('asiento_reservados', function (Blueprint $table) {
-            $table->integer('id_vuelo');
-            $table->integer('id_asiento');
+            //en caso de
+            $table->increments('id');
+            $table->unsignedInteger('id_vuelo');
+            $table->unsignedInteger('id_asiento');
             $table->integer('disponible_Asiento');
             $table->timestamps();
+
+            $table->foreign('id_vuelo')
+                ->references('id')
+                ->on('vuelos')
+                ->onDelete('cascade');
+            $table->foreign('id_asiento')
+                ->references('id')
+                ->on('asientos')
+                ->onDelete('cascade');
         });
     }
 

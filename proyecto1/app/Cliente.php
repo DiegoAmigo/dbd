@@ -6,5 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-    //
+    //nombre de la tabla
+    protected $table='cliente';
+    //atributos
+    //rellenar con atributos
+    protected $fillable=[
+		'id_cliente', 'tipo_documento', 'nombre_cliente', 'apellido_cliente', 'e-mail', 'fecha_nacimiento',
+		'contrasena', 'puntos_millas', 'id_pais'
+    ];
+    //relacion con otra tabla
+    //poner nombre en plural si se relaciona con muchos
+    public function historial(){
+    	return $this->hasMany('App\Historial_Cliente');
+    }
+	public function reservas(){
+    	return $this->hasMany('App\Reserva');
+    }
+	public function pais(){
+    	return $this->belongsTo('App\Pais');
+    }
 }
