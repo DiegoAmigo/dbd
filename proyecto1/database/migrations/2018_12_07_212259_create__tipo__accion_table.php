@@ -13,6 +13,7 @@ class CreateTipoAccionTable extends Migration
      */
     public function up()
     {
+
         Schema::create('tipo_accions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('accion', 32);
