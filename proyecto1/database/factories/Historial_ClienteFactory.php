@@ -4,8 +4,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Model::class, function (Faker $faker) {
     return [
-        'fecha' => $faker->text($maxNbChars = 32),
-		'id_cliente' => $faker->text($maxNbChars = 100),
-		'id_tipo_pago' => $faker->text($maxNbChars = 100)
+        'fecha' => $faker->date($format = 'Y-m-d', $max = 'now'),
+		'id_cliente' => $faker->numberBetween($min = 0, $max = 100000),
+		'id_tipo_pago' => $faker->numberBetween($min = 0, $max = 100000)
     ];
 });
