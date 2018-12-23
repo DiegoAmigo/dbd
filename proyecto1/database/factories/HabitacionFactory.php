@@ -4,9 +4,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Model::class, function (Faker $faker) {
      return [
-        'capacidad_habitacion' => $faker->text($maxNbChars = 32),
-		'disponibilidad_habitacion' => $faker->text($maxNbChars = 100),
-		'numero_habitacion' => $faker->text($maxNbChars = 100),
-		'id_hotel' => $faker->text($maxNbChars = 100)
+        'capacidad_habitacion' => $faker->numberBetween($min = 0, $max = 10),
+		'disponibilidad_habitacion' => $faker->numberBetween($min = 0, $max = 1),
+		'numero_habitacion' => $faker->numberBetween($min = 0, $max = 100),
+		'id_hotel' => $faker->numberBetween($min = 0, $max = 100000)
     ];
 });
