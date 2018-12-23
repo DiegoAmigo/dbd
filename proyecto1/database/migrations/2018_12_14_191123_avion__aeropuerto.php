@@ -17,7 +17,7 @@ class AvionAeropuerto extends Migration
             //en caso de
             $table->increments('id');
             $table->unsignedInteger('id_aeropuerto');
-            $table->unsignedInteger('id_avion');
+            $table->unsignedInteger('id_vuelo');
             $table->timestamps();
 
             $table->foreign('id_aeropuerto')
@@ -25,9 +25,9 @@ class AvionAeropuerto extends Migration
                 ->on('aeropuertos')
                 ->onDelete('cascade');
 
-            $table->foreign('id_avion')
+            $table->foreign('id_vuelo')
                 ->references('id')
-                ->on('avions')
+                ->on('vuelos')
                 ->onDelete('cascade');
         });
     }

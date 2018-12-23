@@ -19,6 +19,9 @@ class Vuelo extends Migration
             $table->char('origen', 58);
             $table->time('hora_inicio');
             $table->char('destino', 58);
+            $table->integer('cupos_disponibles');
+            $table->integer('disponible_vuelo');
+            $table->boolean('atraso');
             $table->timestamps();
         });
     }
