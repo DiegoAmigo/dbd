@@ -20,7 +20,13 @@ class CreatePasajerosTable extends Migration
             $table->string('nombre_p',60);
             $table->string('apellido_p',32);
             $table->boolean('asistencia_especial');
+            $table->unsignedInteger('id_pais');
             $table->timestamps();
+
+            $table->foreign('id_pais')
+                ->references('id')
+                ->on('pais')
+                ->onDelete('cascade');
         });
     }
 

@@ -18,12 +18,18 @@ class Cliente extends Migration
             $table->integer('numero_documento');
             $table->integer('tipo_doc');
             $table->string('nombre_cl',60);
-            $table->string('apellido',35);
+            $table->string('apellido_cl',35);
             $table->string('correo_cl',60);
             $table->date('fecha_nac');
             $table->char('contrasena',32);
             $table->integer('puntos_milla');
+            $table->unsignedInteger('id_pais');
             $table->timestamps();
+
+            $table->foreign('id_pais')
+                ->references('id')
+                ->on('pais')
+                ->onDelete('cascade');
         });
     }
 

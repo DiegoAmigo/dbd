@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTransporteTable extends Migration
+class CreateSeguroViajeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateTransporteTable extends Migration
      */
     public function up()
     {
-        Schema::create('transportes', function (Blueprint $table) {
+        Schema::create('seguro_viajes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('tipo_transporte');
-            $table->float('monto');
-            $table->string('empresa_transporte', 32);
-            $table->float('precio_total');
-            $table->integer('capacidad_transporte');
-            $table->string('pais', 28);
+            $table->integer('tipo_plan');
+            $table->text('descripcion');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CreateTransporteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transportes');
+        Schema::dropIfExists('seguro_viajes');
     }
 }
