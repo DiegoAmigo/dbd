@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     //nombre de la tabla
-    protected $table='cliente';
+    protected $table='clientes';
     //atributos
     //rellenar con atributos
     protected $fillable=[

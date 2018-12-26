@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Avion extends Model
 {
      //nombre de la tabla
-    protected $table='aviones';
+    protected $table='avions';
     //atributos
     //rellenar con atributos
     protected $fillable=[

@@ -18,8 +18,14 @@ class CreateHotelTable extends Migration
             $table->string('nombre_hotel', 30);
             $table->float('monto');
             $table->string('direccion_hotel', 80);
-            $table->integer('cant_estrellas');
+            $table->integer('cantidad_estrellas');
+            $table->integer('id_ciudad');
             $table->timestamps();
+
+            $table->foreign('id_ciudad')
+                ->references('id')
+                ->on('ciudads')
+                ->onDelete('cascade');
         });
     }
 

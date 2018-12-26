@@ -11,6 +11,6 @@ class Historial_ClienteSeeder extends Seeder
      */
     public function run()
     {
-        factory('\App\Historial_Cliente',20)->create();
+        factory('App\Historial_Cliente',20)->create();
     }
 }

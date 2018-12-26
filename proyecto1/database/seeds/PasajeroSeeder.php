@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PasajeroSeeder extends Seeder
+class pasajeroSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class PasajeroSeeder extends Seeder
      */
     public function run()
     {
-        factory('\App\Pasajero',30)->create();
+        factory('App\Pasajero', 30)->create();
     }
 }
