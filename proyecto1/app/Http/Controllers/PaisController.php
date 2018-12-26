@@ -14,8 +14,10 @@ class PaisController extends Controller
      */
     public function index()
     {
-        $pais = Pais::all();
-        return $pais;
+		$pais = Pais::get();
+        return view('pais.index')->with('pais', $pasteles);
+        /*$pais = Pais::all();
+        return $pais;*/
     }
     /**
      * Show the form for creating a new resource.
@@ -24,7 +26,7 @@ class PaisController extends Controller
      */
     public function create()
     {
-        //
+        return view('pais.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -34,7 +36,9 @@ class PaisController extends Controller
      */
     public function store(Request $request)
     {
-        return Pais::create($request->all());
+		$pais = Pais::create($request->all());
+        return redirect()->route('pais.index');
+        /*return Pais::create($request->all());*/
     }
     /**
      * Display the specified resource.
@@ -54,7 +58,8 @@ class PaisController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pais = Pais::find($id);
+        return view('pais.edit')->with('pais',$pais);
     }
     /**
      * Update the specified resource in storage.
@@ -65,7 +70,10 @@ class PaisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pais = Pais::find($id);
+        $pais->fill($request->all());
+        $pais->save();
+        return redirect()->route('pais.index');
     }
     /**
      * Remove the specified resource from storage.
@@ -77,6 +85,7 @@ class PaisController extends Controller
     {
         $pais = Pais::find($id);
         $pais->delete();
-        return "lo eliminé";
+		Pais::destroy($id);
+        return redirect()->route('pais.index');
     }
 }
