@@ -3,19 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Aeropuerto;
 
-class HotelController extends Controller
+class AeropuertoController extends Controller
 {
-    /**
+      /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $aeropuerto = Aeropuerto::all();
+        return $aeropuerto;
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +26,6 @@ class HotelController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -34,9 +34,8 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Aeropuerto::create($request->all());
     }
-
     /**
      * Display the specified resource.
      *
@@ -45,9 +44,8 @@ class HotelController extends Controller
      */
     public function show($id)
     {
-        //
+        return Aeropuerto::find($id);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -58,7 +56,6 @@ class HotelController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -70,7 +67,6 @@ class HotelController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -79,6 +75,8 @@ class HotelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $aeropuerto = Aeropuerto::find($id);
+        $aeropuerto->delete();
+        return "lo eliminé";
     }
 }
