@@ -11,7 +11,7 @@ class Aeropuerto extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'id_aeropuerto', 'nombre_aeropuerto', 'capacidad_aviones', 'id_ciudad'
+    	'nombre_aeropuerto', 'capacidad_aviones', 'id_ciudad'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos

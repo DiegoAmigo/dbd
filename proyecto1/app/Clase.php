@@ -11,7 +11,7 @@ class Clase extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'id_clase', 'tipo_clase', 'descripcion_clase'
+    	'tipo_clase', 'descripcion_clase'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos
