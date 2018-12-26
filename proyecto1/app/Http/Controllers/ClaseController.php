@@ -3,19 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Aeropuerto;
 
-class AeropuertoController extends Controller
+class ClaseController extends Controller
 {
-      /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-		$aeropuerto = Aeropuerto::get();
-        return view('aeropuerto.index')->with('aeropuerto', $aeropuerto);
+		$clase = Clase::get();
+        return view('clase.index')->with('clase', $clase);
        /* $aeropuerto = Aeropuerto::all();
         return $aeropuerto;*/
     }
@@ -26,7 +25,7 @@ class AeropuertoController extends Controller
      */
     public function create()
     {
-        return view('aeropuerto.create');
+        return view('clase.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -36,8 +35,8 @@ class AeropuertoController extends Controller
      */
     public function store(Request $request)
     {
-		$aeropuerto = Aeropuerto::create($request->all());
-        return redirect()->route('aeropuerto.index');
+		$clase = Clase::create($request->all());
+        return redirect()->route('clase.index');
        /* return Aeropuerto::create($request->all());*/
     }
     /**
@@ -48,7 +47,7 @@ class AeropuertoController extends Controller
      */
     public function show($id)
     {
-        return Aeropuerto::find($id);
+        return Clase::find($id);
     }
     /**
      * Show the form for editing the specified resource.
@@ -58,8 +57,8 @@ class AeropuertoController extends Controller
      */
     public function edit($id)
     {
-        $aeropuerto = Ciudad::find($id);
-        return view('aeropuerto.edit')->with('aeropuerto',$aeropuerto);
+        $clase = Clase::find($id);
+        return view('clase.edit')->with('clase',$clase);
     }
     /**
      * Update the specified resource in storage.
@@ -70,10 +69,10 @@ class AeropuertoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $aeropuerto = Aeropuerto::find($id);
-        $aeropuerto->fill($request->all());
-        $aeropuerto->save();
-        return redirect()->route('aeropuerto.index');
+        $clase = Clase::find($id);
+        $clase->fill($request->all());
+        $clase->save();
+        return redirect()->route('clase.index');
     }
     /**
      * Remove the specified resource from storage.
@@ -83,10 +82,10 @@ class AeropuertoController extends Controller
      */
     public function destroy($id)
     {
-        $aeropuerto = Aeropuerto::find($id);
-        $aeropuerto->delete();
-		Aeropuerto::destroy($id);
-        return redirect()->route('aeropuerto.index');
+        $clase = Clase::find($id);
+        $clase->delete();
+		Clase::destroy($id);
+        return redirect()->route('clase.index');
         /*return "lo eliminé";*/
     }
 }
