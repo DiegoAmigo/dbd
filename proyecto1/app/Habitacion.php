@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Habitacion extends Model
 {
     //nombre de la tabla
-    protected $table='habitaciones';
+    protected $table='habitacions';
     //atributos
     //rellenar con atributos
     protected $fillable=[

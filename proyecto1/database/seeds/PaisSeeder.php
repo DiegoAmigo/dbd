@@ -11,6 +11,6 @@ class PaisSeeder extends Seeder
      */
     public function run()
     {
-        factory('\App\Pais',15)->create();
+        factory('App\Pais',30)->create();
     }
 }

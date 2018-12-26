@@ -18,12 +18,19 @@ class CreateBoletaTable extends Migration
             $table->float('monto_total');
             $table->date('fecha_pago');
             $table->unsignedInteger('id_tipo_pago');
+            $table->unsignedInteger('id_reserva');
             $table->timestamps();
             
             $table->foreign('id_tipo_pago')
                 ->references('id')
                 ->on('tipo_pagos')
                 ->onDelete('cascade');
+
+            $table->foreign('id_reserva')
+                ->references('id')
+                ->on('reservas')
+                ->onDelete('cascade');
+
         });
     }
 

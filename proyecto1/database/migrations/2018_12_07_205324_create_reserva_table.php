@@ -25,8 +25,12 @@ class CreateReservaTable extends Migration
             $table->unsignedInteger('id_cliente');
             $table->unsignedInteger('id_seguro');
             $table->unsignedInteger('id_transporte');
+            $table->date('fecha_i_t');
+            $table->date('fecha_f_t');
             //segun yo deberia ser alverre
             $table->unsignedInteger('id_habitacion');
+            $table->date('fecha_inicio_h');
+            $table->date('fecha_fin_h');
             $table->timestamps();
 
             $table->foreign('id_cliente')

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Hotel;
 
 class HotelController extends Controller
 {
@@ -13,7 +14,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        //
+        return Hotel::all();
     }
 
     /**
@@ -34,7 +35,7 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Hotel::create($request->all());
     }
 
     /**
@@ -45,7 +46,7 @@ class HotelController extends Controller
      */
     public function show($id)
     {
-        //
+        return Hotel::find($id);
     }
 
     /**
@@ -79,6 +80,8 @@ class HotelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hotel = Hotel::find($id);
+        $hotel ->delete();
+        return "lo eliminé";
     }
 }

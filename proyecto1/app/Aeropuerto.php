@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Aeropuerto extends Model
 {
     //nombre de la tabla
-    protected $table='aeropuerto';
+    protected $table='aeropuertos';
     //atributos
     //rellenar con atributos
     protected $fillable=[
@@ -15,7 +15,7 @@ class Aeropuerto extends Model
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos
-    public function vuelos(){
+    public function ciudades(){
     	return $this->belongsTo('App\Ciudad');
     }
 	public function vuelos(){
