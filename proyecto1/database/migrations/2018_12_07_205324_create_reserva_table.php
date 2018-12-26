@@ -18,15 +18,19 @@ class CreateReservaTable extends Migration
             $table->integer('tipo_reserva');
             $table->boolean('checkin');
             $table->boolean('pagado');
-            $table->float('total_reserva');
+            $table->integer('total_reserva');
             $table->string('correo_reserva',60);
             $table->string('telefono_reserva');
             $table->unsignedInteger('id_paquete');
             $table->unsignedInteger('id_cliente');
             $table->unsignedInteger('id_seguro');
             $table->unsignedInteger('id_transporte');
+            $table->date('fecha_i_t');
+            $table->date('fecha_f_t');
             //segun yo deberia ser alverre
             $table->unsignedInteger('id_habitacion');
+            $table->date('fecha_inicio_h');
+            $table->date('fecha_fin_h');
             $table->timestamps();
 
             $table->foreign('id_cliente')

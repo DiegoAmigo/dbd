@@ -18,6 +18,7 @@ class AvionAeropuerto extends Migration
             $table->increments('id');
             $table->unsignedInteger('id_aeropuerto');
             $table->unsignedInteger('id_vuelo');
+            $table->boolean('origen');
             $table->timestamps();
 
             $table->foreign('id_aeropuerto')

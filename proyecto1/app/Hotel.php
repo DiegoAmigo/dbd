@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Hotel extends Model
 {
     //nombre de la tabla
-    protected $table='hoteles';
+    protected $table='hotels';
     //atributos
     //rellenar con atributos
     protected $fillable=[

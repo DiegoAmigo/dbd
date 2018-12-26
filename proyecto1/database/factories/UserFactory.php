@@ -23,7 +23,7 @@ $factory->define(App\User::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(App\Cliente::class, function (Faker $faker){
+$factory->define(App\User::class, function (Faker $faker){
 
 	$ids_user = \DB::table('users')->select('id')->get();
 	$id_user = $ids_user->random()->id;
@@ -31,7 +31,7 @@ $factory->define(App\Cliente::class, function (Faker $faker){
 	return[
 		'id_user'
 
-	]
+	];
 
 
 });
