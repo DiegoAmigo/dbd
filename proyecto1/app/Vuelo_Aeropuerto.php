@@ -4,21 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Aeropuerto extends Model
+class Vuelo_Aeropuerto extends Model
 {
     //nombre de la tabla
-    protected $table='aeropuerto';
+    protected $table='vuelo_aeropuerto';
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'nombre_aeropuerto', 'capacidad_aviones', 'id_ciudad'
+    	'id_aeropuerto', 'id_vuelo', 'origen'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos
     public function vuelos(){
-    	return $this->belongsTo('App\Ciudad');
+    	return $this->belongsTo('App\Vuelo');
     }
-	public function vuelo_aeropuerto(){
-    	return $this->hasMany('App\Vuelo_Aeropuerto');
+	public function aeropuerto(){
+    	return $this->belongsTo('App\Aeropuerto');
     }
 }

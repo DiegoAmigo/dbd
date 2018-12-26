@@ -12,7 +12,8 @@ class Reserva extends Model
     //rellenar con atributos
     protected $fillable=[
     	'id_reserva', 'tipo_reserva', 'checkin', 'pagado', 'total_reserva', 'correo_cliente', 'telefono_cliente', 
-		'id_cliente', 'id_habitacion', 'fecha_inicio_h', 'fecha_fin_h', 'id_paquete', 'patente', 'fecha_i_t', 'fecha_f_t', 'id_seguro'
+		'id_cliente', 'id_habitacion', 'fecha_inicio_h', 'fecha_fin_h', 'id_paquete', 'patente', 'fecha_i_t', 'fecha_f_t', 
+		'id_seguro'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos
@@ -34,13 +35,13 @@ class Reserva extends Model
 	public function boleta(){
         return $this->hasOne(Boleta::class);
     }
-	public function asientos(){
-    	return $this->belongsMany('App\Asiento');
+	public function asiento_reservado(){
+    	return $this->hasMany('App\Asiento_Reservado');
     }
-	public function vuelos(){
-    	return $this->belongsToMany('App\Vuelo');
+	public function vuelo_reservado(){
+    	return $this->hasMany('App\Vuelo_Reservado');
     }
-	public function pasajeros(){
-    	return $this->belongsToMany('App\Pasajero');
+	public function pasajero_reserva(){
+    	return $this->hasMany('App\Pasajero_Reserva');
     }
 }

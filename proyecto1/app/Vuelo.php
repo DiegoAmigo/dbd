@@ -11,20 +11,20 @@ class Vuelo extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'id_vuelo', 'origen', 'hora_inicio', 'destino', 'hora_fin', 'cupos_disponibles', 'disponible_vuelo', 'atraso', 'id_aerolinea'
+    	'id_vuelo', 'hora_inicio', 'hora_fin', 'cupos_disponibles', 'disponible_vuelo', 'atraso', 'id_aerolinea'
     ];
     //relacion con otra tabla
     // poner nombre en singular si se relaciona con 1
     public function aerolinea(){
     	$this->belongsTo('App\Aerolinea');
     }
-	public function asientos(){
-    	return $this->belongsToMany('App\Asiento');
+	public function asiento_reservado(){
+    	$this->hasMany('App\Asiento_Vuelo');
     }
-	public function reservas(){
-    	return $this->belongsToMany('App\Reservas');
+	public function vuelo_reservado(){
+    	return $this->hasMany('App\Vuelo_Reservado');
     }
-	public function aeropuerto(){
-    	return $this->belongsToMany('App\Aeropuerto');
+	public function vuelo_aeropuerto(){
+    	return $this->hasMany('App\Vuelo_Aeropuerto');
     }
 }

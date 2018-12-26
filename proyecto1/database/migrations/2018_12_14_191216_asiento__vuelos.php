@@ -13,12 +13,12 @@ class AsientoVuelos extends Migration
      */
     public function up()
     {
-        Schema::create('asiento_vuelos', function (Blueprint $table) {
+        Schema::create('asiento_vuelo', function (Blueprint $table) {
             //en caso de
             $table->increments('id');
             $table->unsignedInteger('id_vuelo');
             $table->unsignedInteger('id_asiento');
-            $table->integer('disponible_Asiento');
+            $table->integer('disponible_asiento');
             $table->timestamps();
 
             $table->foreign('id_vuelo')
@@ -39,6 +39,6 @@ class AsientoVuelos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asiento_vuelos');
+        Schema::dropIfExists('asiento_vuelo');
     }
 }
