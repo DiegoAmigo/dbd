@@ -14,8 +14,10 @@ class CiudadController extends Controller
      */
     public function index()
     {
-        $ciudad = Ciudad::all();
-        return $ciudad;
+		$ciudad = Ciudad::get();
+        return view('ciudad.index')->with('ciudad', $ciudad);
+       /* $ciudad = Ciudad::all();
+        return $ciudad;*/
     }
     /**
      * Show the form for creating a new resource.
@@ -24,7 +26,7 @@ class CiudadController extends Controller
      */
     public function create()
     {
-        //
+        return view('ciudad.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -34,7 +36,9 @@ class CiudadController extends Controller
      */
     public function store(Request $request)
     {
-        return Ciudad::create($request->all());
+		$ciudad = Ciudad::create($request->all());
+        return redirect()->route('ciudad.index');
+       /* return Ciudad::create($request->all());*/
     }
     /**
      * Display the specified resource.
@@ -54,7 +58,8 @@ class CiudadController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ciudad = Ciudad::find($id);
+        return view('ciudad.edit')->with('ciudad',$ciudad);
     }
     /**
      * Update the specified resource in storage.
@@ -65,7 +70,10 @@ class CiudadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ciudad = Ciudad::find($id);
+        $ciudad->fill($request->all());
+        $ciudad->save();
+        return redirect()->route('ciudad.index');
     }
     /**
      * Remove the specified resource from storage.
@@ -77,6 +85,8 @@ class CiudadController extends Controller
     {
         $ciudad = Ciudad::find($id);
         $ciudad->delete();
-        return "lo eliminé";
+		Ciudad::destroy($id);
+        return redirect()->route('ciudad.index');
+        /*return "lo eliminé";*/
     }
 }

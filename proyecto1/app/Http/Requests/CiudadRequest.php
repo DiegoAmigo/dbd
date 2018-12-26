@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PaisRequest extends FormRequest
+class CiudadRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class PaisRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre_pais' => 'required'
+            'nombre_ciudad' => 'required',
+			'id_pais' => 'required',
         ];
     }
 }
