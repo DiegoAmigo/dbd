@@ -11,6 +11,6 @@ class Tipo_AccionSeeder extends Seeder
      */
     public function run()
     {
-        factory('\App\Tipo_Accion',20)->create();
+        factory('App\Tipo_Accion',20)->create();
     }
 }

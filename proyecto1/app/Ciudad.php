@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Ciudad extends Model
 {
      //nombre de la tabla
-    protected $table='ciudad';
+    protected $table='ciudads';
     //atributos
     //rellenar con atributos
     protected $fillable=[

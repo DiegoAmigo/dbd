@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Seguro_Viaje extends Model
 {
     //nombre de la tabla
-    protected $table='seguro';
+    protected $table='seguro_viajes';
     //atributos
     //rellenar con atributos
     protected $fillable=[

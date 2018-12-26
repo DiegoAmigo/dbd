@@ -11,6 +11,6 @@ class Seguro_ViajeSeeder extends Seeder
      */
     public function run()
     {
-        factory('\App\Seguro_Viaje',20)->create();
+        factory('App\Seguro_Viaje',20)->create();
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tipo_Accion extends Model
 {
     //nombre de la tabla
-    protected $table='acciones';
+    protected $table='tipo_accions';
     //atributos
     protected $nombre_aerolinea;
     //rellenar con atributos
