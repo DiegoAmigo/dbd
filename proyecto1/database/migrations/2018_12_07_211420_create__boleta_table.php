@@ -15,7 +15,7 @@ class CreateBoletaTable extends Migration
     {
         Schema::create('boletas', function (Blueprint $table) {
             $table->increments('id');
-            $table->float('monto_total');
+            $table->integer('monto_total');
             $table->date('fecha_pago');
             $table->unsignedInteger('id_tipo_pago');
             $table->unsignedInteger('id_reserva');

@@ -18,7 +18,7 @@ class CreateReservaTable extends Migration
             $table->integer('tipo_reserva');
             $table->boolean('checkin');
             $table->boolean('pagado');
-            $table->float('total_reserva');
+            $table->integer('total_reserva');
             $table->string('correo_reserva',60);
             $table->string('telefono_reserva');
             $table->unsignedInteger('id_paquete');

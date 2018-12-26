@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\reservas;
 class reserva_Table_Seeder extends Seeder
 {
     /**
