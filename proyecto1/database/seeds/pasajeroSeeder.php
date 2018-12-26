@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PasajeroSeeder extends Seeder
+class pasajeroSeeder extends Seeder
 {
     /**
      * Run the database seeds.
