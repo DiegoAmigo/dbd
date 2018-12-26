@@ -21,7 +21,7 @@ class Pasajero extends Model
 	public function pais(){
     	return $this->belongsTo('App\Pais');
     }
-	public function reservas(){
-    	return $this->belongsToMany('App\Reserva');
+	public function pasajero_reserva(){
+    	return $this->hasMany('App\Pasajero_Reserva');
     }
 }

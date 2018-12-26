@@ -18,13 +18,13 @@ class Vuelo extends Model
     public function aerolinea(){
     	$this->belongsTo('App\Aerolinea');
     }
-	public function asientos(){
-    	return $this->belongsToMany('App\Asiento');
+	public function asiento_reservado(){
+    	$this->hasMany('App\Asiento_Vuelo');
     }
-	public function reservas(){
-    	return $this->belongsToMany('App\Reservas');
+	public function vuelo_reservado(){
+    	return $this->hasMany('App\Vuelo_Reservado');
     }
-	public function aeropuerto(){
-    	return $this->belongsToMany('App\Aeropuerto');
+	public function vuelo_aeropuerto(){
+    	return $this->hasMany('App\Vuelo_Aeropuerto');
     }
 }

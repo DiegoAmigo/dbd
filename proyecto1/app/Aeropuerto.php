@@ -18,7 +18,7 @@ class Aeropuerto extends Model
     public function ciudades(){
     	return $this->belongsTo('App\Ciudad');
     }
-	public function vuelos(){
-    	return $this->belongsToMany('App\Vuelo');
+	public function vuelo_aeropuerto(){
+    	return $this->hasMany('App\Vuelo_Aeropuerto');
     }
 }
