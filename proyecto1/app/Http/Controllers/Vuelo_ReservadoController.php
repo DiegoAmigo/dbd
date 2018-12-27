@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BoletaCotroller extends Controller
+class Vuelo_ReservadoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,8 @@ class BoletaCotroller extends Controller
      */
     public function index()
     {
-        return Boleta::all();
+		return Vuelo_Reservado::all();
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +24,6 @@ class BoletaCotroller extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -34,9 +32,8 @@ class BoletaCotroller extends Controller
      */
     public function store(Request $request)
     {
-        return Boleta::create($request->all());
+		return Vuelo_Reservado::create($request->all());
     }
-
     /**
      * Display the specified resource.
      *
@@ -45,9 +42,8 @@ class BoletaCotroller extends Controller
      */
     public function show($id)
     {
-        return Boleta::find($id);
+        return Vuelo_Reservado::find($id);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -58,7 +54,6 @@ class BoletaCotroller extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -68,9 +63,11 @@ class BoletaCotroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $vuelo_reservado = Vuelo_Reservado::find($id);
+        $vuelo_reservado->fill($request->all());
+        $vuelo_reservado->save();
+        return $vuelo_reservado;
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -79,8 +76,8 @@ class BoletaCotroller extends Controller
      */
     public function destroy($id)
     {
-        $transporte= Boleta::find($id);
-        $transporte->delete();
-        return 'elimina3';
+        $vuelo_reservado = Vuelo_Reservado::find($id);
+        $vuelo_reservado->delete();
+        return "lo eliminé";
     }
 }

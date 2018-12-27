@@ -3,18 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Ciudad;
 
-class CiudadController extends Controller
+class Pasajero_ReservaController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-		return Ciudad::all();
+		return Pasajero_Reserva::all();
     }
     /**
      * Show the form for creating a new resource.
@@ -33,7 +32,7 @@ class CiudadController extends Controller
      */
     public function store(Request $request)
     {
-		return Ciudad::create($request->all());
+		return Pasajero_Reserva::create($request->all());
     }
     /**
      * Display the specified resource.
@@ -43,7 +42,7 @@ class CiudadController extends Controller
      */
     public function show($id)
     {
-        return Ciudad::find($id);
+        return Pasajero_Reserva::find($id);
     }
     /**
      * Show the form for editing the specified resource.
@@ -64,10 +63,10 @@ class CiudadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ciudad = Ciudad::find($id);
-        $ciudad->fill($request->all());
-        $ciudad->save();
-        return $ciudad;
+        $pasajero_reserva = Pasajero_Reserva::find($id);
+        $pasajero_reserva->fill($request->all());
+        $pasajero_reserva->save();
+        return $pasajero_reserva;
     }
     /**
      * Remove the specified resource from storage.
@@ -77,8 +76,8 @@ class CiudadController extends Controller
      */
     public function destroy($id)
     {
-        $ciudad = Ciudad::find($id);
-        $ciudad->delete();
+        $pasajero_reserva = Pasajero_Reserva::find($id);
+        $pasajero_reserva->delete();
         return "lo eliminé";
     }
 }

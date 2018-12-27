@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Ciudad;
 
-class CiudadController extends Controller
+class Asiento_VueloController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-		return Ciudad::all();
+        return Asiento_Vuelo::all();
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,6 +25,7 @@ class CiudadController extends Controller
     {
         //
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -33,8 +34,9 @@ class CiudadController extends Controller
      */
     public function store(Request $request)
     {
-		return Ciudad::create($request->all());
+        //
     }
+
     /**
      * Display the specified resource.
      *
@@ -43,8 +45,9 @@ class CiudadController extends Controller
      */
     public function show($id)
     {
-        return Ciudad::find($id);
+        return Asiento_Vuelo::find($id);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -55,6 +58,7 @@ class CiudadController extends Controller
     {
         //
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -64,11 +68,9 @@ class CiudadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ciudad = Ciudad::find($id);
-        $ciudad->fill($request->all());
-        $ciudad->save();
-        return $ciudad;
+        //
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -77,8 +79,8 @@ class CiudadController extends Controller
      */
     public function destroy($id)
     {
-        $ciudad = Ciudad::find($id);
-        $ciudad->delete();
-        return "lo eliminé";
+        $vuelo = Asiento_Vuelo::find($id);
+        $vuelo->delete();
+        return 'elimina3';
     }
 }
