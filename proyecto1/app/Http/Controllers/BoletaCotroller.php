@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Seguro_Viaje;
-class Seguro_ViajeController extends Controller
+
+class BoletaCotroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,9 @@ class Seguro_ViajeController extends Controller
      */
     public function index()
     {
-		return Seguro_Viaje::all();
+        return Boleta::all();
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -24,6 +25,7 @@ class Seguro_ViajeController extends Controller
     {
         //
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -32,8 +34,9 @@ class Seguro_ViajeController extends Controller
      */
     public function store(Request $request)
     {
-        return Seguro_Viaje::create($request->all());
+        return Boleta::create($request->all());
     }
+
     /**
      * Display the specified resource.
      *
@@ -42,8 +45,9 @@ class Seguro_ViajeController extends Controller
      */
     public function show($id)
     {
-        return Seguro_Viaje::find($id);
+        return Boleta::find($id);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -52,8 +56,9 @@ class Seguro_ViajeController extends Controller
      */
     public function edit($id)
     {
-       //
+        //
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -65,6 +70,7 @@ class Seguro_ViajeController extends Controller
     {
         //
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -73,8 +79,8 @@ class Seguro_ViajeController extends Controller
      */
     public function destroy($id)
     {
-        $seguro = Seguro_Viaje::find($id);
-        $seguro->delete();
-        return "lo eliminé";
+        $transporte= Boleta::find($id);
+        $transporte->delete();
+        return 'elimina3';
     }
 }
