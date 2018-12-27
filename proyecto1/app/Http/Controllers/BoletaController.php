@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Habitacion;
-class HabitacionController extends Controller
+use App\Boleta;
+
+class BoletaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class HabitacionController extends Controller
      */
     public function index()
     {
-        return Habitacion::all();
+        return Boleta::all();
     }
 
     /**
@@ -34,14 +35,7 @@ class HabitacionController extends Controller
      */
     public function store(Request $request)
     {
-        //por alguna razon me dice que no funciona con postman
-        //supuesto ejemplo de comoo guardar
-        $habitacion = new Habitacion;
-        $habitacion->numero_habitacion = $request->numero_habitacion;
-        $habitacion->capacidad_habitacion = $request->capacidad_habitacion;
-        $habitacion->disponibilidad_habitacion = $request->disponibilidad_habitacion;
-        $habitacion->save();
-        return $habitacion;
+        //
     }
 
     /**
@@ -52,7 +46,7 @@ class HabitacionController extends Controller
      */
     public function show($id)
     {
-        return Habitacion::find($id);
+        return Boleta::find($id);
     }
 
     /**
@@ -86,9 +80,8 @@ class HabitacionController extends Controller
      */
     public function destroy($id)
     {
-        //me dijieron que tengo que modificar un archivo, pero no se acuerdan cual para que funcione el delete, pero este funciona si lo pruebo sin el postman
-        $habitacion = Habitacion::find($id);        
-        $habitacion->delete();
+        $boleta = Boleta::find($id);
+        $boleta->delete();
         return 'elimina3';
     }
 }
