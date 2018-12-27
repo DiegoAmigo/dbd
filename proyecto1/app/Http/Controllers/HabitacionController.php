@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pais;
-
-class PaisController extends Controller
+use App\Habitacion;
+class HabitacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,9 @@ class PaisController extends Controller
      */
     public function index()
     {
-		return Pais::all();
+        return Habitacion::all();
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,6 +25,7 @@ class PaisController extends Controller
     {
         //
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -33,8 +34,9 @@ class PaisController extends Controller
      */
     public function store(Request $request)
     {
-        return Pais::create($request->all());
+        return Habitacion::create($request->all());
     }
+
     /**
      * Display the specified resource.
      *
@@ -43,8 +45,9 @@ class PaisController extends Controller
      */
     public function show($id)
     {
-        return Pais::find($id);
+        return Habitacion::find($id);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -55,6 +58,7 @@ class PaisController extends Controller
     {
         //
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -66,6 +70,7 @@ class PaisController extends Controller
     {
         //
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -74,8 +79,8 @@ class PaisController extends Controller
      */
     public function destroy($id)
     {
-        $pais = Pais::find($id);
-        $pais->delete();
-        return 'elimina3';
+        $habitacion = Habitacion::find($id);
+        $habitacion->delete();
+        return "elimina3";
     }
 }

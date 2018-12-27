@@ -14,8 +14,7 @@ class AeropuertoController extends Controller
      */
     public function index()
     {
-		$aeropuerto = Aeropuerto::get();
-        return view('aeropuerto.index')->with('aeropuerto', $aeropuerto);
+		return Aeropuerto::all();
        /* $aeropuerto = Aeropuerto::all();
         return $aeropuerto;*/
     }
@@ -36,9 +35,7 @@ class AeropuertoController extends Controller
      */
     public function store(Request $request)
     {
-		$aeropuerto = Aeropuerto::create($request->all());
-        return redirect()->route('aeropuerto.index');
-       /* return Aeropuerto::create($request->all());*/
+        return Aeropuerto::create($request->all());
     }
     /**
      * Display the specified resource.
@@ -58,8 +55,7 @@ class AeropuertoController extends Controller
      */
     public function edit($id)
     {
-        $aeropuerto = Ciudad::find($id);
-        return view('aeropuerto.edit')->with('aeropuerto',$aeropuerto);
+        //
     }
     /**
      * Update the specified resource in storage.
@@ -70,10 +66,7 @@ class AeropuertoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $aeropuerto = Aeropuerto::find($id);
-        $aeropuerto->fill($request->all());
-        $aeropuerto->save();
-        return redirect()->route('aeropuerto.index');
+        //
     }
     /**
      * Remove the specified resource from storage.
@@ -85,8 +78,6 @@ class AeropuertoController extends Controller
     {
         $aeropuerto = Aeropuerto::find($id);
         $aeropuerto->delete();
-		Aeropuerto::destroy($id);
-        return redirect()->route('aeropuerto.index');
-        /*return "lo eliminé";*/
+        return "lo eliminé";
     }
 }

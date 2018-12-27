@@ -24,9 +24,6 @@ class Asiento extends Model
 	public function asiento_reservado(){
     	return $this->hasMany('App\Aiento_Reservado');
     }
-	public function asiento_reservado(){
-    	$this->hasMany('App\Asiento_Reservado');
-    }
 	/*public function vuelos(){
     	return $this->belongsToMany('App\Vuelo');
     }*/

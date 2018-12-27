@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Seguro_Viaje;
 class Seguro_ViajeController extends Controller
 {
     /**
@@ -13,10 +13,7 @@ class Seguro_ViajeController extends Controller
      */
     public function index()
     {
-		$seguro = Seguro_Viaje::get();
-        return view('seguro.index')->with('seguro', $seguro);
-       /* $aeropuerto = Aeropuerto::all();
-        return $aeropuerto;*/
+		return Seguro_Viaje::all();
     }
     /**
      * Show the form for creating a new resource.
@@ -25,7 +22,7 @@ class Seguro_ViajeController extends Controller
      */
     public function create()
     {
-        return view('seguro.create');
+        //
     }
     /**
      * Store a newly created resource in storage.
@@ -35,9 +32,7 @@ class Seguro_ViajeController extends Controller
      */
     public function store(Request $request)
     {
-		$seguro = Seguro_Viaje::create($request->all());
-        return redirect()->route('seguro.index');
-       /* return Aeropuerto::create($request->all());*/
+        return Aeropuerto::create($request->all());
     }
     /**
      * Display the specified resource.
@@ -57,8 +52,7 @@ class Seguro_ViajeController extends Controller
      */
     public function edit($id)
     {
-        $seguro = Seguro_Viaje::find($id);
-        return view('seguro.edit')->with('seguro',$seguro);
+       //
     }
     /**
      * Update the specified resource in storage.
@@ -69,10 +63,7 @@ class Seguro_ViajeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $seguro = Seguro_Viaje::find($id);
-        $seguro->fill($request->all());
-        $seguro->save();
-        return redirect()->route('seguro.index');
+        //
     }
     /**
      * Remove the specified resource from storage.
@@ -84,8 +75,6 @@ class Seguro_ViajeController extends Controller
     {
         $seguro = Seguro_Viaje::find($id);
         $seguro->delete();
-		Seguro_Viaje::destroy($id);
-        return redirect()->route('seguro.index');
-        /*return "lo eliminé";*/
+        return "lo eliminé";
     }
 }

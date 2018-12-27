@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Clase;
 class ClaseController extends Controller
 {
      /**
@@ -13,8 +13,7 @@ class ClaseController extends Controller
      */
     public function index()
     {
-		$clase = Clase::get();
-        return view('clase.index')->with('clase', $clase);
+		return Clase::all();
        /* $aeropuerto = Aeropuerto::all();
         return $aeropuerto;*/
     }
@@ -25,7 +24,7 @@ class ClaseController extends Controller
      */
     public function create()
     {
-        return view('clase.create');
+
     }
     /**
      * Store a newly created resource in storage.
@@ -35,9 +34,7 @@ class ClaseController extends Controller
      */
     public function store(Request $request)
     {
-		$clase = Clase::create($request->all());
-        return redirect()->route('clase.index');
-       /* return Aeropuerto::create($request->all());*/
+		return Aeropuerto::create($request->all());
     }
     /**
      * Display the specified resource.
@@ -57,8 +54,6 @@ class ClaseController extends Controller
      */
     public function edit($id)
     {
-        $clase = Clase::find($id);
-        return view('clase.edit')->with('clase',$clase);
     }
     /**
      * Update the specified resource in storage.
@@ -69,10 +64,7 @@ class ClaseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $clase = Clase::find($id);
-        $clase->fill($request->all());
-        $clase->save();
-        return redirect()->route('clase.index');
+       //
     }
     /**
      * Remove the specified resource from storage.
@@ -84,8 +76,6 @@ class ClaseController extends Controller
     {
         $clase = Clase::find($id);
         $clase->delete();
-		Clase::destroy($id);
-        return redirect()->route('clase.index');
-        /*return "lo eliminé";*/
+        return 'elimina3';
     }
 }
