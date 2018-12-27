@@ -11,7 +11,7 @@ class Pasajero_Reserva extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'id_pasajero', 'id_asiento'
+    	'id_pasajero', 'id_reserva'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos
