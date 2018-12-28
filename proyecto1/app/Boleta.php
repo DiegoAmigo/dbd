@@ -11,7 +11,7 @@ class Boleta extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'id_boleta', 'monto_total', 'fecha_pago', 'id_tipo_pago','id_reserva'
+    	'monto_total', 'fecha_pago', 'id_tipo_pago','id_reserva'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos

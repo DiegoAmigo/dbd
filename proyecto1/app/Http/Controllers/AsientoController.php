@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Asiento;
+
 class AsientoController extends Controller
 {
     /**
@@ -15,7 +16,6 @@ class AsientoController extends Controller
     {
         return Asiento::all();
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +25,6 @@ class AsientoController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -36,7 +35,6 @@ class AsientoController extends Controller
     {
         return Asiento::create($request->all());
     }
-
     /**
      * Display the specified resource.
      *
@@ -47,7 +45,6 @@ class AsientoController extends Controller
     {
         return Asiento::find($id);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -58,7 +55,6 @@ class AsientoController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -68,9 +64,11 @@ class AsientoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $asientos = Asiento::find($id);
+        $asientos->fill($request->all());
+        $asientos->save();
+        return $asientos;
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -79,8 +77,8 @@ class AsientoController extends Controller
      */
     public function destroy($id)
     {
-        $asiento= Asiento::find($id);
-        $asiento->delete();
-        return "elimina3";
+        $asientos= Asiento::find($id);
+        $asientos->delete();
+        return "eliminado";
     }
 }

@@ -16,7 +16,6 @@ class BoletaController extends Controller
     {
         return Boleta::all();
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +25,6 @@ class BoletaController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -35,9 +33,8 @@ class BoletaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Boleta::create($request->all());
     }
-
     /**
      * Display the specified resource.
      *
@@ -48,7 +45,6 @@ class BoletaController extends Controller
     {
         return Boleta::find($id);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -59,7 +55,6 @@ class BoletaController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -69,9 +64,11 @@ class BoletaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $boletas = Boleta::find($id);
+        $boletas->fill($request->all());
+        $boletas->save();
+        return $boletas;
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -80,8 +77,8 @@ class BoletaController extends Controller
      */
     public function destroy($id)
     {
-        $boleta = Boleta::find($id);
-        $boleta->delete();
-        return 'elimina3';
+        $boletas = Boleta::find($id);
+        $boletas->delete();
+        return 'eliminado';
     }
 }

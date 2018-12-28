@@ -11,7 +11,7 @@ class Avion extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'id_avion', 'marca', 'modelo', 'capacidad_asientos'
+    	'marca', 'modelo', 'capacidad_asientos'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos

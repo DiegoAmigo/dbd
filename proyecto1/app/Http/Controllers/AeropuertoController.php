@@ -25,7 +25,6 @@ class AeropuertoController extends Controller
      */
     public function create()
     {
-        return view('aeropuerto.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -66,7 +65,10 @@ class AeropuertoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $aeropuerto = Aeropuerto::find($id);
+        $aeropuerto->fill($request->all());
+        $aeropuerto->save();
+        return $aeropuerto;
     }
     /**
      * Remove the specified resource from storage.
