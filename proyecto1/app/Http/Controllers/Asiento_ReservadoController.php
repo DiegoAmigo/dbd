@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Asiento_Reservado;
 
 class Asiento_ReservadoController extends Controller
 {
@@ -34,7 +35,7 @@ class Asiento_ReservadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Asiento_Reservado::create($request->all());
     }
 
     /**
@@ -68,7 +69,10 @@ class Asiento_ReservadoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $asiento_reservado = Asiento_Reservado::find($id);
+        $asiento_reservado->fill($request->all());
+        $asiento_reservado->save();
+        return $asiento_reservado;
     }
 
     /**
@@ -79,8 +83,8 @@ class Asiento_ReservadoController extends Controller
      */
     public function destroy($id)
     {
-        $vuelo = Asiento_Reservado::find($id);
-        $vuelo->delete();
-        return 'elimina3';
+        $asiento_reservado = Asiento_Reservado::find($id);
+        $asiento_reservado->delete();
+        return 'eliminado';
     }
 }

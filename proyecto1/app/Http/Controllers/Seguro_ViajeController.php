@@ -79,6 +79,6 @@ class Seguro_ViajeController extends Controller
     {
         $seguro = Seguro_Viaje::find($id);
         $seguro->delete();
-        return "lo eliminé";
+        return 'eliminado';
     }
 }

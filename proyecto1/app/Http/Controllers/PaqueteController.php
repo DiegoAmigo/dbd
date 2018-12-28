@@ -36,14 +36,7 @@ class PaqueteController extends Controller
     public function store(Request $request)
     {
         /*return Paquete::create($request->all());*/
-		$paquete = new Paquete;
-        $paquete->codigo_paquete = $request->codigo_paquete;
-		$paquete->cupos = $request->cupos;
-		$paquete->cantidad_noches = $request->cantidad_noches;
-		$paquete->cantidad_dias = $request->cantidad_dias;
-		$paquete->id_ciudad = $request->id_ciudad;
-        $paquete->save();
-        return $paquete;
+		return Paquete::create($request->all());
     }
 
     /**

@@ -69,7 +69,10 @@ class HotelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $hotel = Hotel::find($id);
+        $hotel->fill($request->all());
+        $hotel->save();
+        return $hotel;
     }
 
     /**
@@ -82,6 +85,6 @@ class HotelController extends Controller
     {
         $hotel = Hotel::find($id);
         $hotel ->delete();
-        return "lo eliminé";
+        return 'eliminado';
     }
 }

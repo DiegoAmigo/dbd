@@ -64,7 +64,10 @@ class Tipo_AccionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tipo_accion = Tipo_Accion::find($id);
+        $tipo_accion->fill($request->all());
+        $tipo_accion->save();
+        return $tipo_accion;
     }
     /**
      * Remove the specified resource from storage.
@@ -76,6 +79,6 @@ class Tipo_AccionController extends Controller
     {
         $tipo_accion = Tipo_Accion::find($id);
         $tipo_accion->delete();
-        return "lo eliminé";
+        return 'eliminado';
     }
 }

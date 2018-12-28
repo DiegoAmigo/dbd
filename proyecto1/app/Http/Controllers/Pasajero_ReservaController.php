@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pasajero_Reserva;
 
 class Pasajero_ReservaController extends Controller
 {
@@ -78,6 +79,6 @@ class Pasajero_ReservaController extends Controller
     {
         $pasajero_reserva = Pasajero_Reserva::find($id);
         $pasajero_reserva->delete();
-        return "lo eliminé";
+        return 'eliminado';
     }
 }

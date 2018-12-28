@@ -69,7 +69,10 @@ class AerolineaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $aerolinea = Aerolinea::find($id);
+        $aerolinea->fill($request->all());
+        $aerolinea->save();
+        return $aerolinea;
     }
 
     /**
@@ -82,6 +85,6 @@ class AerolineaController extends Controller
     {
         $aerolinea = Aerolinea::find($id);
         $aerolinea ->delete();
-        return "lo eliminé";
+        return 'eliminado';
     }
 }

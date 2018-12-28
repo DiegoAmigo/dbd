@@ -69,7 +69,10 @@ class TransporteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $transporte = Transporte::find($id);
+        $transporte->fill($request->all());
+        $transporte->save();
+        return $transporte;
     }
 
     /**
@@ -80,8 +83,8 @@ class TransporteController extends Controller
      */
     public function destroy($id)
     {
-        $transporte= Transporte::find($id);
+        $transporte = Transporte::find($id);
         $transporte->delete();
-        return 'elimina3';
+        return 'eliminado';
     }
 }

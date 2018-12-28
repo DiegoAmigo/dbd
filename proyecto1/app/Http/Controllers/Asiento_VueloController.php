@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Asiento_Vuelo;
 
 class Asiento_VueloController extends Controller
 {
@@ -34,7 +35,7 @@ class Asiento_VueloController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Asiento_Vuelo::create($request->all());
     }
 
     /**
@@ -68,7 +69,10 @@ class Asiento_VueloController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $asiento_vuelo = Asiento_Vuelo::find($id);
+        $asiento_vuelo->fill($request->all());
+        $asiento_vuelo->save();
+        return $asiento_vuelo;
     }
 
     /**
@@ -79,8 +83,8 @@ class Asiento_VueloController extends Controller
      */
     public function destroy($id)
     {
-        $vuelo = Asiento_Vuelo::find($id);
-        $vuelo->delete();
-        return 'elimina3';
+        $asiento_vuelo = Asiento_Vuelo::find($id);
+        $asiento_vuelo->delete();
+        return 'eliminado';
     }
 }

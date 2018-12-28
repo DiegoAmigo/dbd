@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Vuelo_Reservado;
 
 class Vuelo_ReservadoController extends Controller
 {
@@ -78,6 +79,6 @@ class Vuelo_ReservadoController extends Controller
     {
         $vuelo_reservado = Vuelo_Reservado::find($id);
         $vuelo_reservado->delete();
-        return "lo eliminé";
+        return 'eliminado';
     }
 }

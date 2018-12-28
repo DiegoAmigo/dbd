@@ -69,7 +69,10 @@ class AvionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $avion = Avion::find($id);
+        $avion->fill($request->all());
+        $avion->save();
+        return $avion;
     }
 
     /**
@@ -82,6 +85,6 @@ class AvionController extends Controller
     {
         $avion = Avion::find($id);
         $avion ->delete();
-        return "lo eliminé";
+        return 'eliminado';
     }
 }
