@@ -33,7 +33,11 @@ class PaisController extends Controller
      */
     public function store(Request $request)
     {
-        return Pais::create($request->all());
+        /*return Pais::create($request->all());*/
+		$pais = new Pais;
+        $pais->nombre_pais = $request->nombre_pais;
+        $pais->save();
+        return $pais;
     }
     /**
      * Display the specified resource.
@@ -79,6 +83,6 @@ class PaisController extends Controller
     {
         $pais = Pais::find($id);
         $pais->delete();
-        return 'elimina3';
+        return 'eliminado';
     }
 }

@@ -35,7 +35,15 @@ class PaqueteController extends Controller
      */
     public function store(Request $request)
     {
-        return Paquete::create($request->all());
+        /*return Paquete::create($request->all());*/
+		$paquete = new Paquete;
+        $paquete->codigo_paquete = $request->codigo_paquete;
+		$paquete->cupos = $request->cupos;
+		$paquete->cantidad_noches = $request->cantidad_noches;
+		$paquete->cantidad_dias = $request->cantidad_dias;
+		$paquete->id_ciudad = $request->id_ciudad;
+        $paquete->save();
+        return $paquete;
     }
 
     /**
@@ -69,7 +77,10 @@ class PaqueteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $paquete = Paquete::find($id);
+        $paquete->fill($request->all());
+        $paquete->save();
+        return $paquete;
     }
 
     /**
@@ -82,6 +93,6 @@ class PaqueteController extends Controller
     {
         $paquete=Paquete::find($id);
         $paquete->delete();
-        return 'elimina3';
+        return 'eliminado';
     }
 }

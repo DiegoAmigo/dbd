@@ -35,7 +35,12 @@ class Historial_ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $historial = new Historial_Cliente;
+        $historial->fecha = $request->fecha;
+		$historial->id_cliente = $request->id_cliente;
+		$historial->id_tipo_accion = $request->id_tipo_accion;
+        $historial->save();
+        return $historial;
     }
 
     /**
@@ -69,7 +74,10 @@ class Historial_ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $historial = Historial_Cliente::find($id);
+        $historial->fill($request->all());
+        $historial->save();
+        return $historial;
     }
 
     /**
@@ -82,6 +90,6 @@ class Historial_ClienteController extends Controller
     {
         $historial = Historial_Cliente::find($id);
         $historial->delete();
-        return 'elimina3';
+        return 'eliminado';
     }
 }
