@@ -42,7 +42,7 @@ class Vuelo_ReservadoController extends Controller
      */
     public function show($id)
     {
-        return Vuelo_Reservado::find($id);
+        return Vuelo_Reservado::findOrFail($id);
     }
     /**
      * Show the form for editing the specified resource.
@@ -63,7 +63,7 @@ class Vuelo_ReservadoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $vuelo_reservado = Vuelo_Reservado::find($id);
+        $vuelo_reservado = Vuelo_Reservado::findOrFail($id);
         $vuelo_reservado->fill($request->all());
         $vuelo_reservado->save();
         return $vuelo_reservado;
@@ -76,7 +76,7 @@ class Vuelo_ReservadoController extends Controller
      */
     public function destroy($id)
     {
-        $vuelo_reservado = Vuelo_Reservado::find($id);
+        $vuelo_reservado = Vuelo_Reservado::findOrFail($id);
         $vuelo_reservado->delete();
         return "lo eliminé";
     }

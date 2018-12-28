@@ -45,7 +45,7 @@ class ClaseController extends Controller
      */
     public function show($id)
     {
-        return Clase::find($id);
+        return Clase::findOrFail($id);
     }
     /**
      * Show the form for editing the specified resource.
@@ -65,7 +65,7 @@ class ClaseController extends Controller
      */
     public function update(Request $request, $id)
     {
-       $clase = Clase::find($id);
+       $clase = Clase::findOrFail($id);
        $clase->fill($request->all());
        $clase->save();
        return $clase;
@@ -78,7 +78,7 @@ class ClaseController extends Controller
      */
     public function destroy($id)
     {
-        $clase = Clase::find($id);
+        $clase = Clase::findOrFail($id);
         $clase->delete();
         return 'elimina3';
     }

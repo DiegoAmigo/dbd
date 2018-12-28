@@ -46,7 +46,7 @@ class AerolineaController extends Controller
      */
     public function show($id)
     {
-        return Aerolinea::find($id);
+        return Aerolinea::findOrFail($id);
     }
 
     /**
@@ -80,7 +80,7 @@ class AerolineaController extends Controller
      */
     public function destroy($id)
     {
-        $aerolinea = Aerolinea::find($id);
+        $aerolinea = Aerolinea::findOrFail($id);
         $aerolinea ->delete();
         return "lo eliminé";
     }

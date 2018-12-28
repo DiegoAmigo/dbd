@@ -64,7 +64,7 @@ class ReservaController extends Controller
      */
     public function show($id)
     {
-        return Reserva::find($id);
+        return Reserva::findOrFail($id);
     }
 
     /**
@@ -87,7 +87,7 @@ class ReservaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $reserva = Reserva::find($id);
+        $reserva = Reserva::findOrFail($id);
         $reserva->fill($request->all());
         $reserva->save();
         return $reserva;
@@ -101,8 +101,8 @@ class ReservaController extends Controller
      */
     public function destroy($id)
     {
-        $reserva= Reserva::find($id);
+        $reserva= Reserva::findOrFail($id);
         $reserva->delete();
-        return 'elimina3';
+        return 'eliminado';
     }
 }

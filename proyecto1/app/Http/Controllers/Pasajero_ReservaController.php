@@ -42,7 +42,7 @@ class Pasajero_ReservaController extends Controller
      */
     public function show($id)
     {
-        return Pasajero_Reserva::find($id);
+        return Pasajero_Reserva::findOrFail($id);
     }
     /**
      * Show the form for editing the specified resource.
@@ -63,7 +63,7 @@ class Pasajero_ReservaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pasajero_reserva = Pasajero_Reserva::find($id);
+        $pasajero_reserva = Pasajero_Reserva::findOrFail($id);
         $pasajero_reserva->fill($request->all());
         $pasajero_reserva->save();
         return $pasajero_reserva;
@@ -76,7 +76,7 @@ class Pasajero_ReservaController extends Controller
      */
     public function destroy($id)
     {
-        $pasajero_reserva = Pasajero_Reserva::find($id);
+        $pasajero_reserva = Pasajero_Reserva::findOrFail($id);
         $pasajero_reserva->delete();
         return "lo eliminé";
     }

@@ -20,7 +20,13 @@ class Vuelo extends Migration
             $table->integer('cupos_disponibles');
             $table->integer('disponible_vuelo');
             $table->boolean('atraso');
+            $table->unsignedInteger('id_aerolinea');
             $table->timestamps();
+
+            $table->foreign('id_aerolinea')
+                ->references('id')
+                ->on('aerolineas')
+                ->onDelete('cascade');
         });
     }
 

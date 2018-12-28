@@ -43,7 +43,7 @@ class CiudadController extends Controller
      */
     public function show($id)
     {
-        return Ciudad::find($id);
+        return Ciudad::findOrFail($id);
     }
     /**
      * Show the form for editing the specified resource.
@@ -64,7 +64,7 @@ class CiudadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ciudad = Ciudad::find($id);
+        $ciudad = Ciudad::findOrFail($id);
         $ciudad->fill($request->all());
         $ciudad->save();
         return $ciudad;
@@ -77,7 +77,7 @@ class CiudadController extends Controller
      */
     public function destroy($id)
     {
-        $ciudad = Ciudad::find($id);
+        $ciudad = Ciudad::findOrFail($id);
         $ciudad->delete();
         return "lo eliminé";
     }

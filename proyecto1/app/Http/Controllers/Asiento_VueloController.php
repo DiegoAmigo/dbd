@@ -45,7 +45,7 @@ class Asiento_VueloController extends Controller
      */
     public function show($id)
     {
-        return Asiento_Vuelo::find($id);
+        return Asiento_Vuelo::findOrFail($id);
     }
 
     /**
@@ -79,7 +79,7 @@ class Asiento_VueloController extends Controller
      */
     public function destroy($id)
     {
-        $vuelo = Asiento_Vuelo::find($id);
+        $vuelo = Asiento_Vuelo::findOrFail($id);
         $vuelo->delete();
         return 'elimina3';
     }

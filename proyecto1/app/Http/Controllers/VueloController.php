@@ -46,7 +46,7 @@ class VueloController extends Controller
      */
     public function show($id)
     {
-        return Vuelo::find($id);
+        return Vuelo::findOrFail($id);
     }
 
     /**
@@ -80,8 +80,8 @@ class VueloController extends Controller
      */
     public function destroy($id)
     {
-        $vuelo = Vuelo::find($id);
+        $vuelo = Vuelo::findOrFail($id);
         $vuelo->delete();
-        return 'elimina3';
+        return 'eliminado';
     }
 }

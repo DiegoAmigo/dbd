@@ -43,7 +43,7 @@ class Seguro_ViajeController extends Controller
      */
     public function show($id)
     {
-        return Seguro_Viaje::find($id);
+        return Seguro_Viaje::findOrFail($id);
     }
     /**
      * Show the form for editing the specified resource.
@@ -64,7 +64,7 @@ class Seguro_ViajeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $seguro = Seguro_Viaje::find($id);
+        $seguro = Seguro_Viaje::findOrFail($id);
         $seguro->fill($request->all());
         $seguro->save();
         return $seguro;
@@ -77,7 +77,7 @@ class Seguro_ViajeController extends Controller
      */
     public function destroy($id)
     {
-        $seguro = Seguro_Viaje::find($id);
+        $seguro = Seguro_Viaje::findOrFail($id);
         $seguro->delete();
         return "lo eliminé";
     }

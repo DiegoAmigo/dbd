@@ -43,7 +43,7 @@ class AsientoController extends Controller
      */
     public function show($id)
     {
-        return Asiento::find($id);
+        return Asiento::findOrFail($id);
     }
     /**
      * Show the form for editing the specified resource.
@@ -64,7 +64,7 @@ class AsientoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $asientos = Asiento::find($id);
+        $asientos = Asiento::findOrFail($id);
         $asientos->fill($request->all());
         $asientos->save();
         return $asientos;
@@ -77,7 +77,7 @@ class AsientoController extends Controller
      */
     public function destroy($id)
     {
-        $asientos= Asiento::find($id);
+        $asientos= Asiento::findOrFail($id);
         $asientos->delete();
         return "eliminado";
     }

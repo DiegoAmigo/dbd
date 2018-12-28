@@ -44,7 +44,7 @@ class AeropuertoController extends Controller
      */
     public function show($id)
     {
-        return Aeropuerto::find($id);
+        return Aeropuerto::findOrFail($id);
     }
     /**
      * Show the form for editing the specified resource.
@@ -65,7 +65,7 @@ class AeropuertoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $aeropuerto = Aeropuerto::find($id);
+        $aeropuerto = Aeropuerto::findOrFail($id);
         $aeropuerto->fill($request->all());
         $aeropuerto->save();
         return $aeropuerto;
@@ -78,7 +78,7 @@ class AeropuertoController extends Controller
      */
     public function destroy($id)
     {
-        $aeropuerto = Aeropuerto::find($id);
+        $aeropuerto = Aeropuerto::findOrFail($id);
         $aeropuerto->delete();
         return "lo eliminé";
     }

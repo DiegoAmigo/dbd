@@ -46,7 +46,7 @@ class AvionController extends Controller
      */
     public function show($id)
     {
-        return Avion::find($id);
+        return Avion::findOrFail($id);
     }
 
     /**
@@ -80,7 +80,7 @@ class AvionController extends Controller
      */
     public function destroy($id)
     {
-        $avion = Avion::find($id);
+        $avion = Avion::findOrFail($id);
         $avion ->delete();
         return "lo eliminé";
     }

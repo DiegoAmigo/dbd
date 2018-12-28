@@ -49,7 +49,7 @@ class HabitacionController extends Controller
      */
     public function show($id)
     {
-        return Habitacion::find($id);
+        return Habitacion::findOrFail($id);
     }
 
     /**
@@ -71,7 +71,7 @@ class HabitacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $habitacions = Habitacion::find($id);
+        $habitacions = Habitacion::findOrFail($id);
         $habitacions->fill($request->all());
         $habitacions->save();
         return $habitacions;
@@ -85,7 +85,7 @@ class HabitacionController extends Controller
     public function destroy($id)
     {
         //me dijieron que tengo que modificar un archivo, pero no se acuerdan cual para que funcione el delete, pero este funciona si lo pruebo sin el postman
-        $habitacions = Habitacion::find($id);        
+        $habitacions = Habitacion::findOrFail($id);        
         $habitacions->delete();
         return 'eliminado';
     }

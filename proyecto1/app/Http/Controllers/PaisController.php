@@ -47,7 +47,7 @@ class PaisController extends Controller
      */
     public function show($id)
     {
-        return Pais::find($id);
+        return Pais::findOrFail($id);
     }
     /**
      * Show the form for editing the specified resource.
@@ -68,7 +68,7 @@ class PaisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pais = Pais::find($id);
+        $pais = Pais::findOrFail($id);
         $pais->fill($request->all());
         $pais->save();
         return $pais;
@@ -81,7 +81,7 @@ class PaisController extends Controller
      */
     public function destroy($id)
     {
-        $pais = Pais::find($id);
+        $pais = Pais::findOrFail($id);
         $pais->delete();
         return 'eliminado';
     }

@@ -64,7 +64,7 @@ class BoletaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $boletas = Boleta::find($id);
+        $boletas = Boleta::findOrFail($id);
         $boletas->fill($request->all());
         $boletas->save();
         return $boletas;

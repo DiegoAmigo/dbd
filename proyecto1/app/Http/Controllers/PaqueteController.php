@@ -54,7 +54,7 @@ class PaqueteController extends Controller
      */
     public function show($id)
     {
-        return Paquete::find($id);
+        return Paquete::findOrFail($id);
     }
 
     /**
@@ -77,7 +77,7 @@ class PaqueteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $paquete = Paquete::find($id);
+        $paquete = Paquete::findOrFail($id);
         $paquete->fill($request->all());
         $paquete->save();
         return $paquete;
@@ -91,7 +91,7 @@ class PaqueteController extends Controller
      */
     public function destroy($id)
     {
-        $paquete=Paquete::find($id);
+        $paquete=Paquete::findOrFail($id);
         $paquete->delete();
         return 'eliminado';
     }

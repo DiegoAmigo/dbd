@@ -18,7 +18,13 @@ class Paquete extends Migration
             $table->integer('cupos');
             $table->integer('cantidad_dias');
             $table->integer('cantidad_noches');
+            $table->unsignedInteger('id_ciudad');
             $table->timestamps();
+
+            $table->foreign('id_ciudad')
+                ->references('id')
+                ->on('ciudads')
+                ->onDelete('cascade');
         });
     }
 

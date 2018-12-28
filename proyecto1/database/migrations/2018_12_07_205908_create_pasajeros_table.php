@@ -16,6 +16,7 @@ class CreatePasajerosTable extends Migration
         Schema::create('pasajeros', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('numero_documento');
+            $table->date('fecha_nacimiento_pasajero');
             $table->integer('tipo_documento_p');
             $table->string('nombre_p',60);
             $table->string('apellido_p',32);

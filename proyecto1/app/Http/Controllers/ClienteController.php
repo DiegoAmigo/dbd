@@ -43,7 +43,7 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
-        return Cliente::find($id);
+        return Cliente::findOrFail($id);
     }
     /**
      * Show the form for editing the specified resource.
@@ -64,7 +64,7 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $clientes = Cliente::find($id);
+        $clientes = Cliente::findOrFail($id);
         $clientes->fill($request->all());
         $clientes->save();
         return $clientes;
@@ -77,7 +77,7 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        $clientes= Cliente::find($id);
+        $clientes= Cliente::findOrFail($id);
         $clientes->delete();
         return "eliminado";
     }

@@ -45,7 +45,7 @@ class Asiento_ReservadoController extends Controller
      */
     public function show($id)
     {
-        return Asiento_Reservado::find($id);
+        return Asiento_Reservado::findOrFail($id);
     }
 
     /**
@@ -79,7 +79,7 @@ class Asiento_ReservadoController extends Controller
      */
     public function destroy($id)
     {
-        $vuelo = Asiento_Reservado::find($id);
+        $vuelo = Asiento_Reservado::findOrFail($id);
         $vuelo->delete();
         return 'elimina3';
     }

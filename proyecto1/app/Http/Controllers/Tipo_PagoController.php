@@ -46,7 +46,7 @@ class Tipo_PagoController extends Controller
      */
     public function show($id)
     {
-        return Tipo_Pago::find($id);
+        return Tipo_Pago::findOrFail($id);
     }
 
     /**
@@ -80,7 +80,7 @@ class Tipo_PagoController extends Controller
      */
     public function destroy($id)
     {
-        $pago = Tipo_Pago::find($id);
+        $pago = Tipo_Pago::findOrFail($id);
         $pago->delete();
         return 'elimina3';
     }

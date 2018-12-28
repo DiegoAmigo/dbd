@@ -43,7 +43,7 @@ class Tipo_AccionController extends Controller
      */
     public function show($id)
     {
-        return Tipo_Accion::find($id);
+        return Tipo_Accion::findOrFail($id);
     }
     /**
      * Show the form for editing the specified resource.
@@ -74,7 +74,7 @@ class Tipo_AccionController extends Controller
      */
     public function destroy($id)
     {
-        $tipo_accion = Tipo_Accion::find($id);
+        $tipo_accion = Tipo_Accion::findOrFail($id);
         $tipo_accion->delete();
         return "lo eliminé";
     }

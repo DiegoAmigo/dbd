@@ -55,7 +55,7 @@ class PasajeroController extends Controller
      */
     public function show($id)
     {
-        return Pasajero::find($id);
+        return Pasajero::findOrFail($id);
     }
 
     /**
@@ -78,7 +78,7 @@ class PasajeroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pasajero = Pasajero::find($id);
+        $pasajero = Pasajero::findOrFail($id);
         $pasajero->fill($request->all());
         $pasajero->save();
         return $pasajero;
@@ -92,7 +92,7 @@ class PasajeroController extends Controller
      */
     public function destroy($id)
     {
-        $pasajero=Pasajero::find($id);
+        $pasajero=Pasajero::findOrFail($id);
         $pasajero->delete();
         return 'elimina3';
     }

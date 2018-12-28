@@ -46,7 +46,7 @@ class TransporteController extends Controller
      */
     public function show($id)
     {
-        return Transporte::find($id);
+        return Transporte::findOrFail($id);
     }
 
     /**
@@ -80,7 +80,7 @@ class TransporteController extends Controller
      */
     public function destroy($id)
     {
-        $transporte= Transporte::find($id);
+        $transporte= Transporte::findOrFail($id);
         $transporte->delete();
         return 'elimina3';
     }

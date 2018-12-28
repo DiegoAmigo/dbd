@@ -46,7 +46,7 @@ class HotelController extends Controller
      */
     public function show($id)
     {
-        return Hotel::find($id);
+        return Hotel::findOrFail($id);
     }
 
     /**
@@ -80,7 +80,7 @@ class HotelController extends Controller
      */
     public function destroy($id)
     {
-        $hotel = Hotel::find($id);
+        $hotel = Hotel::findOrFail($id);
         $hotel ->delete();
         return "lo eliminé";
     }
