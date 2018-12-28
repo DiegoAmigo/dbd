@@ -27,7 +27,7 @@ class VueloReservado extends Migration
 
             $table->foreign('id_vuelo')
                 ->references('id')
-                ->on('vuelos')
+                ->on('asientos')
                 ->onDelete('cascade');
         });
     }

@@ -13,7 +13,22 @@ class AsientoReservadoTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('asiento_reservados', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('id_reserva');
+			$table->unsignedInteger('id_asiento');
+            $table->timestamps();
+
+            $table->foreign('id_reserva')
+                ->references('id')
+                ->on('reservas')
+                ->onDelete('cascade');
+				
+			$table->foreign('id_asiento')
+                ->references('id')
+                ->on('hotels')
+                ->onDelete('cascade');	
+        });
     }
 
     /**
@@ -23,6 +38,6 @@ class AsientoReservadoTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('asiento_reservados');
     }
 }
