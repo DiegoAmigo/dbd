@@ -1,0 +1,304 @@
+create table avion (
+	id_avion serial,
+	marca varchar(15),
+	modelo varchar(15),
+	capacidad_a int,
+	primary key(id_avion)
+);
+
+create table pais (
+	id_pais serial,
+	nombre_pais varchar(28),
+	primary key(id_pais)
+);
+create table ciudad (
+	id_ciudad serial,
+	nombre_ciudad varchar(58),
+	id_pais int,
+	primary key(id_ciudad),
+	foreign key (id_pais)
+references pais(id_pais)
+
+);
+
+
+create table seguro_viaje (
+	id_seguro serial,
+	tipo_seguro int,
+	descripcion text,
+	primary key(id_seguro)
+);
+
+
+create table clase (
+	id_clase serial,
+	tipo_clase int,
+	descripcion text,
+	primary key(id_clase)
+);
+
+create table aerolinea (
+	id_aerolinea serial,
+	nombre_ae varchar(60),
+	primary key(id_aerolinea)
+);
+
+
+create table vuelo (
+	id_vuelo serial,
+	hora_fin time,
+	hora_inicio time,
+	cupos_disponibles int,
+	disponible_v bool,
+	atraso bool,
+	id_aerolinea int,
+	primary key(id_vuelo),
+	foreign key (id_aerolinea)
+references aerolinea(id_aerolinea)
+
+);
+
+
+
+create table cliente (
+	id_cliente serial,
+	numero_doc int,
+	tipo_documento int,
+	nombre_cl varchar(60),
+	apellido_cl varchar(35),
+	e_mail varchar(60),
+	fecha_nacimiento date,
+	contrasena char(32),
+	puntos_millas int,
+	id_pais int,
+	primary key(id_cliente),
+	foreign key (id_pais)
+references pais(id_pais)
+
+);
+
+create table tipo_pago (
+	id_tipo_pago serial,
+	nombre_tipo varchar(32),
+	detalle_pago varchar(100),
+	primary key(id_tipo_pago)
+);
+create table tipo_accion (
+	id_tipo_accion serial,
+	accion varchar(32),
+	descripcion varchar(100),
+	primary key(id_tipo_accion)
+);
+create table historial_cliente (
+	id_registro serial,
+	fecha date,
+	id_tipo_accion int,
+	id_cliente int,
+	primary key(id_registro),
+	foreign key (id_tipo_accion)
+references tipo_accion(id_tipo_accion),
+foreign key (id_cliente)
+references cliente(id_cliente)
+
+
+);
+
+create table pasajero (
+	id_pasajero serial,
+	numero_doc int,
+	tipo_documento int,
+	fecha_nac_p date,
+	nombre_p varchar(60),
+	apellido_p varchar(35),
+	asistencia_especial bool,
+	id_pais int,
+	primary key(id_pasajero),
+foreign key (id_pais)
+references pais(id_pais)
+
+);
+
+create table paquete (
+	codigo_paquete serial,
+	cupos int,
+	cantidad_dias int,
+	cantidad_noches int,
+	primary key(codigo_paquete)
+);
+
+create table transporte (
+	id_transporte serial,
+	patente varchar(10),
+	tipo_transporte int,
+	monto money,
+	empresa_transporte varchar(32),
+	capacidad_transporte int,
+	id_ciudad int,
+	primary key(id_transporte),
+foreign key (id_ciudad)
+references ciudad(id_ciudad)
+
+);
+
+
+create table aeropuerto (
+	id_aeropuerto serial,
+	nombre_aeropuerto varchar(32),
+	capacidad_avion int,
+	id_ciudad int,
+	primary key(id_aeropuerto),
+foreign key (id_ciudad)
+references ciudad(id_ciudad)
+
+);
+create table hotel (
+	id_hotel serial,
+	nombre_hotel varchar(32),
+	direccion_hotel varchar(80),
+	cant_estrellas int,
+	id_ciudad int,
+	primary key(id_hotel),
+foreign key (id_ciudad)
+references ciudad(id_ciudad)
+
+);
+
+create table habitacion (
+	id_habitacion serial,
+	capacidad_habitacion int,
+	monto money,
+	disponibilidad_habitacion bool,
+	numero_habitacion int,
+	id_hotel int,
+	primary key(id_habitacion),
+	foreign key (id_hotel)
+references hotel(id_hotel)
+
+);
+
+
+create table reserva (
+	id_reserva serial,
+	tipo_reserva int,
+	checkin bool,
+	pagado bool,
+	total_reserva money,
+	correo_reserva varchar(60),
+	telefono_reserva varchar(20),
+	id_habitacion int,
+	fecha_inicio_h date,
+	fecha_fin_h date,
+	id_seguro int,
+	id_cliente int,
+	id_transporte int,
+	fecha_i_t date,
+	fecha_f_t date,
+	id_vuelo int,
+	codigo_paquete int,
+	primary key(id_reserva),
+	foreign key (id_habitacion)
+references habitacion(id_habitacion),
+	foreign key (id_seguro)
+references seguro_viaje(id_seguro),
+	foreign key (id_cliente)
+references cliente(id_cliente),
+	foreign key (id_transporte)
+references transporte(id_transporte),
+foreign key (id_vuelo)
+references vuelo(id_vuelo),
+	foreign key (codigo_paquete)
+references paquete(codigo_paquete)
+
+);
+
+
+create table boleta (
+	id_boleta serial,
+	monto_total money,
+	fecha_pago date,
+	id_reserva int,
+	id_tipo_pago int,
+	primary key(id_boleta),
+	foreign key (id_reserva)
+references reserva(id_reserva),
+foreign key (id_tipo_pago)
+references tipo_pago(id_tipo_pago)
+
+
+);
+
+
+
+
+
+create table asiento (
+	id_asiento serial,
+	numero_asiento int,
+	letra_asiento char(1),
+	id_clase int,
+	id_avion int,
+	primary key(id_asiento),
+	foreign key (id_clase)
+references clase(id_clase),
+foreign key (id_avion)
+references avion(id_avion)
+
+);
+
+
+create table pasajero_reserva (
+	id_pasajero int,
+	id_reserva int,
+	foreign key (id_pasajero)
+references pasajero(id_pasajero),
+	foreign key (id_reserva)
+references reserva(id_reserva)
+
+);
+create table vuelo_reservado (
+	id_vuelo int,
+	id_reserva int,
+	foreign key (id_vuelo)
+references vuelo(id_vuelo),
+	foreign key (id_reserva)
+references reserva(id_reserva)
+
+);
+create table vuelo_aeropuerto (
+	id_aeropuerto int,
+	id_vuelo int,
+	origen bool,
+	foreign key (id_aeropuerto)
+references aeropuerto(id_aeropuerto),
+	foreign key (id_vuelo)
+references vuelo(id_vuelo)
+
+);
+
+create table asiento_reservado (
+	id_reserva int,
+	id_asiento int,
+	foreign key (id_reserva)
+references reserva(id_reserva),
+	foreign key (id_asiento)
+references asiento(id_asiento)
+
+);
+
+create table asiento_vuelo (
+	id_vuelo int,
+	id_asiento int,
+	disponible_a bool,
+	foreign key (id_vuelo)
+references vuelo(id_vuelo),
+	foreign key (id_asiento)
+references asiento(id_asiento)
+
+);
+
+
+
+alter table ciudad
+add constraint FK_ciudad_pais
+foreign key (id_pais)
+references pais(id_pais);
