@@ -34,7 +34,7 @@ class ClaseController extends Controller
      */
     public function store(Request $request)
     {
-		return Aeropuerto::create($request->all());
+		return Clase::create($request->all());
     }
     /**
      * Display the specified resource.
