@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Vuelo_Aeropuerto;
+use App\Vuelo;
 class Vuelo_AeropuertoController extends Controller
 {
     /**
@@ -79,5 +80,17 @@ class Vuelo_AeropuertoController extends Controller
         $vuelo_aeropuerto = Vuelo_Aeropuerto::find($id);
         $vuelo_aeropuerto->delete();
         return "lo eliminé";
+    }
+
+
+
+    public function vuelos($id)
+    {
+        $vuelos = Vuelo_Aeropuerto::where('id_aeropuerto',$id)->get();
+        $datosVuelos = [];
+        foreach ($vuelos as $vuelo) {
+            $datosVuelos = array_collapse([$datosVuelos,Vuelo::where('id',$vuelo->id_vuelo)->get()]);
+        }
+        return $datosVuelos;
     }
 }

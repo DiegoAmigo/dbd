@@ -57,6 +57,7 @@ Route::get('/habitacion/all', 'HabitacionController@index');
 Route::get('/habitacion/show/{id}', 'HabitacionController@show');
 Route::get('/habitacion/destroy/{id}', 'HabitacionController@destroy');
 Route::get('/habitacion/store', 'HabitacionController@store');
+Route::get('/habitacion/obtener/{id}', 'HabitacionController@habitaciones');
 
 
 Route::get('/historial_cliente/all', 'Historial_ClienteController@index');
@@ -136,3 +137,5 @@ Route::get('/aeropuerto/destroy/{id}', 'AeropuertoController@destroy');
 Route::get('/aeropuerto/store', 'AeropuertoController@store');
 
 
+Route::get('/vuelo_aeropuerto/all', 'Vuelo_AeropuertoController@index');
+Route::get('/vuelo_aeropuerto/vuelos/{id}', 'Vuelo_AeropuertoController@vuelos');

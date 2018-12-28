@@ -89,4 +89,13 @@ class HabitacionController extends Controller
         $habitacions->delete();
         return 'eliminado';
     }
+
+
+    public function habitaciones($id)
+    {
+        $habitacions = Habitacion::where('id_hotel',$id)->get();
+        return $habitacions;
+    }
+
+
 }
