@@ -64,7 +64,10 @@ class PaisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pais = Pais::find($id);
+        $pais->fill($request->all());
+        $pais->save();
+        return $pais;
     }
     /**
      * Remove the specified resource from storage.

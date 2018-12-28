@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Clase;
+
 class ClaseController extends Controller
 {
      /**
@@ -64,7 +65,10 @@ class ClaseController extends Controller
      */
     public function update(Request $request, $id)
     {
-       //
+       $clase = Clase::find($id);
+       $clase->fill($request->all());
+       $clase->save();
+       return $clase;
     }
     /**
      * Remove the specified resource from storage.

@@ -11,7 +11,7 @@ class Cliente extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-		'id_cliente', 'tipo_documento', 'nombre_cliente', 'apellido_cliente', 'e-mail', 'fecha_nacimiento',
+		'tipo_documento', 'nombre_cliente', 'apellido_cliente', 'e-mail', 'fecha_nacimiento',
 		'contrasena', 'puntos_millas', 'id_pais'
     ];
     //relacion con otra tabla

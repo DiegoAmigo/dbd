@@ -15,7 +15,6 @@ class HabitacionController extends Controller
     {
         return Habitacion::all();
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +24,6 @@ class HabitacionController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -43,7 +41,6 @@ class HabitacionController extends Controller
         $habitacion->save();
         return $habitacion;
     }
-
     /**
      * Display the specified resource.
      *
@@ -65,7 +62,6 @@ class HabitacionController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -75,9 +71,11 @@ class HabitacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $habitacions = Habitacion::find($id);
+        $habitacions->fill($request->all());
+        $habitacions->save();
+        return $habitacions;
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -87,8 +85,8 @@ class HabitacionController extends Controller
     public function destroy($id)
     {
         //me dijieron que tengo que modificar un archivo, pero no se acuerdan cual para que funcione el delete, pero este funciona si lo pruebo sin el postman
-        $habitacion = Habitacion::find($id);        
-        $habitacion->delete();
-        return 'elimina3';
+        $habitacions = Habitacion::find($id);        
+        $habitacions->delete();
+        return 'eliminado';
     }
 }

@@ -16,7 +16,6 @@ class ClienteController extends Controller
     {
         return Cliente::all();
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +25,6 @@ class ClienteController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -37,7 +35,6 @@ class ClienteController extends Controller
     {
         return Cliente::create($request->all());
     }
-
     /**
      * Display the specified resource.
      *
@@ -48,7 +45,6 @@ class ClienteController extends Controller
     {
         return Cliente::find($id);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -59,7 +55,6 @@ class ClienteController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -69,9 +64,11 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $clientes = Cliente::find($id);
+        $clientes->fill($request->all());
+        $clientes->save();
+        return $clientes;
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -80,8 +77,8 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        $cliente= Cliente::find($id);
-        $cliente->delete();
-        return "elimina3";
+        $clientes= Cliente::find($id);
+        $clientes->delete();
+        return "eliminado";
     }
 }

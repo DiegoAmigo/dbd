@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Seguro_Viaje;
+
 class Seguro_ViajeController extends Controller
 {
     /**
@@ -63,7 +64,10 @@ class Seguro_ViajeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $seguro = Seguro_Viaje::find($id);
+        $seguro->fill($request->all());
+        $seguro->save();
+        return $seguro;
     }
     /**
      * Remove the specified resource from storage.
