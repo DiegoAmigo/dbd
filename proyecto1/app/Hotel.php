@@ -1,9 +1,6 @@
 <?php
-
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Hotel extends Model
 {
     //nombre de la tabla
@@ -11,14 +8,14 @@ class Hotel extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'nombre_hotel', 'monto', 'direccion_hotel', 'cantidad_estrellas', 'id_ciudad'
+        'nombre_hotel', 'direccion_hotel', 'cantidad_estrellas', 'id_ciudad'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos
     public function habitaciones(){
-    	return $this->hasMany('App\Habitacion');
+        return $this->hasMany('App\Habitacion');
     }
-	public function ciudad(){
-    	return $this->belongsTo('App\Ciudad');
+    public function ciudad(){
+        return $this->belongsTo('App\Ciudad');
     }
 }

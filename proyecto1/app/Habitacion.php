@@ -11,7 +11,7 @@ class Habitacion extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'capacidad_habitacion', 'disponibilidad_habitacion', 'numero_habitacion', 'id_hotel'
+    	'capacidad_habitacion', 'monto', 'disponibilidad_habitacion', 'numero_habitacion', 'id_hotel'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos
