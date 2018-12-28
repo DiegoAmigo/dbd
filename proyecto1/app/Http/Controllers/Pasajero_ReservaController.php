@@ -81,4 +81,13 @@ class Pasajero_ReservaController extends Controller
         $pasajero_reserva->delete();
         return 'eliminado';
     }
+	public function pasajeros($id)
+    {
+        $pasajeros = Pasajero_Reserva::where('id_reserva',$id)->get();
+        $datosPasajeros = [];
+        foreach ($pasajeros as $pasajero) {
+            $datosPasajeros = array_collapse([$datosPasajeros,Pasajero::where('id',$pasajero->id_pasajero)->get()]);
+        }
+        return $datosPasajeros;
+    }
 }

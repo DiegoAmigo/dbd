@@ -87,4 +87,13 @@ class Asiento_VueloController extends Controller
         $asiento_vuelo->delete();
         return 'eliminado';
     }
+	public function asientos($id)
+    {
+        $asiento = Asiento_Vuelo::where('id_vuelo',$id)->get();
+        $datosAsientos = [];
+        foreach ($asiento as $asientos) {
+            $datosAsientos = array_collapse([$datosAsientos,Asiento::where('id',$asientos->id_asiento)->get()]);
+        }
+        return $datosAsientos;
+    }
 }

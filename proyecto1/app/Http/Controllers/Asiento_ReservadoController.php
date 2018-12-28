@@ -87,4 +87,13 @@ class Asiento_ReservadoController extends Controller
         $asiento_reservado->delete();
         return 'eliminado';
     }
+	public function asientos_r($id)
+    {
+        $asiento_r = Asiento_Reservado::where('id_reserva',$id)->get();
+        $datosAsientos_r = [];
+        foreach ($asiento_r as $asientos) {
+            $datosAsientos_r = array_collapse([$datosAsientos_r,Asiento::where('id',$asientos->id_asiento)->get()]);
+        }
+        return $datosAsientos_r;
+    }
 }

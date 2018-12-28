@@ -81,9 +81,6 @@ class Vuelo_AeropuertoController extends Controller
         $vuelo_aeropuerto->delete();
         return 'eliminado';
     }
-
-
-
     public function vuelos($id)
     {
         $vuelos = Vuelo_Aeropuerto::where('id_aeropuerto',$id)->get();
