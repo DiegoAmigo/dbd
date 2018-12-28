@@ -43,7 +43,7 @@ class BoletaController extends Controller
      */
     public function show($id)
     {
-        return Boleta::find($id);
+        return Boleta::findOrFail($id);
     }
     /**
      * Show the form for editing the specified resource.

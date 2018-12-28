@@ -88,4 +88,10 @@ class PaqueteController extends Controller
         $paquete->delete();
         return 'eliminado';
     }
+
+    public function ciudad($id)
+    {
+        $ciudad = Paquete::where('id_ciudad',$id)->get();
+        return $ciudad;
+    }
 }

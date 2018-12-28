@@ -87,4 +87,10 @@ class HotelController extends Controller
         $hotel ->delete();
         return 'eliminado';
     }
+
+    public function ciudad($id)
+    {
+        $ciudad = Hotel::where('id_ciudad',$id)->get();
+        return $ciudad;
+    }
 }

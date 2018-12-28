@@ -81,4 +81,10 @@ class ClienteController extends Controller
         $clientes->delete();
         return 'eliminado';
     }
+
+    public function pais($id)
+    {
+        $pais = Cliente::where('id_pais',$id)->get();
+        return $pais;
+    }
 }

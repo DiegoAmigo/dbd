@@ -69,7 +69,7 @@ class AerolineaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $aerolinea = Aerolinea::find($id);
+        $aerolinea = Aerolinea::findOrFail($id);
         $aerolinea->fill($request->all());
         $aerolinea->save();
         return $aerolinea;

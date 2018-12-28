@@ -81,4 +81,10 @@ class CiudadController extends Controller
         $ciudad->delete();
         return 'eliminado';
     }
+
+    public function pais($id)
+    {
+        $pais = Ciudad::where('id_ciudad',$id)->get();
+        return $pais;
+    }
 }
