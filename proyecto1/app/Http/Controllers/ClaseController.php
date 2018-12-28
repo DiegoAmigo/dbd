@@ -80,6 +80,6 @@ class ClaseController extends Controller
     {
         $clase = Clase::findOrFail($id);
         $clase->delete();
-        return 'elimina3';
+        return 'eliminado';
     }
 }

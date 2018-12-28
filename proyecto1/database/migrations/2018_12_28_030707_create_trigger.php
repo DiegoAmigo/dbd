@@ -19,7 +19,7 @@ class CreateTrigger extends Migration
         $$
         BEGIN           
             UPDATE users
-            SET rol_id = 1
+            SET id = 1
             WHERE users.id = NEW.id;
             RETURN NEW;
         END

@@ -79,6 +79,6 @@ class AsientoController extends Controller
     {
         $asientos= Asiento::findOrFail($id);
         $asientos->delete();
-        return "eliminado";
+        return 'eliminado';
     }
 }

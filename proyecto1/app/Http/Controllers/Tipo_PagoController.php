@@ -35,7 +35,7 @@ class Tipo_PagoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Tipo_Pago::create($request->all());
     }
 
     /**
@@ -69,7 +69,10 @@ class Tipo_PagoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pago = Tipo_Pago::find($id);
+        $pago->fill($request->all());
+        $pago->save();
+        return $pago;
     }
 
     /**
@@ -82,6 +85,6 @@ class Tipo_PagoController extends Controller
     {
         $pago = Tipo_Pago::findOrFail($id);
         $pago->delete();
-        return 'elimina3';
+        return 'eliminado';
     }
 }

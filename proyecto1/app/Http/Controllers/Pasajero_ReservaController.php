@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pasajero_Reserva;
 
 class Pasajero_ReservaController extends Controller
 {
@@ -78,6 +79,15 @@ class Pasajero_ReservaController extends Controller
     {
         $pasajero_reserva = Pasajero_Reserva::findOrFail($id);
         $pasajero_reserva->delete();
-        return "lo eliminé";
+        return 'eliminado';
+    }
+	public function pasajeros($id)
+    {
+        $pasajeros = Pasajero_Reserva::where('id_reserva',$id)->get();
+        $datosPasajeros = [];
+        foreach ($pasajeros as $pasajero) {
+            $datosPasajeros = array_collapse([$datosPasajeros,Pasajero::where('id',$pasajero->id_pasajero)->get()]);
+        }
+        return $datosPasajeros;
     }
 }

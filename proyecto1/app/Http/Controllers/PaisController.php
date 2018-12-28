@@ -34,10 +34,7 @@ class PaisController extends Controller
     public function store(Request $request)
     {
         /*return Pais::create($request->all());*/
-		$pais = new Pais;
-        $pais->nombre_pais = $request->nombre_pais;
-        $pais->save();
-        return $pais;
+		return Pais::create($request->all());
     }
     /**
      * Display the specified resource.

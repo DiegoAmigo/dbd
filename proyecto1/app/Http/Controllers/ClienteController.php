@@ -79,6 +79,6 @@ class ClienteController extends Controller
     {
         $clientes= Cliente::findOrFail($id);
         $clientes->delete();
-        return "eliminado";
+        return 'eliminado';
     }
 }

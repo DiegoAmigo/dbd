@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAvionAeropuertoTrigger extends Migration
+class CreateAsientoTrigger extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,22 @@ class CreateAvionAeropuertoTrigger extends Migration
      */
     public function up()
     {
-        DB::statement('
-        CREATE OR REPLACE FUNCTION AsingRol()
+		DB::statement('
+        CREATE OR REPLACE FUNCTION AsingAsiento()
         RETURNS trigger AS
         $$
         BEGIN           
-            UPDATE avion_aeropuertos
-            SET rol_id = 1
-            WHERE avion_aeropuertos.id = NEW.id;
+            UPDATE asientos
+            SET id = 1
+            WHERE asientos.id_avion = NEW.id_avion;
             RETURN NEW;
         END
         $$ LANGUAGE plpgsql;
         ');
 
         DB::unprepared('
-        CREATE TRIGGER avion_aeropuertos_role AFTER INSERT ON avion_aeropuertos FOR EACH ROW
-        EXECUTE PROCEDURE AsingRol();
+        CREATE TRIGGER user_role AFTER INSERT ON asientos FOR EACH ROW
+        EXECUTE PROCEDURE AsingAsiento();
         ');
     }
 
@@ -39,6 +39,6 @@ class CreateAvionAeropuertoTrigger extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_avion_aeropuerto_trigger');
+        Schema::dropIfExists('_asiento_trigger');
     }
 }

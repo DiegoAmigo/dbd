@@ -36,15 +36,7 @@ class PasajeroController extends Controller
     public function store(Request $request)
     {
        /* return Pasajero::create($request->all());*/
-	   $pasajero = new Pasajero;
-       $pasajero->tipo_documento = $request->tipo_documento;
-		$pasajero->fecha_nac_p = $request->fecha_nac_p;
-		$pasajero->nombre_pasajero = $request->nombre_pasajero;
-		$pasajero->apellido_pasajero = $request->apellido_pasajero;
-		$pasajero->asistencia especial = $request->asistencia especial;
-		$pasajero->id_pais = $request->id_pais;
-        $pasajero->save();
-        return $pasajero;
+	   return Pasajero::create($request->all());
     }
 
     /**
@@ -94,6 +86,6 @@ class PasajeroController extends Controller
     {
         $pasajero=Pasajero::findOrFail($id);
         $pasajero->delete();
-        return 'elimina3';
+        return 'eliminado';
     }
 }

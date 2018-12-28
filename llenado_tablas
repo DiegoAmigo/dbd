@@ -1,0 +1,322 @@
+insert into aerolinea (nombre_ae)
+values ('Latam');
+insert into aerolinea (nombre_ae)
+values ('Air France');
+insert into aerolinea (nombre_ae)
+values ('Aeromexico');
+insert into aerolinea (nombre_ae)
+values ('American Airlines');
+insert into aerolinea (nombre_ae)
+values ('United Airlines');
+
+
+
+insert into pais (nombre_pais)
+values ('Chile');
+insert into pais (nombre_pais)
+values ('Estados Unidos');
+insert into pais (nombre_pais)
+values ('Francia');
+insert into pais (nombre_pais)
+values ('Argentina');
+insert into pais (nombre_pais)
+values ('Japon');
+
+insert into ciudad (nombre_ciudad,id_pais)
+values ('Santiago',1);
+insert into ciudad (nombre_ciudad,id_pais)
+values ('Chicago',2);
+insert into ciudad (nombre_ciudad,id_pais)
+values ('Paris',3);
+insert into ciudad (nombre_ciudad,id_pais)
+values ('Buenos Aires',4);
+insert into ciudad (nombre_ciudad,id_pais)
+values ('Tokio',5);
+
+insert into aeropuerto (nombre_aeropuerto,capacidad_avion,id_ciudad)
+values ('Arturo Merino Benitez',40,1);
+insert into aeropuerto (nombre_aeropuerto,capacidad_avion,id_ciudad)
+values ('OHare',50,2);
+insert into aeropuerto (nombre_aeropuerto,capacidad_avion,id_ciudad)
+values ('Orly',30,3);
+insert into aeropuerto (nombre_aeropuerto,capacidad_avion,id_ciudad)
+values ('Ministro Pistarini',20,4);
+insert into aeropuerto (nombre_aeropuerto,capacidad_avion,id_ciudad)
+values ('Haneda',60,5);
+
+
+insert into clase (tipo_clase,descripcion)
+values (0,'sin benefcios extra');
+insert into clase (tipo_clase,descripcion)
+values (1,'prioridad de desembarque');
+insert into clase (tipo_clase,descripcion)
+values (2,'prioridad desembarque y espacio extra');
+insert into clase (tipo_clase,descripcion)
+values (3, 'prioridad desembarque, espacio extra y asiento+');
+insert into clase (tipo_clase,descripcion)
+values (4, 'prioridad desembarque, espacio extra, asiento+ y cabina premium');
+
+insert into avion (marca,modelo,capacidad_a)
+values ('Boeing','747',416);
+insert into avion (marca,modelo,capacidad_a)
+values ('Airbus','A380',556);
+insert into avion (marca,modelo,capacidad_a)
+values ('Airbus','A330',335);
+insert into avion (marca,modelo,capacidad_a)
+values ('Boeing','757',189);
+insert into avion (marca,modelo,capacidad_a)
+values ('Airbus','A340',375);
+
+
+
+insert into asiento (numero_asiento,letra_asiento,id_clase,id_avion)
+values (1,'A',1,1);
+insert into asiento (numero_asiento,letra_asiento,id_clase,id_avion)
+values (21,'B',2,4);
+insert into asiento (numero_asiento,letra_asiento,id_clase,id_avion)
+values (15,'C',1,3);
+insert into asiento (numero_asiento,letra_asiento,id_clase,id_avion)
+values (10,'D',3,2);
+insert into asiento (numero_asiento,letra_asiento,id_clase,id_avion)
+values (1,'E',4,1);
+
+
+
+insert into hotel (nombre_hotel,direccion_hotel,cant_estrellas,id_ciudad)
+values ('hotel estacion central','45432 Av libertador Bernardo OHiggins',4,1);
+
+insert into hotel (nombre_hotel,direccion_hotel,cant_estrellas,id_ciudad)
+values ('hotel premium','43224 calle calle',5,2);
+
+insert into hotel (nombre_hotel,direccion_hotel,cant_estrellas,id_ciudad)
+values ('chile','32532 Av principal',4,3);
+
+insert into hotel (nombre_hotel,direccion_hotel,cant_estrellas,id_ciudad)
+values ('latino','43342 primera transversal',4,5);
+
+insert into hotel (nombre_hotel,direccion_hotel,cant_estrellas,id_ciudad)
+values ('hotel central','115 ferry station',4,1);
+
+
+
+insert into habitacion (capacidad_habitacion,disponibilidad_habitacion,monto,numero_habitacion,id_hotel)
+values (3,true,150,412,1);
+
+insert into habitacion (capacidad_habitacion,disponibilidad_habitacion,monto,numero_habitacion,id_hotel)
+values (4,true,300,212,1);
+
+insert into habitacion (capacidad_habitacion,disponibilidad_habitacion,monto,numero_habitacion,id_hotel)
+values (2,true,250,22,2);
+
+insert into habitacion (capacidad_habitacion,disponibilidad_habitacion,monto,numero_habitacion,id_hotel)
+values (3,true,350,42,3);
+
+insert into habitacion (capacidad_habitacion,disponibilidad_habitacion,monto,numero_habitacion,id_hotel)
+values (4,true,230,241,4);
+
+
+insert into paquete (cupos,cantidad_dias,cantidad_noches)
+values (300,6,5);
+insert into paquete (cupos,cantidad_dias,cantidad_noches)
+values (200,4,3);
+insert into paquete (cupos,cantidad_dias,cantidad_noches)
+values (150,8,7);
+insert into paquete (cupos,cantidad_dias,cantidad_noches)
+values (130,5,4);
+insert into paquete (cupos,cantidad_dias,cantidad_noches)
+values (110,7,6);
+
+
+insert into cliente (numero_doc,tipo_documento,nombre_cl,apellido_cl,e_mail,fecha_nacimiento,contrasena,puntos_millas,id_pais)
+values (185430056,0,'Juan','Perez','correo@usach.cl','1995-12-30',MD5('contrasena'),100,1);
+
+insert into cliente (numero_doc,tipo_documento,nombre_cl,apellido_cl,e_mail,fecha_nacimiento,contrasena,puntos_millas,id_pais)
+values (215430056,0,'Pepe','Cortisona','pepito@gmail.com','2001-11-30',MD5('contrasena123'),100,1);
+
+insert into cliente (numero_doc,tipo_documento,nombre_cl,apellido_cl,e_mail,fecha_nacimiento,contrasena,puntos_millas,id_pais)
+values (174430056,0,'Saul','lockman', 'wellington.hammes@hotmail.com','1980-05-30',MD5('12345'),100,2);
+
+insert into cliente (numero_doc,tipo_documento,nombre_cl,apellido_cl,e_mail,fecha_nacimiento,contrasena,puntos_millas,id_pais)
+values (195353056,0,' Sasha',' Ortiz',' jwitting@hotmail.com','1995-01-02',MD5('contrasena'),100,3);
+
+insert into cliente (numero_doc,tipo_documento,nombre_cl,apellido_cl,e_mail,fecha_nacimiento,contrasena,puntos_millas,id_pais)
+values (235430056,0,' Helene',' Marks',' xrowe@abshire.net','2005-06-04',MD5('contrasena'),100,4);
+
+insert into pasajero (numero_doc,tipo_documento,fecha_nac_p,nombre_p,apellido_p,asistencia_especial,id_pais)
+values (185430056,0,'1995-12-30','Juan','Perez',false,1);
+
+insert into pasajero (numero_doc,tipo_documento,fecha_nac_p,nombre_p,apellido_p,asistencia_especial,id_pais)
+values (214430056,0,'1994-11-30',' Evans',' Marks',true,2);
+
+insert into pasajero (numero_doc,tipo_documento,fecha_nac_p,nombre_p,apellido_p,asistencia_especial,id_pais)
+values (253430056,1,'2006-06-20',' Wilber',' Green',false,1);
+
+insert into pasajero (numero_doc,tipo_documento,fecha_nac_p,nombre_p,apellido_p,asistencia_especial,id_pais)
+values (147830056,0,'1980-04-10','Ramon',' Hills',false,1);
+
+insert into pasajero (numero_doc,tipo_documento,fecha_nac_p,nombre_p,apellido_p,asistencia_especial,id_pais)
+values (167843266,0,'1990-10-20',' Gregorio',' Harris',false,3);
+
+insert into seguro_viaje (tipo_seguro,descripcion)
+values (0,'seguro de viaje valido para destino europa');
+insert into seguro_viaje (tipo_seguro,descripcion)
+values (1,'seguro de viaje valido para destino latinoamerica');
+insert into seguro_viaje (tipo_seguro,descripcion)
+values (2,'seguro de viaje valido para destino canada');
+insert into seguro_viaje (tipo_seguro,descripcion)
+values (3,'seguro de viaje valido para destino USA');
+insert into seguro_viaje (tipo_seguro,descripcion)
+values (4,'seguro de viaje valido para destino resto del mundo');
+
+
+
+insert into tipo_accion (accion,descripcion)
+values ('reservar vuelo','realiza una reserva de un vuelo');
+
+insert into tipo_accion (accion,descripcion)
+values ('cancelar vuelo','realiza una cancelacion de un vuelo');
+
+insert into tipo_accion (accion,descripcion)
+values ('reservar transporte','realiza una reserva de un transporte');
+
+insert into tipo_accion (accion,descripcion)
+values ('realiza pago ','realiza el pago de un servicio');
+
+insert into tipo_accion (accion,descripcion)
+values ('reservar hotel','realiza una reserva de un hotel');
+
+
+insert into tipo_pago (nombre_tipo,detalle_pago)
+values ('tarjeta credito','pago con tarjeta de credito con 9 cuotas');
+
+insert into tipo_pago (nombre_tipo,detalle_pago)
+values ('tarjeta debito','pago con tarjeta de debito via online');
+
+insert into tipo_pago (nombre_tipo,detalle_pago)
+values ('pago presencial','pago de forma presencial en el banco');
+
+
+insert into transporte (patente,tipo_transporte,monto,empresa_transporte,capacidad_transporte,id_ciudad)
+values ('abcd12',0,50.1,'flash',5,1);
+
+insert into transporte (patente,tipo_transporte,monto,empresa_transporte,capacidad_transporte,id_ciudad)
+values ('fwqs32',0,80.1,'auto vip',4,1);
+
+insert into transporte (patente,tipo_transporte,monto,empresa_transporte,capacidad_transporte,id_ciudad)
+values ('fast10',0,90.1,'car vip',2,2);
+
+insert into transporte (patente,tipo_transporte,monto,empresa_transporte,capacidad_transporte,id_ciudad)
+values ('casa40',1,10.1,'fff',4,3);
+
+insert into transporte (patente,tipo_transporte,monto,empresa_transporte,capacidad_transporte,id_ciudad)
+values ('cars34',0,40.1,'flash',5,4);
+
+
+
+insert into vuelo (hora_fin,hora_inicio,cupos_disponibles,disponible_v,atraso,id_aerolinea)
+values ('13:00:00','23:54:00',100,true,false,1);
+
+insert into vuelo (hora_fin,hora_inicio,cupos_disponibles,disponible_v,atraso,id_aerolinea)
+values ('15:30:00','22:00:00',200,true,false,1);
+
+insert into vuelo (hora_fin,hora_inicio,cupos_disponibles,disponible_v,atraso,id_aerolinea)
+values ('10:00:00','23:00:00',150,true,false,1);
+
+insert into vuelo (hora_fin,hora_inicio,cupos_disponibles,disponible_v,atraso,id_aerolinea)
+values ('06:00:00','20:00:00',120,true,false,1);
+
+insert into vuelo (hora_fin,hora_inicio,cupos_disponibles,disponible_v,atraso,id_aerolinea)
+values ('12:00:00','21:30:00',110,true,false,1);
+
+
+insert into reserva (tipo_reserva,checkin,pagado,total_reserva,correo_reserva,telefono_reserva,id_habitacion,fecha_inicio_h,fecha_fin_h,id_seguro,id_cliente,id_transporte,fecha_i_t,fecha_f_t,id_vuelo,codigo_paquete)
+values (0,false,true,300.9,'msec@gmail.com','+569923044454',1,'2019-02-03','2019-04-02',1,1,1,'2019-02-03','2019-02-10',1,null);
+
+insert into reserva (tipo_reserva,checkin,pagado,total_reserva,correo_reserva,telefono_reserva,id_habitacion,fecha_inicio_h,fecha_fin_h,id_seguro,id_cliente,id_transporte,fecha_i_t,fecha_f_t,id_vuelo,codigo_paquete)
+values (0,false,true,500.9,'usuario@gmail.com','+569922044454',1,'2019-05-03','2019-06-02',1,2,2,'2019-05-04','2019-05-10',1,1);
+
+insert into reserva (tipo_reserva,checkin,pagado,total_reserva,correo_reserva,telefono_reserva,id_habitacion,fecha_inicio_h,fecha_fin_h,id_seguro,id_cliente,id_transporte,fecha_i_t,fecha_f_t,id_vuelo,codigo_paquete)
+values (0,false,true,800.9,'miCorreo@gmail.com','+569923044454',1,'2019-02-03','2019-04-02',1,1,1,'2019-02-03','2019-02-10',1,null);
+
+insert into reserva (tipo_reserva,checkin,pagado,total_reserva,correo_reserva,telefono_reserva,id_habitacion,fecha_inicio_h,fecha_fin_h,id_seguro,id_cliente,id_transporte,fecha_i_t,fecha_f_t,id_vuelo,codigo_paquete)
+values (0,false,true,300.9,'algunCorreo@gmail.com','+569926544454',1,'2019-03-03','2019-04-02',1,1,1,'2019-03-03','2019-03-10',1,null);
+
+insert into reserva (tipo_reserva,checkin,pagado,total_reserva,correo_reserva,telefono_reserva,id_habitacion,fecha_inicio_h,fecha_fin_h,id_seguro,id_cliente,id_transporte,fecha_i_t,fecha_f_t,id_vuelo,codigo_paquete)
+values (0,false,true,300.9,'superCorreo@gmail.com','+569323044454',1,'2019-02-03','2019-04-02',1,1,1,'2019-02-03','2019-02-10',1,null);
+
+
+
+insert into boleta (monto_total,fecha_pago,id_reserva,id_tipo_pago)
+values (310.0,'2018-12-12',1,1);
+
+insert into boleta (monto_total,fecha_pago,id_reserva,id_tipo_pago)
+values (320.0,'2018-12-12',1,1);
+
+insert into boleta (monto_total,fecha_pago,id_reserva,id_tipo_pago)
+values (510.0,'2018-12-12',1,1);
+
+insert into boleta (monto_total,fecha_pago,id_reserva,id_tipo_pago)
+values (610.0,'2018-12-12',1,1);
+
+insert into boleta (monto_total,fecha_pago,id_reserva,id_tipo_pago)
+values (710.0,'2018-12-12',1,1);
+
+insert into asiento_reservado (id_asiento,id_reserva)
+values (1,2);
+insert into asiento_reservado (id_asiento,id_reserva)
+values (2,2);
+insert into asiento_reservado (id_asiento,id_reserva)
+values (3,1);
+insert into asiento_reservado (id_asiento,id_reserva)
+values (4,3);
+insert into asiento_reservado (id_asiento,id_reserva)
+values (5,4);
+
+
+insert into asiento_vuelo (id_asiento,id_vuelo, disponible_a)
+values (1,1,false);
+insert into asiento_vuelo (id_asiento,id_vuelo, disponible_a)
+values (2,2,false);
+insert into asiento_vuelo (id_asiento,id_vuelo, disponible_a)
+values (3,3,false);
+insert into asiento_vuelo (id_asiento,id_vuelo, disponible_a)
+values (4,4,false);
+insert into asiento_vuelo (id_asiento,id_vuelo, disponible_a)
+values (4,4,false);
+
+
+insert into pasajero_reserva (id_pasajero,id_reserva)
+values (1,1);
+insert into pasajero_reserva (id_pasajero,id_reserva)
+values (2,1);
+insert into pasajero_reserva (id_pasajero,id_reserva)
+values (3,2);
+insert into pasajero_reserva (id_pasajero,id_reserva)
+values (4,3);
+insert into pasajero_reserva (id_pasajero,id_reserva)
+values (5,4);
+
+insert into vuelo_aeropuerto (id_vuelo,id_aeropuerto,origen)
+values (1,1,true);
+insert into vuelo_aeropuerto (id_vuelo,id_aeropuerto,origen)
+values (1,2,false);
+insert into vuelo_aeropuerto (id_vuelo,id_aeropuerto,origen)
+values (2,3,true);
+insert into vuelo_aeropuerto (id_vuelo,id_aeropuerto,origen)
+values (2,4,false);
+insert into vuelo_aeropuerto (id_vuelo,id_aeropuerto,origen)
+values (3,1,true);
+
+
+insert into vuelo_reservado (id_vuelo,id_reserva)
+values (1,1);
+
+insert into vuelo_reservado (id_vuelo,id_reserva)
+values (2,1);
+insert into vuelo_reservado (id_vuelo,id_reserva)
+values (2,2);
+insert into vuelo_reservado (id_vuelo,id_reserva)
+values (3,2);
+insert into vuelo_reservado (id_vuelo,id_reserva)
+values (3,4);
+

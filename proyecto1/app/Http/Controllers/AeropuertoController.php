@@ -80,6 +80,6 @@ class AeropuertoController extends Controller
     {
         $aeropuerto = Aeropuerto::findOrFail($id);
         $aeropuerto->delete();
-        return "lo eliminé";
+        return 'eliminado';
     }
 }

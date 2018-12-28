@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Habitacion;
+
 class HabitacionController extends Controller
 {
     /**
@@ -34,12 +35,7 @@ class HabitacionController extends Controller
     {
         //por alguna razon me dice que no funciona con postman
         //supuesto ejemplo de comoo guardar
-        $habitacion = new Habitacion;
-        $habitacion->numero_habitacion = $request->numero_habitacion;
-        $habitacion->capacidad_habitacion = $request->capacidad_habitacion;
-        $habitacion->disponibilidad_habitacion = $request->disponibilidad_habitacion;
-        $habitacion->save();
-        return $habitacion;
+        return Habitacion::create($request->all());
     }
     /**
      * Display the specified resource.
@@ -96,6 +92,4 @@ class HabitacionController extends Controller
         $habitacions = Habitacion::where('id_hotel',$id)->get();
         return $habitacions;
     }
-
-
 }

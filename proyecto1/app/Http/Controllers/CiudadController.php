@@ -79,6 +79,6 @@ class CiudadController extends Controller
     {
         $ciudad = Ciudad::findOrFail($id);
         $ciudad->delete();
-        return "lo eliminé";
+        return 'eliminado';
     }
 }

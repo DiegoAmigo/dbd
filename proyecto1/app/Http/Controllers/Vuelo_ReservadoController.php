@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Vuelo_Reservado;
 
 class Vuelo_ReservadoController extends Controller
 {
@@ -78,6 +79,15 @@ class Vuelo_ReservadoController extends Controller
     {
         $vuelo_reservado = Vuelo_Reservado::findOrFail($id);
         $vuelo_reservado->delete();
-        return "lo eliminé";
+        return 'eliminado';
+    }
+	public function vuelos_r($id)
+    {
+        $vuelos_r = Vuelo_Reservado::where('id_reserva',$id)->get();
+        $datosVuelos_r = [];
+        foreach ($vuelos_r as $vuelo) {
+            $datosVuelos_r = array_collapse([$datosVuelos_r,Vuelo::where('id',$vuelo->id_vuelo)->get()]);
+        }
+        return $datosVuelos_r;
     }
 }

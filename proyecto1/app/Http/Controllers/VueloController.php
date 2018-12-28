@@ -35,7 +35,7 @@ class VueloController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Vuelo::create($request->all());
     }
 
     /**
@@ -69,7 +69,10 @@ class VueloController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $vuelo = Vuelo::find($id);
+        $vuelo->fill($request->all());
+        $vuelo->save();
+        return $vuelo;
     }
 
     /**
