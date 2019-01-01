@@ -13,7 +13,7 @@ class CreateAsientoTrigger extends Migration
      */
     public function up()
     {
-		DB::statement('
+		DB::statement(/*'
         CREATE OR REPLACE FUNCTION AsingAsiento()
         RETURNS trigger AS
         $$
@@ -29,7 +29,34 @@ class CreateAsientoTrigger extends Migration
         DB::unprepared('
         CREATE TRIGGER user_role AFTER INSERT ON asientos FOR EACH ROW
         EXECUTE PROCEDURE AsingAsiento();
+        '*/
+		'CREATE OR REPLACE FUNCTION AsingAsiento()
+            RETURNS TRIGGER AS 
+            $$
+            DECLARE
+                id_avi int;
+				id_cl int;
+            BEGIN
+                id_avi = (
+                    SELECT asi.id_avion 
+                    FROM asientos asi, avions avi
+                    WHERE asi.id_avion = avions.id AND asi.id = NEW.id
+                    limit 5);
+				id_cl = (
+                    SELECT asi.id_clase 
+                    FROM asientos asi, clase cl
+                    WHERE asi.id_avion = id_avi AND asi.id_clase = cl.id AND asi.id = NEW.id
+                    limit 5);	
+                INSERT INTO asientos (numero_asiento, letra_asiento, id_clase, id_avion)
+                VALUES (NEW.numero_asiento, NEW.letra_asiento, id_cl, id_avi);
+                RETURN NULL;
+			END
+				$$ LANGUAGE plpgsql;
         ');
+
+        DB::unprepared('
+        CREATE TRIGGER asiento_asignado AFTER INSERT ON asientos FOR EACH ROW
+        EXECUTE PROCEDURE AsingAsiento();');
     }
 
     /**

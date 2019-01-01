@@ -15,19 +15,25 @@ class CreateHabitacionTrigger extends Migration
     {
         DB::statement('
         CREATE OR REPLACE FUNCTION AsingHabitacion()
-        RETURNS trigger AS
-        $$
-        BEGIN           
-            UPDATE habitacions
-            SET id = 1
-            WHERE habitacions.id_hotel = NEW.id_hotel;
-            RETURN NEW;
-        END
-        $$ LANGUAGE plpgsql;
+            RETURNS TRIGGER AS 
+            $$
+            DECLARE
+                id_hot int;
+            BEGIN
+                id_hot = (
+                    SELECT hab.id_hotel 
+                    FROM habitacions hab, hotels hot
+                    WHERE hab.id_hotel = hot.id AND hab.id = NEW.id
+                    limit 5);	
+                INSERT INTO habitacions (capacidad_habitacion, monto, disponilibidad_habitacion, numero_habitacion, id_hotel)
+                VALUES (NEW.capacidad_habitacion, NEW.monto, NEW.disponilibidad_habitacion, NEW.numero_habitacion, id_hot);
+                RETURN NULL;
+			END
+				$$ LANGUAGE plpgsql;
         ');
 
         DB::unprepared('
-        CREATE TRIGGER asing_room AFTER INSERT ON habitacions FOR EACH ROW
+        CREATE TRIGGER habitacion_asignada AFTER INSERT ON habitacions FOR EACH ROW
         EXECUTE PROCEDURE AsingHabitacion();
         ');
     }
