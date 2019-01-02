@@ -24,7 +24,7 @@ class Vuelo_AeropuertoRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_aeropuerto' => 'required',
+            'id_aero' => 'required',
 			'id_vuelo' => 'required',
 			'origen' => 'required'
         ];

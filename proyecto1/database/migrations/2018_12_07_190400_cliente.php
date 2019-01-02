@@ -15,14 +15,13 @@ class Cliente extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('numero_documento');
-            $table->integer('tipo_doc');
+            $table->integer('tipo_documento');
             $table->string('nombre_cl',60);
             $table->string('apellido_cl',35);
-            $table->string('correo_cl',60);
-            $table->date('fecha_nac');
+            $table->string('e-mail',60);
+            $table->date('fecha_nacimiento');
             $table->char('contrasena',32);
-            $table->integer('puntos_milla');
+            $table->integer('puntos_millas');
             $table->unsignedInteger('id_pais');
             $table->timestamps();
 

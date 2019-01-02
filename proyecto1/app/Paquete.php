@@ -11,7 +11,7 @@ class Paquete extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'codigo_paquete', 'cupos', 'cantidad_noches', 'cantidad_dias', 'id_ciudad'
+    	'cupos', 'cant_noches', 'cant_dias', 'id_ciudad'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos

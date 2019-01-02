@@ -27,7 +27,7 @@ class VueloRequest extends FormRequest
             'hora_inicio' => 'required',
 			'hora_fin' => 'required',
 			'cupos_disponibles' => 'required',
-			'disponible_vuelo' => 'required',
+			'disponible_v' => 'required',
 			'atraso' => 'required',
 			'id_aerolinea' => 'required'
         ];

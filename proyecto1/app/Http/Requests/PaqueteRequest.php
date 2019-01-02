@@ -24,10 +24,9 @@ class PaqueteRequest extends FormRequest
     public function rules()
     {
         return [
-            'codigo_paquete' => 'required',
 			'cupos' => 'required',
-			'cantidad_noches' => 'required',
-			'cantidad_dias' => 'required',
+			'cant_noches' => 'required',
+			'cant_dias' => 'required',
 			'id_ciudad' => 'required'
         ];
     }

@@ -24,11 +24,11 @@ class HabitacionRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre_hotel' => 'required',
+            'capacidad_habitacion' => 'required',
 			'monto' => 'required',
-			'direccion_hotel' => 'required',
-			'cantidad_estrellas' => 'required',
-			'id_ciudad' => 'required'
+			'disponibilidad_habitacion' => 'required',
+			'numero_habitacion' => 'required',
+			'id_hotel' => 'required'
         ];
     }
 }

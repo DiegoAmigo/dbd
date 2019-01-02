@@ -26,9 +26,9 @@ class PasajeroRequest extends FormRequest
         return [
             'tipo_documento' => 'required',
 			'fecha_nac_p' => 'required',
-			'nombre_pasajero' => 'required',
-			'apellido_pasajero' => 'required',
-			'asistencia especial' => 'required',
+			'nombre_p' => 'required',
+			'apellido_p' => 'required',
+			'asistencia_especial' => 'required',
 			'id_pais' => 'required'
         ];
     }

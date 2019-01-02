@@ -16,12 +16,12 @@ class VueloAeropuerto extends Migration
         Schema::create('vuelo_aeropuertos', function (Blueprint $table) {
             //en caso de
             $table->increments('id');
-            $table->unsignedInteger('id_aeropuerto');
+            $table->unsignedInteger('id_aero');
             $table->unsignedInteger('id_vuelo');
             $table->boolean('origen');
             $table->timestamps();
 
-            $table->foreign('id_aeropuerto')
+            $table->foreign('id_aero')
                 ->references('id')
                 ->on('aeropuertos')
                 ->onDelete('cascade');

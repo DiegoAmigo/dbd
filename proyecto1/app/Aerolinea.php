@@ -11,7 +11,7 @@ class Aerolinea extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'nombre_aerolinea'
+    	'nombre_aero'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos

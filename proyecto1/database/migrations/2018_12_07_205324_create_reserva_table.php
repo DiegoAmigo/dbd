@@ -19,12 +19,12 @@ class CreateReservaTable extends Migration
             $table->boolean('checkin');
             $table->boolean('pagado');
             $table->integer('total_reserva');
-            $table->string('correo_reserva',60);
-            $table->string('telefono_reserva');
+            $table->string('correo_cl',60);
+            $table->string('telefono_cl');
             $table->unsignedInteger('id_paquete');
             $table->unsignedInteger('id_cliente');
             $table->unsignedInteger('id_seguro');
-            $table->unsignedInteger('id_transporte');
+            $table->unsignedInteger('patente');
             $table->date('fecha_i_t');
             $table->date('fecha_f_t');
             //segun yo deberia ser alverre
@@ -43,7 +43,7 @@ class CreateReservaTable extends Migration
                 ->on('seguro_viajes')
                 ->onDelete('cascade');
 
-            $table->foreign('id_transporte')
+            $table->foreign('patente')
                 ->references('id')
                 ->on('transportes')
                 ->onDelete('cascade');

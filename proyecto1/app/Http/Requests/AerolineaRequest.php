@@ -24,7 +24,7 @@ class AerolineaRequest extends FormRequest
     public function rules()
     {
         return [
-			'nombre_aerolinea' => 'required'
+			'nombre_aero' => 'required'
         ];
     }
 }

@@ -26,7 +26,7 @@ class AvionRequest extends FormRequest
         return [
             'marca' => 'required',
 			'modelo' => 'required',
-			'capacidad_asientos' => 'required'
+			'capacidad_a' => 'required'
         ];
     }
 }

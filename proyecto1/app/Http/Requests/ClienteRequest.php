@@ -25,8 +25,8 @@ class ClienteRequest extends FormRequest
     {
         return [
             'tipo_documento' => 'required',
-			'nombre_cliente' => 'required',
-			'apellido_cliente' => 'required',
+			'nombre_cl' => 'required',
+			'apellido_cl' => 'required',
 			'e-mail' => 'required',
 			'fecha_nacimiento' => 'required',
 			'contrasena' => 'required',
