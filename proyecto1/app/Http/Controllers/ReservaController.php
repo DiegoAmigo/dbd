@@ -88,4 +88,10 @@ class ReservaController extends Controller
         $reserva->delete();
         return 'eliminado';
     }
+	public function Reserva_Cliente($id){
+        $reserva_1 = Transporte::where('id_cliente',$id)->get();
+		$transport_aux2 = Transporte::where('empresa_transporte', '=' , $empresa_transporte)->get();
+        $transport = $transport_aux->concat($transport_aux2);
+        return $transport;
+	}
 }
