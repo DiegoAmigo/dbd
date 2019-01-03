@@ -87,4 +87,11 @@ class TransporteController extends Controller
         $transporte->delete();
         return 'eliminado';
     }
+	public function TransportInCity($id_ciudad, $empresa_transporte){
+		$transport = collect();
+        $transport_aux = Transporte::where('id_ciudad', '=' , $id_ciudad)->get();
+		$transport_aux2 = Transporte::where('empresa_transporte', '=' , $empresa_transporte)->get();
+        $transport = $transport_aux->concat($transport_aux2);
+        return $transport;
+	}
 }
