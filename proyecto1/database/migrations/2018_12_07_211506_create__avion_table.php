@@ -17,7 +17,7 @@ class CreateAvionTable extends Migration
             $table->increments('id');
             $table->string('marca', 15);
             $table->string('modelo', 15);
-            $table->integer('capacidad_a');
+            $table->integer('capacidad_avion');
             $table->timestamps();
         });
     }

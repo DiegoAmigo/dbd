@@ -18,7 +18,7 @@ class AsientoVuelos extends Migration
             $table->increments('id');
             $table->unsignedInteger('id_vuelo');
             $table->unsignedInteger('id_asiento');
-            $table->boolean('disponible_a');
+            $table->boolean('disponible_asiento');
             $table->timestamps();
 
             $table->foreign('id_vuelo')

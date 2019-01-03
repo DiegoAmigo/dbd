@@ -16,8 +16,8 @@ class Paquete extends Migration
         Schema::create('paquetes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cupos');
-            $table->integer('cant_dias');
-            $table->integer('cant_noches');
+            $table->integer('cantidad_dias');
+            $table->integer('cantidad_noches');
             $table->unsignedInteger('id_ciudad');
             $table->timestamps();
 

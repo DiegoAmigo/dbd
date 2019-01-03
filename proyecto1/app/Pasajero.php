@@ -11,7 +11,7 @@ class Pasajero extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'tipo_documento', 'fecha_nac_p', 'nombre_p', 'apellido_p', 'asistencia_especial', 'id_pais'
+    	'tipo_documento', 'fecha_nacimiento', 'nombre_pasajero', 'apellido_pasajero', 'asistencia_especial', 'id_pais'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos

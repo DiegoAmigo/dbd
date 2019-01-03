@@ -18,7 +18,7 @@ class Vuelo extends Migration
             $table->time('hora_fin');
             $table->time('hora_inicio');
             $table->integer('cupos_disponibles');
-            $table->integer('disponible_v');
+            $table->boolean('disponible_vuelo');
             $table->boolean('atraso');
 			$table->unsignedInteger('id_aerolinea');
             $table->timestamps();

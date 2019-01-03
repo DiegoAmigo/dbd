@@ -19,7 +19,6 @@ class CreateTransporteTable extends Migration
             $table->integer('tipo_transporte');
             $table->integer('monto');
             $table->string('empresa_transporte', 32);
-            $table->integer('precio_total');
             $table->unsignedInteger('id_ciudad');
             $table->integer('capacidad_transporte');
             $table->timestamps();

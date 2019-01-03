@@ -13,7 +13,17 @@ class CreateAsientoTrigger extends Migration
      */
     public function up()
     {
-		DB::statement(/*'
+
+
+        DB::unprepared('
+        CREATE TRIGGER asiento_trigger AFTER INSERT ON avions FOR EACH ROW
+        BEGIN
+         INSERT INTO asientos (numero_asiento, letra_asiento, id_clase, id_avion) VALUES (1,1,1, NEW.id );
+        END
+        ');
+
+        /*
+		DB::statement(*//*'
         CREATE OR REPLACE FUNCTION AsingAsiento()
         RETURNS trigger AS
         $$
@@ -30,6 +40,7 @@ class CreateAsientoTrigger extends Migration
         CREATE TRIGGER user_role AFTER INSERT ON asientos FOR EACH ROW
         EXECUTE PROCEDURE AsingAsiento();
         '*/
+        /*
 		'CREATE OR REPLACE FUNCTION AsingAsiento()
             RETURNS TRIGGER AS 
             $$
@@ -40,11 +51,11 @@ class CreateAsientoTrigger extends Migration
                 id_avi = (
                     SELECT asi.id_avion 
                     FROM asientos asi, avions avi
-                    WHERE asi.id_avion = avions.id AND asi.id = NEW.id
+                    WHERE asi.id_avion = avi.id AND asi.id = NEW.id
                     limit 5);
 				id_cl = (
                     SELECT asi.id_clase 
-                    FROM asientos asi, clase cl
+                    FROM asientos asi, clases cl
                     WHERE asi.id_avion = id_avi AND asi.id_clase = cl.id AND asi.id = NEW.id
                     limit 5);	
                 INSERT INTO asientos (numero_asiento, letra_asiento, id_clase, id_avion)
@@ -57,6 +68,8 @@ class CreateAsientoTrigger extends Migration
         DB::unprepared('
         CREATE TRIGGER asiento_asignado AFTER INSERT ON asientos FOR EACH ROW
         EXECUTE PROCEDURE AsingAsiento();');
+        
+        */
     }
 
     /**

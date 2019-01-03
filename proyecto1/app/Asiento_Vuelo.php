@@ -11,7 +11,7 @@ class Asiento_Vuelo extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'id_asiento', 'id_vuelo', 'disponible_a'
+    	'id_asiento', 'id_vuelo', 'disponible_asiento'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos

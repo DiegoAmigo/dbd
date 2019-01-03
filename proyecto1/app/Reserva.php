@@ -11,8 +11,8 @@ class Reserva extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'tipo_reserva', 'checkin', 'pagado', 'total_reserva', 'correo_cl', 'telefono_cl', 
-		'id_cliente', 'id_habitacion', 'fecha_inicio_h', 'fecha_fin_h', 'id_paquete', 'patente', 'fecha_i_t', 'fecha_f_t', 
+    	'tipo_reserva', 'checkin', 'pagado', 'total_reserva', 'correo_cliente', 'telefono_cliente', 
+		'id_cliente', 'id_habitacion', 'fecha_inicio_h', 'fecha_fin_h', 'id_paquete', 'id_transporte', 'fecha_i_t', 'fecha_f_t', 
 		'id_seguro'
     ];
     //relacion con otra tabla

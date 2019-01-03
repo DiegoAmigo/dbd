@@ -16,9 +16,10 @@ class Cliente extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('tipo_documento');
-            $table->string('nombre_cl',60);
-            $table->string('apellido_cl',35);
-            $table->string('e-mail',60);
+            $table->integer('numero_documento');
+            $table->string('nombre_cliente',60);
+            $table->string('apellido_cliente',35);
+            $table->string('correo_cliente',60);
             $table->date('fecha_nacimiento');
             $table->char('contrasena',32);
             $table->integer('puntos_millas');

@@ -11,7 +11,7 @@ class Transporte extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'patente', 'tipo_transporte', 'empresa_transporte', 'monto', 'precio_total', 'capacidad_transporte', 'id_ciudad'
+    	'patente', 'tipo_transporte', 'empresa_transporte', 'monto', 'capacidad_transporte', 'id_ciudad'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos
