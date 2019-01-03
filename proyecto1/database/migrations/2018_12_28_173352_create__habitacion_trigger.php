@@ -13,6 +13,7 @@ class CreateHabitacionTrigger extends Migration
      */
     public function up()
     {
+        /*
         DB::statement('
         CREATE OR REPLACE FUNCTION AsingHabitacion()
             RETURNS TRIGGER AS 
@@ -36,6 +37,7 @@ class CreateHabitacionTrigger extends Migration
         CREATE TRIGGER habitacion_asignada AFTER INSERT ON habitacions FOR EACH ROW
         EXECUTE PROCEDURE AsingHabitacion();
         ');
+        */
     }
 
     /**
@@ -45,6 +47,8 @@ class CreateHabitacionTrigger extends Migration
      */
     public function down()
     {
+        /*
         Schema::dropIfExists('_habitacion_trigger');
+        */
     }
 }

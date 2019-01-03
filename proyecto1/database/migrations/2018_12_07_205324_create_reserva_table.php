@@ -24,7 +24,7 @@ class CreateReservaTable extends Migration
             $table->unsignedInteger('id_paquete');
             $table->unsignedInteger('id_cliente');
             $table->unsignedInteger('id_seguro');
-            $table->unsignedInteger('patente');
+            $table->unsignedInteger('id_transporte');
             $table->date('fecha_i_t');
             $table->date('fecha_f_t');
             //segun yo deberia ser alverre
@@ -43,7 +43,7 @@ class CreateReservaTable extends Migration
                 ->on('seguro_viajes')
                 ->onDelete('cascade');
 
-            $table->foreign('patente')
+            $table->foreign('id_transporte')
                 ->references('id')
                 ->on('transportes')
                 ->onDelete('cascade');

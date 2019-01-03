@@ -14,7 +14,7 @@ class CreateAsientoTrigger extends Migration
     public function up()
     {
 
-
+        /*
         DB::unprepared('
         CREATE TRIGGER asiento_trigger AFTER INSERT ON avions FOR EACH ROW
         BEGIN
@@ -22,6 +22,7 @@ class CreateAsientoTrigger extends Migration
         END
         ');
 
+        */
         /*
 		DB::statement(*//*'
         CREATE OR REPLACE FUNCTION AsingAsiento()
@@ -79,6 +80,8 @@ class CreateAsientoTrigger extends Migration
      */
     public function down()
     {
+        /*
         Schema::dropIfExists('_asiento_trigger');
+        */
     }
 }

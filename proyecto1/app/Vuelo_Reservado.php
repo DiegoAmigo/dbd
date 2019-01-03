@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Vuelo_Reservado extends Model
 {
     //nombre de la tabla
-    protected $table='vuelo_reservado';
+    protected $table='vuelo_reservados';
     //atributos
     //rellenar con atributos
     protected $fillable=[

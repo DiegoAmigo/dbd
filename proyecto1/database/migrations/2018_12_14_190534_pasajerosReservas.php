@@ -13,7 +13,7 @@ class PasajerosReservas extends Migration
      */
     public function up()
     {
-        Schema::create('pasajerosReservas', function (Blueprint $table) {
+        Schema::create('pasajero_reservas', function (Blueprint $table) {
             //en caso de
             $table->increments('id');
             $table->unsignedInteger('id_pasajero');

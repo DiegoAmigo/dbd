@@ -8,6 +8,7 @@ $factory->define(App\Vuelo::class, function (Faker $faker) {
         'hora_inicio' => $faker->time($format = 'H:i:s', $max = 'now'),
         'cupos_disponibles' => $faker->numberBetween(10,500),
         'disponible_vuelo' => $faker->boolean,
-        'atraso' => $faker->boolean
+        'atraso' => $faker->boolean,
+        'id_aerolinea' => $faker->numberBetween(1,20)
     ];
 });
