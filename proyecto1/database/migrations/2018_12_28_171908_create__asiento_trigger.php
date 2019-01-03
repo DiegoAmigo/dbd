@@ -41,7 +41,6 @@ class CreateAsientoTrigger extends Migration
         CREATE TRIGGER user_role AFTER INSERT ON asientos FOR EACH ROW
         EXECUTE PROCEDURE AsingAsiento();
         '*/
-        /*
 		'CREATE OR REPLACE FUNCTION AsingAsiento()
             RETURNS TRIGGER AS 
             $$
@@ -69,8 +68,6 @@ class CreateAsientoTrigger extends Migration
         DB::unprepared('
         CREATE TRIGGER asiento_asignado AFTER INSERT ON asientos FOR EACH ROW
         EXECUTE PROCEDURE AsingAsiento();');
-        
-        */
     }
 
     /**

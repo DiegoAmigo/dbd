@@ -13,7 +13,6 @@ class CreateVueloTrigger extends Migration
      */
     public function up()
     {
-        /*
         DB::statement('
         CREATE OR REPLACE FUNCTION AsingVuelos()
             RETURNS TRIGGER AS 
@@ -47,7 +46,6 @@ class CreateVueloTrigger extends Migration
         CREATE TRIGGER vuelos_asignados AFTER INSERT ON vuelos FOR EACH ROW
         EXECUTE PROCEDURE AsingVuelos();
         ');
-        */
     }
 
     /**
