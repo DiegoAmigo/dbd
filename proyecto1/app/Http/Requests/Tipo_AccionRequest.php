@@ -24,8 +24,8 @@ class Tipo_AccionRequest extends FormRequest
     public function rules()
     {
         return [
-			'accion' => 'required',
-			'descripcion_accion' => 'required'
+			'accion' => 'required|string',
+			'descripcion_accion' => 'required|string'
         ];
     }
 }

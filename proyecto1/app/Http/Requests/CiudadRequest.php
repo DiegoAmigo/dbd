@@ -24,8 +24,8 @@ class CiudadRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre_ciudad' => 'required',
-			'id_pais' => 'required'
+            'nombre_ciudad' => 'required|string',
+			'id_pais' => 'required|integer'
         ];
     }
 }

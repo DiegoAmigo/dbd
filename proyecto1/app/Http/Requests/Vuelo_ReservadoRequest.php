@@ -24,8 +24,8 @@ class Vuelo_ReservadoRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_reserva' => 'required',
-			'id_vuelo' => 'required'
+            'id_reserva' => 'required|integer',
+			'id_vuelo' => 'required|integer'
         ];
     }
 }

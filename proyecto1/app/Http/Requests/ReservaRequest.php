@@ -24,21 +24,21 @@ class ReservaRequest extends FormRequest
     public function rules()
     {
         return [
-			'tipo_reserva' => 'required',
-			'checkin' => 'required',
-			'pagado' => 'required',
-			'total_reserva' => 'required',
-			'correo_cl' => 'required',
-			'telefono_cl' => 'required',
-			'id_cliente' => 'required',
-			'id_habitacion' => 'required',
-			'fecha_inicio_h' => 'required',
-			'fecha_fin_h' => 'required',
-			'id_paquete' => 'required',
-			'patente' => 'required',
-			'fecha_i_t' => 'required',
-			'fecha_f_t' => 'required',
-			'id_seguro' => 'required'
+			'tipo_reserva' => 'required|integer',
+			'checkin' => 'required|boolean',
+			'pagado' => 'required|boolean',
+			'total_reserva' => 'required|integer',
+			'correo_cl' => 'required|email',
+			'telefono_cl' => 'required|string',
+			'id_cliente' => 'required|string',
+			'id_habitacion' => 'required|integer',
+			'fecha_inicio_h' => 'required|date',
+			'fecha_fin_h' => 'required|date',
+			'id_paquete' => 'required|integer',
+			'id_transporte' => 'required|integer',
+			'fecha_i_t' => 'required|date',
+			'fecha_f_t' => 'required|date',
+			'id_seguro' => 'required|integer'
         ];
     }
 }

@@ -26,13 +26,13 @@ class CreateVueloTrigger extends Migration
                     FROM vuelos vue, vuelo_aeropuertos va, aeropuertos aero, aerolineas al
                     WHERE vue.id_aerolinea = al.id AND va.id_vuelo = vue.id AND va.id_aeropuerto = aero.id 
 							AND va.origen = false AND vue.id = NEW.id
-                    limit 5);
+                    );
 				id_aero_ori = (
                     SELECT asi.id_avion 
                     FROM vuelos vue, vuelo_aeropuertos va, aeropuertos aero, aerolineas al
                     WHERE vue.id_aerolinea = al.id AND va.id_vuelo = vue.id AND va.id_aeropuerto = aero.id 
 							AND va.origen = true AND vue.id = NEW.id
-                    limit 5);	
+                    );	
                 INSERT INTO vuelo_aeropuertos (id_aeropuerto, id_vuelo, origen)
                 VALUES (id_aero_des, NEW.id_vuelo, false);
 				INSERT INTO vuelo_aeropuertos (id_aeropuerto, id_vuelo, origen)

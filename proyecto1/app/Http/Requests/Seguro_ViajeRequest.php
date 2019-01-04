@@ -24,8 +24,8 @@ class Seguro_ViajeRequest extends FormRequest
     public function rules()
     {
         return [
-            'descripcion' => 'required',
-			'tipo_plan' => 'required'
+            'descripcion' => 'required|string',
+			'tipo_plan' => 'required|integer'
         ];
     }
 }

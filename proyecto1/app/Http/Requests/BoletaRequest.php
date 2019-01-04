@@ -24,10 +24,10 @@ class BoletaRequest extends FormRequest
     public function rules()
     {
         return [
-            'monto_total' => 'required',
-			'fecha_pago' => 'required',
-			'id_tipo_pago' => 'required',
-			'id_reserva' => 'required'
+            'monto_total' => 'required|integer',
+			'fecha_pago' => 'required|date',
+			'id_tipo_pago' => 'required|integer',
+			'id_reserva' => 'required|integer'
         ];
     }
 }

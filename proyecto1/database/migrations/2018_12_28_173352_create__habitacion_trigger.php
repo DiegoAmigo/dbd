@@ -24,7 +24,7 @@ class CreateHabitacionTrigger extends Migration
                     SELECT hab.id_hotel 
                     FROM habitacions hab, hotels hot
                     WHERE hab.id_hotel = hot.id AND hab.id = NEW.id
-                    limit 5);	
+                    );	
                 INSERT INTO habitacions (capacidad_habitacion, monto, disponilibidad_habitacion, numero_habitacion, id_hotel)
                 VALUES (NEW.capacidad_habitacion, NEW.monto, NEW.disponilibidad_habitacion, NEW.numero_habitacion, id_hot);
                 RETURN NULL;

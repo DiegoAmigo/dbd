@@ -24,11 +24,11 @@ class HabitacionRequest extends FormRequest
     public function rules()
     {
         return [
-            'capacidad_habitacion' => 'required',
-			'monto' => 'required',
-			'disponibilidad_habitacion' => 'required',
-			'numero_habitacion' => 'required',
-			'id_hotel' => 'required'
+            'capacidad_habitacion' => 'required|integer',
+			'monto' => 'required|integer',
+			'disponibilidad_habitacion' => 'required|boolean',
+			'numero_habitacion' => 'required|integer',
+			'id_hotel' => 'required|integer'
         ];
     }
 }

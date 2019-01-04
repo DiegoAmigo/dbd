@@ -24,9 +24,9 @@ class AvionRequest extends FormRequest
     public function rules()
     {
         return [
-            'marca' => 'required',
-			'modelo' => 'required',
-			'capacidad_a' => 'required'
+            'marca' => 'required|string',
+			'modelo' => 'required|string',
+			'capacidad_avion' => 'required|integer'
         ];
     }
 }

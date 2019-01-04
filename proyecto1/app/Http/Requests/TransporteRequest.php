@@ -24,13 +24,13 @@ class TransporteRequest extends FormRequest
     public function rules()
     {
         return [
-            'patente' => 'required',
-			'tipo_transporte' => 'required',
-			'empresa_transporte' => 'required',
-			'monto' => 'required',
-			'precio_total' => 'required',
-			'capacidad_transporte' => 'required',
-			'id_ciudad' => 'required'
+            'patente' => 'required|string',
+			'tipo_transporte' => 'required|integer',
+			'empresa_transporte' => 'required|string',
+			'monto' => 'required|integer',
+			'precio_total' => 'required|integer',
+			'capacidad_transporte' => 'required|integer',
+			'id_ciudad' => 'required|integer'
         ];
     }
 }

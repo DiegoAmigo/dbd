@@ -24,14 +24,14 @@ class ClienteRequest extends FormRequest
     public function rules()
     {
         return [
-            'tipo_documento' => 'required',
-			'nombre_cl' => 'required',
-			'apellido_cl' => 'required',
-			'e-mail' => 'required',
-			'fecha_nacimiento' => 'required',
-			'contrasena' => 'required',
-			'puntos_millas' => 'required',
-			'id_pais' => 'required'
+            'tipo_documento' => 'required|integer',
+			'nombre_cl' => 'required|string',
+			'apellido_cl' => 'required|string',
+			'e-mail' => 'required|email',
+			'fecha_nacimiento' => 'required|date',
+			'contrasena' => 'required|string',
+			'puntos_millas' => 'required|integer',
+			'id_pais' => 'required|integer'
         ];
     }
 }

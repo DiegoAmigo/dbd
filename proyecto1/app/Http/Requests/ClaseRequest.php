@@ -24,8 +24,8 @@ class ClaseRequest extends FormRequest
     public function rules()
     {
         return [
-            'tipo_clase' => 'required',
-			'descripcion_clase' => 'required'
-        ];
+            'tipo_clase' => 'required|integer',
+			'descripcion_clase' => 'required|string'
+        ]
     }
 }

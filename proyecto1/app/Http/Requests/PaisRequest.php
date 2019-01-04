@@ -24,7 +24,7 @@ class PaisRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre_pais' => 'required'
+            'nombre_pais' => 'required|string'
         ];
     }
 }

@@ -24,8 +24,8 @@ class Pasajero_ReservaRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_pasajero' => 'required',
-			'id_reserva' => 'required'
+            'id_pasajero' => 'required|integer',
+			'id_reserva' => 'required|integer'
         ];
     }
 }

@@ -24,12 +24,12 @@ class VueloRequest extends FormRequest
     public function rules()
     {
         return [
-            'hora_inicio' => 'required',
-			'hora_fin' => 'required',
-			'cupos_disponibles' => 'required',
-			'disponible_v' => 'required',
-			'atraso' => 'required',
-			'id_aerolinea' => 'required'
+            'hora_inicio' => 'required|date_format:"H:i:s"',
+			'hora_fin' => 'required|date_format:"H:i:s"',
+			'cupos_disponibles' => 'required|integer',
+			'disponible_v' => 'required|boolean',
+			'atraso' => 'required|boolean',
+			'id_aerolinea' => 'required|integer'
         ];
     }
 }

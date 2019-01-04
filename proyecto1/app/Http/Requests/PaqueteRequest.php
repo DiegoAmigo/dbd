@@ -24,10 +24,10 @@ class PaqueteRequest extends FormRequest
     public function rules()
     {
         return [
-			'cupos' => 'required',
-			'cant_noches' => 'required',
-			'cant_dias' => 'required',
-			'id_ciudad' => 'required'
+			'cupos' => 'required|integer',
+			'cant_noches' => 'required|integer',
+			'cant_dias' => 'required|integer',
+			'id_ciudad' => 'required|integer'
         ];
     }
 }

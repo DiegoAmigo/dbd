@@ -24,8 +24,8 @@ class Asiento_ReservadoRequest extends FormRequest
     public function rules()
     {
         return [
-			'id_reserva' => 'required',
-			'id_asiento' => 'required'
+			'id_reserva' => 'required|integer',
+			'id_asiento' => 'required|integer'
         ];
     }
 }

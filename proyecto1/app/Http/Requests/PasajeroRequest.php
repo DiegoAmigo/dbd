@@ -24,12 +24,12 @@ class PasajeroRequest extends FormRequest
     public function rules()
     {
         return [
-            'tipo_documento' => 'required',
-			'fecha_nac_p' => 'required',
-			'nombre_p' => 'required',
-			'apellido_p' => 'required',
-			'asistencia_especial' => 'required',
-			'id_pais' => 'required'
+            'tipo_documento' => 'required|integer',
+			'fecha_nacimiento' => 'required|date',
+			'nombre_pasajero' => 'required|string',
+			'apellido_pasajero' => 'required|string',
+			'asistencia_especial' => 'required|boolean',
+			'id_pais' => 'required|integer'
         ];
     }
 }

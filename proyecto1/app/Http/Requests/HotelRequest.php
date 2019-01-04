@@ -24,10 +24,10 @@ class HotelRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre_hotel' => 'required',
-			'direccion_hotel' => 'required',
-			'cant_estrellas' => 'required',
-			'id_ciudad' => 'required'
+            'nombre_hotel' => 'required|string',
+			'direccion_hotel' => 'required|string',
+			'cant_estrellas' => 'required|integer|max:5',
+			'id_ciudad' => 'required|integer'
         ];
     }
 }

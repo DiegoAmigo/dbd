@@ -24,9 +24,9 @@ class Asiento_VueloRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_vuelo' => 'required',
-			'id_asiento' => 'required',
-			'disponible_a' => 'required'
+            'id_vuelo' => 'required|integer',
+			'id_asiento' => 'required|integer',
+			'disponible_asiento' => 'required|boolean'
         ];
     }
 }

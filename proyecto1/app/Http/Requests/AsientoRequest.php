@@ -24,10 +24,10 @@ class AsientoRequest extends FormRequest
     public function rules()
     {
         return [
-            'numero_asiento' => 'required',
-			'letra_asiento' => 'required',
-			'id_avion' => 'required',
-			'id_clase' => 'required'
+            'numero_asiento' => 'required|integer',
+			'letra_asiento' => 'required|string',
+			'id_avion' => 'required|integer',
+			'id_clase' => 'required|integer'
         ];
     }
 }

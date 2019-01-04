@@ -24,9 +24,9 @@ class Historial_ClienteRequest extends FormRequest
     public function rules()
     {
         return [
-			'fecha' => 'required',
-			'id_cliente' => 'required',
-			'id_tipo_accion' => 'required'
+			'fecha' => 'required|date',
+			'id_cliente' => 'required|integer',
+			'id_tipo_accion' => 'required|integer'
         ];
     }
 }

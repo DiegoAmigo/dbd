@@ -24,8 +24,8 @@ class Tipo_PagoRequest extends FormRequest
     public function rules()
     {
         return [
-			'nombre_tipo' => 'required',
-			'detalle_pago' => 'required'
+			'nombre_tipo' => 'required|string',
+			'detalle_pago' => 'required|string'
         ];
     }
 }

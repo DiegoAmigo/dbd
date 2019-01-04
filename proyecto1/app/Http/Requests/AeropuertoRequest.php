@@ -24,9 +24,9 @@ class AeropuertoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre_aeropuerto' => 'required',
-			'capacidad_aviones' => 'required',
-			'id_ciudad' => 'required'
+            'nombre_aeropuerto' => 'required|string',
+			'capacidad_aviones' => 'required|integer',
+			'id_ciudad' => 'required|integer'
         ];
     }
 }
