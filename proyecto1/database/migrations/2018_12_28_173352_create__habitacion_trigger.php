@@ -18,22 +18,24 @@ class CreateHabitacionTrigger extends Migration
             RETURNS TRIGGER AS 
             $$
             DECLARE
-                id_hot int;
+                cap int;
+                num int;
             BEGIN
-                id_hot = (
-                    SELECT hab.id_hotel 
-                    FROM habitacions hab, hotels hot
-                    WHERE hab.id_hotel = hot.id AND hab.id = NEW.id
+                cap = (
+                    SELECT random() * 10 + 1
                     );	
-                INSERT INTO habitacions (capacidad_habitacion, monto, disponilibidad_habitacion, numero_habitacion, id_hotel)
-                VALUES (NEW.capacidad_habitacion, NEW.monto, NEW.disponilibidad_habitacion, NEW.numero_habitacion, id_hot);
+                num = (
+                    SELECT random() * 10 + 1
+                    );  
+                INSERT INTO habitacions (capacidad_habitacion, monto, disponibilidad_habitacion, numero_habitacion, id_hotel)
+                VALUES (cap, 100, true, num, NEW.id);
                 RETURN NULL;
 			END
 				$$ LANGUAGE plpgsql;
         ');
 
         DB::unprepared('
-        CREATE TRIGGER habitacion_asignada AFTER INSERT ON habitacions FOR EACH ROW
+        CREATE TRIGGER habitacion_asignada AFTER INSERT ON hotels FOR EACH ROW
         EXECUTE PROCEDURE AsingHabitacion();
         ');
     }
