@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Vuelo_Aeropuerto;
-
+use App\Vuelo;
 class Vuelo_AeropuertoController extends Controller
 {
     /**
@@ -90,4 +90,57 @@ class Vuelo_AeropuertoController extends Controller
         }
         return $datosVuelos;
     }
+
+
+
+    public function encontrar_vuelos($id_aeropuerto_salida,$id_aeropuerto_destino)
+    {
+        $vuelos = Vuelo_Aeropuerto::where([
+    ['id_aeropuerto',$id_aeropuerto_salida],
+    ['origen',true],])->get();
+        $datosVuelos = [];
+        foreach ($vuelos as $vuelo) {
+            if (count(Vuelo_Aeropuerto::where([
+    ['id_vuelo',$vuelo->id_vuelo],
+    ['origen',false],])->get()) != 0) {
+                $datosVuelos = array_collapse([$datosVuelos,[array_collapse([[$vuelo],Vuelo_Aeropuerto::where([
+                    ['id_vuelo',$vuelo->id_vuelo],
+                    ['origen',false],])->get()])]]);
+            }
+            
+        }
+        
+        foreach ($datosVuelos as $vuelo) {
+            if ($vuelo[1]->id_aeropuerto == $id_aeropuerto_destino) {
+                return $vuelo;
+            }
+            else {
+                $vuelos2 = Vuelo_Aeropuerto::where([
+    ['id_aeropuerto',$vuelo[1]->id_aeropuerto],
+    ['origen',true],])->get();
+        $datosVuelos2 = [];
+        foreach ($vuelos2 as $vuelo2) {
+            if (count(Vuelo_Aeropuerto::where([
+    ['id_vuelo',$vuelo2->id_vuelo],
+    ['origen',false],])->get()) != 0) {
+                $datosVuelos2 = array_collapse([$datosVuelos2,[array_collapse([[$vuelo2],Vuelo_Aeropuerto::where([
+                    ['id_vuelo',$vuelo2->id_vuelo],
+                    ['origen',false],])->get()])]]);
+            }
+            
+        }
+        
+            foreach ($datosVuelos2 as $vuelo3) {
+                    if ($vuelo3[1]->id_aeropuerto == $id_aeropuerto_destino) {
+                            return array_collapse([$vuelo,$vuelo3]);
+            }
+
+            }
+            }
+            
+        }
+
+        return [];
+    }
+
 }
