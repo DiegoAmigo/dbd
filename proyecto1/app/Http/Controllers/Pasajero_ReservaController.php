@@ -90,4 +90,12 @@ class Pasajero_ReservaController extends Controller
         }
         return $datosPasajeros;
     }
+	public function pasajerosPorCliente(){
+		$cliente=Cliente::get();
+		$reserva=Reserva::where($cliente->id,'=',$reserva->id_cliente)->get();
+		$pasajero_reserva=Pasajero_Reserva::where($reserva->id,'=',$pasajero_reserva->id_reserva)->get();
+		$pasajerosCliente=collect();
+		$pasajerosCliente=$cliente->get('id','nombre_cliente')->concat($pasajero_reserva->get('id','nombre_pasajero'));
+		return $pasajerosCliente;
+	}
 }

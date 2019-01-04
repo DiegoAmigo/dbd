@@ -93,17 +93,13 @@ class ReservaController extends Controller
         $reserva->delete();
         return 'eliminado';
     }
-	public function Reserva_Cliente($nombre_cl, $nombre_ciudad){
-        /*$reserva_1 = Reserva::where('id_cliente',$id_cliente)->get();
-		$reserva_2 = Reserva::where('id_ciudad',$id_ciudad)->get();
-		$transport_aux2 = Transporte::where('empresa_transporte', '=' , $empresa_transporte)->get();
-        $transport = $transport_aux->concat($transport_aux2);*/
+	public function Reserva_Viaje($nombre_cl, $nombre_ciudad){
 		$ciudad = Ciudad::where('nombre_ciudad',$nombre_ciudad)->get();
 		$cliente = Cliente::where('nombre_cl',$nombre_cl)->get();
 		$aeropuerto = Aeropuerto::where('id_ciudad','=',$ciudad->id)->get();
 		$reserva = Reserva::where('id_cliente','=',$cliente->id)->get();
 		$vuelo_reservado = Vuelo_Reservado::where('id_reserva','=',$reserva->id)->get();
-		$vuelo_aeropuerto = Vuelo_Aeropuerto::where('id_aeropuerto','=',$aeropuerto->id)->where('id_vuelo','=',$vuelo_reservado->id_vuelo)->get();
+		$vuelo_aeropuerto = Vuelo_Aeropuerto::where('id_aeropuerto','=',$aeropuerto->id)->where('origen','=',false)->where('id_vuelo','=',$vuelo_reservado->id_vuelo)->get();
         return $vuelo_aeropuerto;
 	}
 }

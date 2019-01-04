@@ -52,12 +52,12 @@ class CreateAsientoTrigger extends Migration
                     SELECT asi.id_avion 
                     FROM asientos asi, avions avi
                     WHERE asi.id_avion = avi.id AND asi.id = NEW.id
-                    limit 5);
+                    );
 				id_cl = (
                     SELECT asi.id_clase 
                     FROM asientos asi, clases cl
                     WHERE asi.id_avion = id_avi AND asi.id_clase = cl.id AND asi.id = NEW.id
-                    limit 5);	
+                    );	
                 INSERT INTO asientos (numero_asiento, letra_asiento, id_clase, id_avion)
                 VALUES (NEW.numero_asiento, NEW.letra_asiento, id_cl, id_avi);
                 RETURN NULL;

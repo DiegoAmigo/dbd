@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 Route::get('/aerolinea/all', 'AerolineaController@index');
 Route::get('/aerolinea/show/{id}', 'AerolineaController@show');
 Route::get('/aerolinea/destroy/{id}', 'AerolineaController@destroy');
