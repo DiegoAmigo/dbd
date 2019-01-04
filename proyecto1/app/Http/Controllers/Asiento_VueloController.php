@@ -96,4 +96,13 @@ class Asiento_VueloController extends Controller
         }
         return $datosAsientos;
     }
+
+    public function asientos_disponibles($id)
+    {
+        $asientos = Asiento_Vuelo::where([
+    ['id_vuelo',$id],
+    ['disponible_asiento',true],])->get();
+        
+        return $asientos;
+    }
 }

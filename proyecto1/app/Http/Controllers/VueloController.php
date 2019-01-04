@@ -87,4 +87,10 @@ class VueloController extends Controller
         $vuelo->delete();
         return 'eliminado';
     }
+
+
+    
+
+
+
 }

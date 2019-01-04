@@ -95,6 +95,8 @@ Route::get('/reserva/show/{id}', 'ReservaController@show');
 Route::get('/reserva/store', 'ReservaController@store');
 Route::get('/reserva/destroy/{id}', 'ReservaController@destroy');
 
+Route::get('/reserva/reservar_habitacion/{id_habitacion}/{fecha_inicio}/{fecha_fin}', 'ReservaController@reservar_habitacion');
+
 
 Route::get('/seguro/all', 'Seguro_viajeController@index');
 Route::get('/seguro/show/{id}', 'Seguro_viajeController@show');
@@ -139,3 +141,6 @@ Route::get('/aeropuerto/store', 'AeropuertoController@store');
 
 Route::get('/vuelo_aeropuerto/all', 'Vuelo_AeropuertoController@index');
 Route::get('/vuelo_aeropuerto/vuelos/{id}', 'Vuelo_AeropuertoController@vuelos');
+
+Route::get('/vuelo_aeropuerto/encontrar_vuelos/{id_aeropuerto_salida}/{id_aeropuerto_destino}', 'Vuelo_AeropuertoController@encontrar_vuelos');
+
