@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Boleta;
+use App\Http\Requests\BoletaRequest;
 
 class BoletaController extends Controller
 {
@@ -31,7 +32,7 @@ class BoletaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BoletaRequest $request)
     {
         return Boleta::create($request->all());
     }
@@ -62,7 +63,7 @@ class BoletaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BoletaRequest $request, $id)
     {
         $boletas = Boleta::findOrFail($id);
         $boletas->fill($request->all());

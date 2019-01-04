@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Asiento_Reservado;
+use App\Http\Requests\Asiento_ReservadoRequest;
 
 class Asiento_ReservadoController extends Controller
 {
@@ -33,7 +34,7 @@ class Asiento_ReservadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Asiento_Reservado $request)
     {
         return Asiento_Reservado::create($request->all());
     }
@@ -67,7 +68,7 @@ class Asiento_ReservadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Asiento_Reservado $request, $id)
     {
         $asiento_reservado = Asiento_Reservado::find($id);
         $asiento_reservado->fill($request->all());

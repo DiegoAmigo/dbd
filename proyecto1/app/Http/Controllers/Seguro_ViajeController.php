@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Seguro_Viaje;
+use App\Http\Requests\Seguro_ViajeRequest;
 
 class Seguro_ViajeController extends Controller
 {
@@ -31,7 +32,7 @@ class Seguro_ViajeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Seguro_ViajeRequest $request)
     {
         return Seguro_Viaje::create($request->all());
     }
@@ -62,7 +63,7 @@ class Seguro_ViajeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Seguro_ViajeRequest $request, $id)
     {
         $seguro = Seguro_Viaje::findOrFail($id);
         $seguro->fill($request->all());

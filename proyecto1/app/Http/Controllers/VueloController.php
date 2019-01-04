@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Vuelo;
+use App\Http\Requests\VueloRequest;
 
 class VueloController extends Controller
 {
@@ -33,7 +34,7 @@ class VueloController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VueloRequest $request)
     {
         return Vuelo::create($request->all());
     }
@@ -67,7 +68,7 @@ class VueloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(VueloRequest $request, $id)
     {
         $vuelo = Vuelo::find($id);
         $vuelo->fill($request->all());

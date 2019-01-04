@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Aeropuerto;
+use App\Http\Requests\AeropuertoRequest;
 
 class AeropuertoController extends Controller
 {
@@ -32,7 +33,7 @@ class AeropuertoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AeropuertoRequest $request)
     {
         return Aeropuerto::create($request->all());
     }
@@ -63,7 +64,7 @@ class AeropuertoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AeropuertoRequest $request, $id)
     {
         $aeropuerto = Aeropuerto::findOrFail($id);
         $aeropuerto->fill($request->all());

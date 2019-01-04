@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pasajero;
+use App\Http\Requests\PasajeroRequest;
 
 class PasajeroController extends Controller
 {
@@ -33,7 +34,7 @@ class PasajeroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PasajeroRequest $request)
     {
        /* return Pasajero::create($request->all());*/
 	   return Pasajero::create($request->all());
@@ -68,7 +69,7 @@ class PasajeroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PasajeroRequest $request, $id)
     {
         $pasajero = Pasajero::findOrFail($id);
         $pasajero->fill($request->all());

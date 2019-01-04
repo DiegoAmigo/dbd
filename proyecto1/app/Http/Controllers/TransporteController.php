@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transporte;
+use App\Http\Requests\TransporteRequest;
 
 class TransporteController extends Controller
 {
@@ -33,7 +34,7 @@ class TransporteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TransporteRequest $request)
     {
         return Transporte::create($request->all());
     }
@@ -67,7 +68,7 @@ class TransporteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TransporteRequest $request, $id)
     {
         $transporte = Transporte::find($id);
         $transporte->fill($request->all());
@@ -94,4 +95,5 @@ class TransporteController extends Controller
         $transport = $transport_aux->concat($transport_aux2);
         return $transport;
 	}
+	
 }

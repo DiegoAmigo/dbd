@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tipo_Accion;
+use App\Http\Requests\Tipo_AccionRequest;
 
 class Tipo_AccionController extends Controller
 {
@@ -31,7 +32,7 @@ class Tipo_AccionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Tipo_AccionRequest $request)
     {
          return Tipo_Accion::create($request->all());
     }
@@ -62,7 +63,7 @@ class Tipo_AccionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Tipo_AccionRequest $request, $id)
     {
         $tipo_accion = Tipo_Accion::find($id);
         $tipo_accion->fill($request->all());

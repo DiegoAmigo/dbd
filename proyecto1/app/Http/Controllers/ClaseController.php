@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Clase;
+use App\Http\Requests\ClaseRequest;
 
 class ClaseController extends Controller
 {
@@ -33,7 +34,7 @@ class ClaseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClaseRequest $request)
     {
 		return Clase::create($request->all());
     }
@@ -63,7 +64,7 @@ class ClaseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ClaseRequest $request, $id)
     {
        $clase = Clase::findOrFail($id);
        $clase->fill($request->all());

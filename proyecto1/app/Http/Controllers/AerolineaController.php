@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Aerolinea;
+use App\Http\Requests\AerolineaRequest;
 
 class AerolineaController extends Controller
 {
@@ -33,7 +34,7 @@ class AerolineaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AerolineaRequest $request)
     {
         return Aerolinea::create($request->all());
     }
@@ -67,7 +68,7 @@ class AerolineaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AerolineaRequest $request, $id)
     {
         $aerolinea = Aerolinea::findOrFail($id);
         $aerolinea->fill($request->all());

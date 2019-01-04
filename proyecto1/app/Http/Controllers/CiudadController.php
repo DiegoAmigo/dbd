@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ciudad;
+use App\Http\Requests\CiudadRequest;
 
 class CiudadController extends Controller
 {
@@ -31,7 +32,7 @@ class CiudadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CiudadRequest $request)
     {
 		return Ciudad::create($request->all());
     }
@@ -62,7 +63,7 @@ class CiudadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CiudadRequest $request, $id)
     {
         $ciudad = Ciudad::findOrFail($id);
         $ciudad->fill($request->all());

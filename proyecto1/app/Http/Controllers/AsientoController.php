@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Asiento;
+use App\Http\Requests\AsientoRequest;
 
 class AsientoController extends Controller
 {
@@ -31,7 +32,7 @@ class AsientoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AsientoRequest $request)
     {
         return Asiento::create($request->all());
     }
@@ -62,7 +63,7 @@ class AsientoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AsientoRequest $request, $id)
     {
         $asientos = Asiento::findOrFail($id);
         $asientos->fill($request->all());

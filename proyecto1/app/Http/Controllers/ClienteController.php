@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cliente;
 use APP\Pasajero;
+use App\Http\Requests\ClienteRequest;
 
 class ClienteController extends Controller
 {
@@ -32,7 +33,7 @@ class ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClienteRequest $request)
     {
         return Cliente::create($request->all());
     }
@@ -63,7 +64,7 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ClienteRequest $request, $id)
     {
         $clientes = Cliente::findOrFail($id);
         $clientes->fill($request->all());

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Habitacion;
+use App\Http\Requests\HabitacionRequest;
 
 class HabitacionController extends Controller
 {
@@ -31,7 +32,7 @@ class HabitacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(HabitacionRequest $request)
     {
         //por alguna razon me dice que no funciona con postman
         //supuesto ejemplo de comoo guardar
@@ -65,7 +66,7 @@ class HabitacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(HabitacionRequest $request, $id)
     {
         $habitacions = Habitacion::findOrFail($id);
         $habitacions->fill($request->all());

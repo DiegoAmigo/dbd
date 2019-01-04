@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pasajero_Reserva;
+use App\Http\Requests\Pasajero_ReservaRequest;
 
 class Pasajero_ReservaController extends Controller
 {
@@ -31,7 +32,7 @@ class Pasajero_ReservaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Pasajero_ReservaRequest $request)
     {
 		return Pasajero_Reserva::create($request->all());
     }
@@ -62,7 +63,7 @@ class Pasajero_ReservaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Pasajero_ReservaRequest $request, $id)
     {
         $pasajero_reserva = Pasajero_Reserva::findOrFail($id);
         $pasajero_reserva->fill($request->all());

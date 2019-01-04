@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Vuelo_Reservado;
+use App\Http\Requests\Vuelo_ReservadoRequest;
 
 class Vuelo_ReservadoController extends Controller
 {
@@ -31,7 +32,7 @@ class Vuelo_ReservadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Vuelo_ReservadoRequest $request)
     {
 		return Vuelo_Reservado::create($request->all());
     }
@@ -62,7 +63,7 @@ class Vuelo_ReservadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Vuelo_ReservadoRequest $request, $id)
     {
         $vuelo_reservado = Vuelo_Reservado::findOrFail($id);
         $vuelo_reservado->fill($request->all());

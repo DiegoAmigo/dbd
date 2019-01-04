@@ -9,6 +9,7 @@ use App\Ciudad;
 use App\Vuelo_Aeropuerto;
 use App\Aeropuerto;
 use App\Vuelo_Reservado;
+use App\Http\Requests\ReservaRequest;
 
 class ReservaController extends Controller
 {
@@ -38,7 +39,7 @@ class ReservaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ReservaRequest $request)
     {
         /*return Reserva::create($request->all());*/
 		return Reserva::create($request->all());
@@ -73,7 +74,7 @@ class ReservaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ReservaRequest $request, $id)
     {
         $reserva = Reserva::findOrFail($id);
         $reserva->fill($request->all());

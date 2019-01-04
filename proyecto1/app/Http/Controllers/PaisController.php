@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pais;
+use App\Http\Requests\PaisRequest;
 
 class PaisController extends Controller
 {
@@ -31,7 +32,7 @@ class PaisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PaisRequest $request)
     {
         /*return Pais::create($request->all());*/
 		return Pais::create($request->all());
@@ -63,7 +64,7 @@ class PaisController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PaisRequest $request, $id)
     {
         $pais = Pais::findOrFail($id);
         $pais->fill($request->all());

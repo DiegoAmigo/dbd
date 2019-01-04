@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Paquete;
+use App\Http\Requests\PaqueteRequest;
 
 class PaqueteController extends Controller
 {
@@ -33,7 +34,7 @@ class PaqueteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PaqueteRequest $request)
     {
         /*return Paquete::create($request->all());*/
 		return Paquete::create($request->all());
@@ -68,7 +69,7 @@ class PaqueteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PaqueteRequest $request, $id)
     {
         $paquete = Paquete::findOrFail($id);
         $paquete->fill($request->all());

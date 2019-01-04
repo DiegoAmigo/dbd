@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tipo_Pago;
+use App\Http\Requests\Tipo_PagoRequest;
 
 class Tipo_PagoController extends Controller
 {
@@ -33,7 +34,7 @@ class Tipo_PagoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Tipo_PagoRequest $request)
     {
         return Tipo_Pago::create($request->all());
     }
@@ -67,7 +68,7 @@ class Tipo_PagoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Tipo_PagoRequest $request, $id)
     {
         $pago = Tipo_Pago::find($id);
         $pago->fill($request->all());

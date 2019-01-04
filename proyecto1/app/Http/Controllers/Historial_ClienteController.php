@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Historial_Cliente;
+use App\Http\Requests\Historial_ClienteRequest;
 
 class Historial_ClienteController extends Controller
 {
@@ -33,7 +34,7 @@ class Historial_ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Historial_ClienteRequest $request)
     {
         return Historial_Cliente::create($request->all());
     }
@@ -67,7 +68,7 @@ class Historial_ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Historial_ClienteRequest $request, $id)
     {
         $historial = Historial_Cliente::findOrFail($id);
         $historial->fill($request->all());

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Vuelo_Aeropuerto;
 use App\Vuelo;
+use App\Http\Requests\Vuelo_AeropuertoRequest;
+
 class Vuelo_AeropuertoController extends Controller
 {
     /**
@@ -31,7 +33,7 @@ class Vuelo_AeropuertoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Vuelo_AeropuertoRequest $request)
     {
 		return Vuelo_Aeropuerto::create($request->all());
     }
@@ -62,7 +64,7 @@ class Vuelo_AeropuertoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Vuelo_AeropuertoRequest $request, $id)
     {
         $vuelo_aeropuerto = Vuelo_Aeropuerto::find($id);
         $vuelo_aeropuerto->fill($request->all());

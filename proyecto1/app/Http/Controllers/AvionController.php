@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Avion;
+use App\Http\Requests\AvionRequest;
 
 class AvionController extends Controller
 {
@@ -33,7 +34,7 @@ class AvionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AvionRequest $request)
     {
         return Avion::create($request->all());
     }
@@ -67,7 +68,7 @@ class AvionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AvionRequest $request, $id)
     {
         $avion = Avion::find($id);
         $avion->fill($request->all());

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Hotel;
+use App\Http\Requests\HotelRequest;
 
 class HotelController extends Controller
 {
@@ -33,7 +34,7 @@ class HotelController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(HotelRequest $request)
     {
         return Hotel::create($request->all());
     }
@@ -67,7 +68,7 @@ class HotelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(HotelRequest $request, $id)
     {
         $hotel = Hotel::find($id);
         $hotel->fill($request->all());
