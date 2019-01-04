@@ -19,6 +19,7 @@ class CreateHotelTable extends Migration
             $table->string('direccion_hotel', 80);
             $table->integer('cantidad_estrellas');
             $table->unsignedInteger('id_ciudad');
+            $table->boolean('ocupado');
             $table->timestamps();
 
             $table->foreign('id_ciudad')
