@@ -108,10 +108,10 @@ class ReservaController extends Controller
     public function reservar_habitacion($id_habitacion,$fecha_inicio,$fecha_fin)
     {
         $habitacions = Reserva::where('id_habitacion',$id_habitacion)->get();
-        $disponible = true;
+        $disponible = "true";
         foreach ($habitacions as $habitacion) {
             if ( ( ($habitacion->fecha_inicio_h <= $fecha_inicio) and ($habitacion->fecha_fin_h >= $fecha_inicio) ) or ( ($habitacion->fecha_inicio_h <= $fecha_fin) and ($habitacion->fecha_fin_h >= $fecha_fin) ) or ( ($habitacion->fecha_inicio_h >= $fecha_inicio) and ($habitacion->fecha_fin_h <= $fecha_fin) ) ) {
-                $disponible = false;
+                $disponible = "false";
             }
         }
         return $disponible;
@@ -129,9 +129,5 @@ class ReservaController extends Controller
         return $disponible;
     }
 
-    public function reservar($id_cliente,$id_habitacion,$id_paquete,$id_transporte)
-    {
-        $habitacions = Habitacion::where('id_hotel',$id)->get();
-        return $habitacions;
-    }
+    
 }
