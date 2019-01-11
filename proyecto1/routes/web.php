@@ -145,3 +145,6 @@ Route::get('/asientos_vuelos/disponibles/{id}', 'Asiento_VueloController@asiento
 Route::get('/asientos_vuelos/all', 'Asiento_VueloController@index');
 Route::get('/asientos_vuelos/show/{id}', 'Asiento_VueloController@show');
 Route::get('/asientos_vuelos/destroy/{id}', 'Asiento_VueloController@destroy');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

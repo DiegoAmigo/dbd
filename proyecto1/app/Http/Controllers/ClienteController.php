@@ -16,7 +16,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return Cliente::all();
+        $clientes = Cliente::all();
+        return view('cliente', compact('clientes'));
     }
     /**
      * Show the form for creating a new resource.
