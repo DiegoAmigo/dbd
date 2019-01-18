@@ -95,4 +95,9 @@ class ClienteController extends Controller
 		$pasajero = Pasajero::where($cliente->nombre_cliente,'=',$pasajero->nombre_pasajero)->where($cliente->apellido_cliente,'=',$pasajero->apellido_pasajero)->where($cliente->fecha_nacimiento,'=',$pasajero->fecha_nacimiento)->get();
         return $pasajero;
 	}
+
+
+
+
+    
 }

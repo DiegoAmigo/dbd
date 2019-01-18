@@ -1,5 +1,7 @@
-<?php
 
+<?php
+use Illuminate\Support\Facades\Input;
+use App\Http\Controllers\CiudadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +13,14 @@
 |
 */
 
+Route::get('/ciudad/datos', 'CiudadController@ciudad_con_pais');
+
 Route::get('/', function () {
-    return view('welcome');
+	$datos =  CiudadController::ciudad_con_pais();
+	return View::make('welcome')->with("datos",$datos);
 });
+
+
 
 Route::get('/aerolinea/all', 'AerolineaController@index');
 Route::get('/aerolinea/show/{id}', 'AerolineaController@show');
@@ -145,6 +152,16 @@ Route::get('/asientos_vuelos/disponibles/{id}', 'Asiento_VueloController@asiento
 Route::get('/asientos_vuelos/all', 'Asiento_VueloController@index');
 Route::get('/asientos_vuelos/show/{id}', 'Asiento_VueloController@show');
 Route::get('/asientos_vuelos/destroy/{id}', 'Asiento_VueloController@destroy');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'PaisController@index'));
+Route::get('searchajax',array('as'=>'searchajax','uses'=>'PaisController@autoComplete'));
+
+
+
+Route::get('/test/datepicker', function () {
+    return view('hola');
+});

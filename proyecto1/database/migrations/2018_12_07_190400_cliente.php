@@ -21,7 +21,7 @@ class Cliente extends Migration
             $table->string('apellido_cliente',35);
             $table->string('correo_cliente',60);
             $table->date('fecha_nacimiento');
-            $table->char('contrasena',32);
+            $table->char('password',64);
             $table->integer('puntos_millas');
             $table->unsignedInteger('id_pais');
             $table->timestamps();

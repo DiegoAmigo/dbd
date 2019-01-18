@@ -83,4 +83,22 @@ class PaisController extends Controller
         $pais->delete();
         return 'eliminado';
     }
+
+
+
+    public function autoComplete(Request $request) {
+        $query = $request->get('term','');
+        
+        $products=Product::where('nombre_pais','LIKE','%'.$query.'%')->get();
+        
+        $data=array();
+        foreach ($products as $product) {
+                $data[]=array('value'=>$product->name,'id'=>$product->id);
+        }
+        if(count($data))
+             return $data;
+        else
+            return ['value'=>'No Result Found','id'=>''];
+    }
+}
 }

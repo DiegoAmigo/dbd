@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ciudad;
 use App\Http\Requests\CiudadRequest;
+use App\Pais;
 
 class CiudadController extends Controller
 {
@@ -87,5 +88,15 @@ class CiudadController extends Controller
     {
         $pais = Ciudad::where('id_ciudad',$id)->get();
         return $pais;
+    }
+
+    public static function ciudad_con_pais()
+    {
+        $ciudades = Ciudad::all();
+        $datos = [];
+        foreach ($ciudades as $ciudad) {
+            $datos = array_collapse([$datos,[array_collapse([[$ciudad],Pais::where('id',$ciudad->id_pais)->get()])]]);
+        }
+        return $datos;
     }
 }

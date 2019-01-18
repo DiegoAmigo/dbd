@@ -10,7 +10,7 @@ $factory->define(App\Cliente::class, function (Faker $faker) {
         'apellido_cliente' => $faker->lastName,
         'correo_cliente' => $faker->email,
         'fecha_nacimiento' => $faker->dateTimeBetween($startDate = '-80 years', $endDate = 'now', $timezone = null),
-        'contrasena' => $faker->password,
+        'password' => $faker->password,
         'puntos_millas' => $faker->numberBetween(1,100),
         'id_pais' => $faker->numberBetween(1,30)
     ];

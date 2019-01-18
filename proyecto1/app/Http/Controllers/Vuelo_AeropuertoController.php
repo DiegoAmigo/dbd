@@ -135,7 +135,9 @@ class Vuelo_AeropuertoController extends Controller
             foreach ($datosVuelos2 as $vuelo3) {
                     if ($vuelo3[1]->id_aeropuerto == $id_aeropuerto_destino) {
                             return array_collapse([$vuelo,$vuelo3]);
-            }
+                    }
+                    
+
 
             }
             }

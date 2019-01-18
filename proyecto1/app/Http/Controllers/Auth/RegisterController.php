@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Cliente;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -49,8 +49,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'tipo_documento' => ['required', 'int'],
+            'numero_documento' => ['required', 'int'],
+            'nombre_cliente' => ['required', 'string', 'max:255'],
+            'apellido_cliente' => ['required', 'string', 'max:255'],
+            'correo_cliente' => ['required', 'string', 'email', 'max:255', 'unique:clientes'],
+            'fecha_nacimiento' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
@@ -63,10 +67,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+        $puntos = 0;
+        return Cliente::create([
+            'tipo_documento' => $data['tipo_documento'],
+            'numero_documento' => $data['numero_documento'],
+            'nombre_cliente' => $data['nombre_cliente'],
+            'apellido_cliente' => $data['apellido_cliente'],
+            'correo_cliente' => $data['correo_cliente'],
+            'fecha_nacimiento' => $data['fecha_nacimiento'],
             'password' => Hash::make($data['password']),
+            'puntos_millas' => $puntos,
+            'id_pais' => $puntos,
         ]);
     }
 }
