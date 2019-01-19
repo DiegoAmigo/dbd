@@ -20,8 +20,24 @@ Route::get('/', function () {
 	return View::make('welcome')->with("datos",$datos);
 });
 
+Route::get('/ayuda', function(){
+	return view('ayuda');
+});
 
+Route::get('/#', function(){
+	return view('welcome');
+});
 
+Route::get('/ayuda2', function(){
+	return view('ayuda2');
+});
+Route::get('/hotel', function(){
+	return view('hoteles');
+});
+
+Route::get('/transporte', function(){
+	return view('transporte');
+});
 Route::get('/aerolinea/all', 'AerolineaController@index');
 Route::get('/aerolinea/show/{id}', 'AerolineaController@show');
 Route::get('/aerolinea/destroy/{id}', 'AerolineaController@destroy');
