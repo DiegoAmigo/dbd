@@ -68,6 +68,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $puntos = 0;
+        $pais = 1;
         return Cliente::create([
             'tipo_documento' => $data['tipo_documento'],
             'numero_documento' => $data['numero_documento'],
@@ -77,7 +78,7 @@ class RegisterController extends Controller
             'fecha_nacimiento' => $data['fecha_nacimiento'],
             'password' => Hash::make($data['password']),
             'puntos_millas' => $puntos,
-            'id_pais' => $puntos,
+            'id_pais' => $pais,
         ]);
     }
 }
