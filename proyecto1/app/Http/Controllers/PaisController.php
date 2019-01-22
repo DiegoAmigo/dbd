@@ -17,6 +17,12 @@ class PaisController extends Controller
     {
 		return Pais::all();
     }
+
+    public static function obtener_pais()
+    {
+        return Pais::all();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -85,19 +91,15 @@ class PaisController extends Controller
     }
 
 
-
-    public function autoComplete(Request $request) {
-        $query = $request->get('term','');
-        
-        $products=Product::where('nombre_pais','LIKE','%'.$query.'%')->get();
-        
-        $data=array();
-        foreach ($products as $product) {
-                $data[]=array('value'=>$product->name,'id'=>$product->id);
+    public static function getId($nombre)
+    {
+        $pais = Pais::where('nombre_pais',$nombre)->get();
+        foreach ($pais as $pais_encontrado)
+        {
+            return $pais_encontrado->id;
         }
-        if(count($data))
-             return $data;
-        else
-            return ['value'=>'No Result Found','id'=>''];
+        
     }
+
+
 }

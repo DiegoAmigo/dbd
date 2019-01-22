@@ -16,14 +16,16 @@ class Cliente extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('tipo_documento');
-            $table->integer('numero_documento');
+            $table->integer('numero_documento')->unique();
             $table->string('nombre_cliente',60);
             $table->string('apellido_cliente',35);
-            $table->string('correo_cliente',60);
+            $table->string('email',60)->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->date('fecha_nacimiento');
-            $table->char('password',64);
+            $table->string('password');
             $table->integer('puntos_millas');
             $table->unsignedInteger('id_pais');
+            $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('id_pais')

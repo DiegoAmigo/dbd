@@ -10,14 +10,26 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password', 'rol'
+
+
+    protected $table='clientes';
+    //atributos
+    //rellenar con atributos
+    protected $fillable=[
+        'tipo_documento', 'numero_documento' , 'nombre_cliente', 'apellido_cliente', 'email', 'fecha_nacimiento',
+        'password', 'puntos_millas', 'id_pais'
     ];
+    //relacion con otra tabla
+    //poner nombre en plural si se relaciona con muchos
+    public function historial(){
+        return $this->hasMany('App\Historial_Cliente');
+    }
+    public function reservas(){
+        return $this->hasMany('App\Reserva');
+    }
+    public function pais(){
+        return $this->belongsTo('App\Pais');
+    }
 
     /**
      * The attributes that should be hidden for arrays.
@@ -28,4 +40,3 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 }
-s

@@ -13,23 +13,7 @@ class UsuarioTrigger extends Migration
      */
     public function up()
     {
-        DB::statement('
-        CREATE OR REPLACE FUNCTION asignarRol()
-        RETURNS trigger AS
-        $$
-        BEGIN           
-            UPDATE users
-            SET rol = 1
-            WHERE users.id = NEW.id;
-            RETURN NEW;
-        END
-        $$ LANGUAGE plpgsql;
-        ');
-
-        DB::unprepared('
-        CREATE TRIGGER usuario_rol AFTER INSERT ON users FOR EACH ROW
-        EXECUTE PROCEDURE asignarRol();
-        ');
+        
     }
 
     /**

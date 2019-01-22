@@ -69,14 +69,14 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="correo_cliente" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="correo_cliente" type="correo_cliente" class="form-control{{ $errors->has('correo_cliente') ? ' is-invalid' : '' }}" name="correo_cliente" value="{{ old('correo_cliente') }}" required>
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
-                                @if ($errors->has('correo_cliente'))
+                                @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('correo_cliente') }}</strong>
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -119,6 +119,27 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+
+                        @inject('paisController', 'App\Http\Controllers\PaisController')
+                                <?php 
+                                    $datos =  $paisController->obtener_pais();
+                                ?>
+
+                        <div class="form-group row">
+                            <label for="pais" class="col-md-4 col-form-label text-md-right">{{ __('pais') }}</label>
+                            <div class="col-md-6">
+                            <select id="pais" class="form-control" name = "pais">
+                                
+                                <optgroup  label="Seleccione un pais">
+                                    @foreach($datos as $dato)
+                                        <option>{{$dato->nombre_pais}}</option>
+                                    @endforeach
+                                </optgroup>
+                            </select>
+                            </div>
+                        </div>
+
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
