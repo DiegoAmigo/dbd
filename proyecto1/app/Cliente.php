@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
 
 class Cliente extends Authenticatable
 {
@@ -15,7 +16,7 @@ class Cliente extends Authenticatable
     //atributos
     //rellenar con atributos
     protected $fillable=[
-		'tipo_documento', 'numero_documento' , 'nombre_cliente', 'apellido_cliente', 'correo_cliente', 'fecha_nacimiento',
+		'tipo_documento', 'numero_documento' , 'nombre_cliente', 'apellido_cliente', 'email', 'fecha_nacimiento',
 		'password', 'puntos_millas', 'id_pais'
     ];
     //relacion con otra tabla

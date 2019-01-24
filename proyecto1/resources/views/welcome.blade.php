@@ -6,42 +6,84 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/messages/messages.es-es.js"></script>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <script type="text/javascript" src="bootstrap-datepicker.es.js" charset="UTF-8"></script>
+
         <title>Compra pasajes</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        
 
-        <link href="http://demo.expertphp.in/css/jquery.ui.autocomplete.css" rel="stylesheet">
-<script src="http://demo.expertphp.in/js/jquery.js"></script>
-<script src="http://demo.expertphp.in/js/jquery-ui.min.js"></script>
         <script>
-            $(document).ready(function() {
-            $('#key').on('keyup', function() {
-                var key = $(this).val();        
-                var dataString = 'key='+key;
-            $.ajax({
-                    type: "POST",
-                    url: "ajax.php",
-                    data: dataString,
-                    success: function(data) {
-                        //Escribimos las sugerencias que nos manda la consulta
-                        $('#suggestions').fadeIn(1000).html(data);
-                        //Al hacer click en algua de las sugerencias
-                        $('.suggest-element').on('click', function(){
-                                //Obtenemos la id unica de la sugerencia pulsada
-                                var id = $(this).attr('id');
-                                //Editamos el valor del input con data de la sugerencia pulsada
-                                $('#key').val($('#'+id).attr('data'));
-                                //Hacemos desaparecer el resto de sugerencias
-                                $('#suggestions').fadeOut(1000);
-                                alert('Has seleccionado el '+id+' '+$('#'+id).attr('data'));
-                                return false;
-                        });
+            function myFunction() {
+              var x = document.getElementById("pais_origen").value;
+              var datos = <?= json_encode($datos) ?>;
+              
+              var largo = datos.length;
+               document.getElementById("ciudad_origen").innerHTML = "";
+                for (i = 0; i < largo; i++) {
+                    if (datos[i][1].nombre_pais == x) {
+                        document.getElementById("ciudad_origen").innerHTML =  document.getElementById("ciudad_origen").innerHTML + "<option>" + datos[i][0].nombre_ciudad + "</option>";
                     }
-                });
-            });
-        }); 
+                  
+                }
+
+            }
+
+            function myFunction2() {
+              var x = document.getElementById("pais_destino").value;
+              var datos = <?= json_encode($datos) ?>;
+              
+              var largo = datos.length;
+               document.getElementById("ciudad_destino").innerHTML = "";
+                for (i = 0; i < largo; i++) {
+                    if (datos[i][1].nombre_pais == x) {
+                        document.getElementById("ciudad_destino").innerHTML =  document.getElementById("ciudad_destino").innerHTML + "<option>" + datos[i][0].nombre_ciudad + "</option>";
+                    }
+                  
+                }
+
+
+            }
+
+            
+
+            function mostrar_vuelta2() {
+                element = document.getElementById("fecha_vuelta");
+                element2 = document.getElementById("fecha_vuelta_frase");
+                check1 = document.getElementById("vuelo_hotel");
+                check2 = document.getElementById("vuelo_transporte");
+                check3 = document.getElementById("vuelo_transporte_hotel");
+                if (check1.checked || check2.checked || check3.checked ) {
+                    element.style.display='block';
+                    element2.style.display='block';
+                    mostrar_vuelta();
+                }
+                else {
+                    element.style.display='none';
+                    element2.style.display='none';
+                    ocultar_vuelta();
+                }
+            }
+
+
+            
+
         </script>
+
+        
 
         <!-- Styles -->
         <style>
@@ -208,17 +250,182 @@
     </head>
     <body>
 
-        <label for="vuelo"><span>Vuelo</span></label>
-            <input type=radio id="vuelo" name="opciones" onchange="mostrar_vuelta2()">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100" src="/images/pto montt.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="/images/antofa.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="/images/pto montt.jpg" alt="Third slide">
+            </div>
+         </div>
+        </div>
 
-        <label for="vuelo_hotel"><span>Vuelo + Hotel</span></label>
-            <input type=radio id="vuelo_hotel" name="opciones" onchange="mostrar_vuelta2()">
+        <!-- barra que se encuentra bajo la imagen-->
+        <nav class="navbar navbar-light bg-info ">
+            <a class="navbar-brand mb-auto h1" href="/">LON</a>
+            <a class="navbar-brand mr-6 h1" href="ayuda2">Home</a>
+                
+                <a class="navbar-brand mr-6 h1" href="hotel">Hoteles</a>
+                <a class="navbar-brand mr-6 h1" href="transporte">Transportes</a>
+                <a class="navbar-brand mr-auto h1" href="#">Disabled</a>
+                
 
-        <label for="vuelo_transporte"><span>Vuelo + Transporte</span></label>
-            <input type=radio id="vuelo_transporte" name="opciones" onchange="mostrar_vuelta2()">
+                @if (Route::has('login'))
+                    
+                        @auth
+                            <a href="{{ url('/cliente/all') }}">Home</a>
+                        @else
+                            <a class="btn btn-light action-button" role="button" href= "{{ route('login') }}">iniciar sesión</a>
+                           
 
-        <label for="vuelo_transporte_hotel"><span>Vuelo + Transpote + Hotel</span></label>
-            <input type=radio id="vuelo_transporte_hotel" name="opciones" onchange="mostrar_vuelta2()">
+                            @if (Route::has('register'))
+                                <a class="btn btn-light action-button mr-2" role="button" href="{{ route('register') }}">Registrarse</a>
+                                
+                            @endif
+                            
+                        @endauth
+                    
+                @endif
+
+         </nav>
+
+
+
+         <!--todo lo que sería el formulario-->
+         <div class="container">
+            <div class="row" style="margin: 163px;margin-top: 17px;">
+                <div class="col-md-12" style="width: 1096px;height: 330px;">
+                    <form method="post" style="width: 748px;height: 326px;">
+                        <h2 class="sr-only">Login Form</h2>
+                        <div class="illustration"></div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                
+                                <input type=radio id="vuelo" name="opciones" onchange="mostrar_vuelta2()">
+                                <label for="vuelo"><span>Vuelo</span></label>
+                            </div>
+                            <div class="form-check">
+                                
+                                <input type=radio id="vuelo_hotel" name="opciones" onchange="mostrar_vuelta2()">
+                                <label for="vuelo_hotel"><span>Vuelo + Hotel</span></label>
+                            </div>
+                            <div class="form-check">
+                                
+                                <input type=radio id="vuelo_transporte" name="opciones" onchange="mostrar_vuelta2()">
+                                <label for="vuelo_transporte"><span>Vuelo + Transporte</span></label>
+                            </div>
+                            <div class="form-check">
+                                
+                                <input type=radio id="vuelo_transporte_hotel" name="opciones" onchange="mostrar_vuelta2()">
+                                <label for="vuelo_transporte_hotel"><span>Vuelo + Transpote + Hotel</span></label>
+                            </div>
+                        </div>
+                        <label>origen</label>
+                        <select id="pais_origen" onchange="myFunction()" class="form-control" style="margin-top: 0px;">
+                            <optgroup  label="This is a group">
+                                @foreach((array)$datos as $dato)
+                                    <option>{{last($dato)->nombre_pais}}</option>
+                                @endforeach
+                            </optgroup>
+                        </select>
+
+                        <select  class="form-control" style="margin-top: 0px;">
+                            <optgroup id="ciudad_origen" label="This is a group">
+                                
+                            </optgroup>
+                        </select>
+
+                        <p >Fecha Ida </p>
+
+                        <input id="fecha_ida" width="276"  />
+                        <script>
+                            var date = new Date(); 
+                            var today = new Date(date.getFullYear(), date.getMonth(), date.getDate()); 
+                            var fin = new Date(2019,11,31);
+                            $('#fecha_ida').datepicker({
+                              uiLibrary: 'bootstrap4',
+                              locale: 'es-es',
+                              minDate: today,
+                              maxDate: fin
+                                
+                            });
+                        </script>
+
+
+                        <p id="fecha_vuelta_frase" >Fecha vuelta </p>
+
+                        <input id="fecha_vuelta" width="276"  />
+                        <script>
+                            var date = new Date(); 
+                            var today = new Date(date.getFullYear(), date.getMonth(), date.getDate()); 
+                            var fin = new Date(2019,11,31);
+                            $('#fecha_vuelta').datepicker({
+                              uiLibrary: 'bootstrap4',
+                              locale: 'es-es',
+                              minDate: today,
+                              maxDate: fin
+                                
+                            });
+
+                            function ocultar_vuelta(){
+                                $( '#fecha_vuelta' ).datepicker( 'destroy' );
+                                $( '#fecha_vuelta' ).hide();
+                            }
+
+                            function mostrar_vuelta(){
+                                $( "#fecha_vuelta" ).show();
+                                $( "#fecha_vuelta" ).datepicker({
+                              uiLibrary: 'bootstrap4',
+                              locale: 'es-es',
+                              minDate: today,
+                              maxDate: fin
+                                
+                            });
+                            }
+                        </script>
+
+
+
+                        <label style="margin-top: 1px;padding-top: -14px;">Destino</label>
+                        <select id="pais_destino" onchange="myFunction2()" class="form-control" style="margin-top: -5px;height: 38px;">
+                            <optgroup  label="This is a group">
+                                @foreach((array)$datos as $dato)
+                                    <option>{{last($dato)->nombre_pais}}</option>
+                                @endforeach
+                            </optgroup>
+                        </select>
+
+                        <select  class="form-control" style="margin-top: 0px;">
+                            <optgroup id="ciudad_destino" label="This is a group">
+                                
+                            </optgroup>
+                        </select>
+                        
+
+                        <div class="form-group">
+                            <button class="btn btn-primary bg-info btn-block" type="submit">Viajar</button>
+                        </div>
+                        <a href="#" class="forgot">Forgot your email or password?</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+
+        
+
+        
+
+        
+
+        
 
         
         <div id = "selectores_ida_vuelta">
@@ -231,13 +438,13 @@
         <div id = "selectores_origen" class="form-group">
             <p >Origen</p>
             <div >
-            <select id="pais_origen" onchange="myFunction()" class="form-control">
+            <select id="pais_origennn" onchange="myFunction()" class="form-control">
                 @foreach((array)$datos as $dato)
                 <option>{{last($dato)->nombre_pais}}</option>
                 @endforeach
             </select>
 
-            <select id="ciudad_origen"  class="form-control">
+            <select id="ciudad_origenn"  class="form-control">
  
             </select>
             <p >Fecha Ida </p>
@@ -247,20 +454,7 @@
         </div>
 
 
-        <div id = "selectores_destino" class="form-group">
-            <p >Destino</p>
-            <div >
-            <select id="pais_destino" onchange="myFunction2()" class="form-control">
-                @foreach((array)$datos as $dato)
-                <option>{{last($dato)->nombre_pais}}</option>
-                @endforeach
-            </select>
-
-            <select id="ciudad_destino"  class="form-control">
- 
-            </select>
-            </div>
-        </div>
+        
         
         <div id = "fecha_vuelta">
             <p >Fecha vuelta </p>
@@ -269,111 +463,11 @@
         </div>
         
 
-        <script>
-            function myFunction() {
-              var x = document.getElementById("pais_origen").value;
-              var datos = <?= json_encode($datos) ?>;
-              
-              var largo = datos.length;
-               document.getElementById("ciudad_origen").innerHTML = "";
-                for (i = 0; i < largo; i++) {
-                    if (datos[i][1].nombre_pais == x) {
-                        document.getElementById("ciudad_origen").innerHTML =  document.getElementById("ciudad_origen").innerHTML + "<option>" + datos[i][0].nombre_ciudad + "</option>";
-                    }
-                  
-                }
-
-            }
-
-            function myFunction2() {
-              var x = document.getElementById("pais_destino").value;
-              var datos = <?= json_encode($datos) ?>;
-              
-              var largo = datos.length;
-               document.getElementById("ciudad_destino").innerHTML = "";
-                for (i = 0; i < largo; i++) {
-                    if (datos[i][1].nombre_pais == x) {
-                        document.getElementById("ciudad_destino").innerHTML =  document.getElementById("ciudad_destino").innerHTML + "<option>" + datos[i][0].nombre_ciudad + "</option>";
-                    }
-                  
-                }
-
-            }
-
-            function mostrar_vuelta() {
-                element = document.getElementById("fecha_vuelta");
-                check = document.getElementById("vuelta");
-                if (check.checked) {
-                    element.style.display='block';
-                }
-                else {
-                    element.style.display='none';
-                }
-            }
-
-            function mostrar_vuelta2() {
-                element = document.getElementById("fecha_vuelta");
-                check1 = document.getElementById("vuelo_hotel");
-                check2 = document.getElementById("vuelo_transporte");
-                check3 = document.getElementById("vuelo_transporte_hotel");
-                if (check1.checked || check2.checked || check3.checked ) {
-                    element.style.display='block';
-                }
-                else {
-                    element.style.display='none';
-                }
-            }
-
-        </script>
-
-        <div name = "mostrador "class="alert alert-success"></div>
-
-        <label class="checkbox-inline">
-          
-            <input type="checkbox" id="hotel" value="opcion_2">
-            Hotel
-          
-        </label>
-        <label class="checkbox-inline">
-          
-            <input type="checkbox" id="transporte" value="opcion_3">
-            Transporte
-          <span class="links" ng-if="!display.fareBreakDown">Precio final desde</span>
-        </label>
         
 
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/cliente/all') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+        
+        
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                        @if (Route::has('/cliente/all'))
-                            <a href="{{ route('/cliente/all') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div id = "titulo" class="title m-b-md">
-                    :)
-                </div>
-
-                <div class="links">
-                       <a href="https://laravel.com/docs">Hola</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
+        
     </body>
 </html>

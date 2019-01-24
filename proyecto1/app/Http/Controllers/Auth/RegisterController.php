@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Cliente;
+use App\User;
+use App\Http\Controllers\PaisController;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -22,6 +24,8 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+
+    
 
     /**
      * Where to redirect users after registration.
@@ -50,12 +54,13 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'tipo_documento' => ['required', 'int'],
-            'numero_documento' => ['required', 'int'],
+            'numero_documento' => ['required', 'int', 'unique:clientes'],
             'nombre_cliente' => ['required', 'string', 'max:255'],
             'apellido_cliente' => ['required', 'string', 'max:255'],
-            'correo_cliente' => ['required', 'string', 'email', 'max:255', 'unique:clientes'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:clientes'],
             'fecha_nacimiento' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'pais' => ['required', 'string', 'max:255']
         ]);
     }
 
@@ -69,16 +74,16 @@ class RegisterController extends Controller
     {
         $puntos = 0;
         $pais = 1;
-        return Cliente::create([
+        return User::create([
             'tipo_documento' => $data['tipo_documento'],
             'numero_documento' => $data['numero_documento'],
             'nombre_cliente' => $data['nombre_cliente'],
             'apellido_cliente' => $data['apellido_cliente'],
-            'correo_cliente' => $data['correo_cliente'],
+            'email' => $data['email'],
             'fecha_nacimiento' => $data['fecha_nacimiento'],
             'password' => Hash::make($data['password']),
             'puntos_millas' => $puntos,
-            'id_pais' => $pais,
+            'id_pais' => PaisController::getId($data['pais']),
         ]);
     }
 }

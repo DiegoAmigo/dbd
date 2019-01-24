@@ -20,6 +20,8 @@ Route::get('/', function () {
 	return View::make('welcome')->with("datos",$datos);
 });
 
+
+
 Route::get('/ayuda', function(){
 	return view('ayuda');
 });
@@ -217,3 +219,10 @@ Route::get('searchajax',array('as'=>'searchajax','uses'=>'PaisController@autoCom
 Route::get('/test/datepicker', function () {
     return view('hola');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
