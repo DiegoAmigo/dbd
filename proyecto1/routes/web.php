@@ -38,6 +38,42 @@ Route::get('/hotel', function(){
 Route::get('/transporte', function(){
 	return view('transporte');
 });
+
+Route::get('/vueloHotel', function(){
+	return view('vueloHotel');
+});
+
+Route::get('/vueloTransporte', function(){
+	return view('vueloTransporte');
+});
+
+Route::get('/vueloTransporteHotel', function(){
+	return view('vueloTransporteHotel');
+});
+
+Route::get('/blog', function(){
+	return view('blog');
+});
+
+Route::get('/inicio', function(){
+	return view('inicio');
+});
+
+Route::get('/servicios', function(){
+	return view('servicios');
+});
+
+Route::get('/paquetes', function(){
+	return view('paquetes');
+});
+
+Route::get('/autos', function(){
+	return view('autos');
+});
+
+Route::get('/hoteles', function(){
+	return view('hotels');
+});
 Route::get('/aerolinea/all', 'AerolineaController@index');
 Route::get('/aerolinea/show/{id}', 'AerolineaController@show');
 Route::get('/aerolinea/destroy/{id}', 'AerolineaController@destroy');

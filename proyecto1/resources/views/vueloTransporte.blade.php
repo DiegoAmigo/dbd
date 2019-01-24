@@ -41,9 +41,9 @@
         <div class="form-group">
             <div>
                 <ul class="nav nav-tabs">
-                    <li class="nav-item"><a role="tab" data-toggle="tab" href="#ayuda2" class="nav-link active">Vuelo</a></li>
-                    <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="vueloHotel">Vuelo y Hotel</a></li>
-                    <li class="nav-item"><a role="tab" data-toggle="tab" href="vueloTransporte" class="nav-link">Vuelo y Transporte</a></li>
+                    <li class="nav-item"><a role="tab" data-toggle="tab" href="ayuda2" class="nav-link">Vuelo</a></li>
+                    <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="vueloHotel">Vuelo y hotel</a></li>
+                    <li class="nav-item"><a role="tab" data-toggle="tab" href="vueloTransporte" class="nav-link active">Vuelo y Transporte</a></li>
                     <li class="nav-item"><a role="tab" data-toggle="tab" href="vueloTransporteHotel" class="nav-link">Vuelo, Hotel y Transporte</a></li>
                 </ul>
                 <div class="tab-content">
@@ -71,11 +71,11 @@
                             <input type="radio" class="form-check-input" id="formCheck-1" /><label class="form-check-label" for="formCheck-1">Vuelo ida + vuelta</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="formCheck-4" />
+                            <input class="form-check-input" type="checkbox" id="formCheck-4"/>
                             <label class="form-check-label" for="formCheck-4">Hotel</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="formCheck-4" />
+                            <input class="form-check-input" type="checkbox" id="formCheck-4" checked="true" />
                             <label class="form-check-label" for="formCheck-4">Transporte</label>
                         </div>
                     </div>
