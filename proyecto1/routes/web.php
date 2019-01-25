@@ -33,10 +33,6 @@ Route::get('/#', function(){
 Route::get('/ayuda2', function(){
 	return view('ayuda2');
 });
-Route::get('/hotel', function(){
-	return view('hoteles');
-});
-
 Route::get('/transporte', function(){
 	return view('transporte');
 });

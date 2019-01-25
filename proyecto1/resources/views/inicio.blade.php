@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>LON</title>
+    <title>LOTOM</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -39,7 +39,7 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active"><a href="/inicio" class="nav-link">Inicio</a></li>
             <li class="nav-item"><a href="/paquetes" class="nav-link">Paquetes</a></li>
-            <li class="nav-item"><a href="/hotel" class="nav-link">Hoteles</a></li>
+            <li class="nav-item"><a href="/hoteles" class="nav-link">Hoteles</a></li>
             <li class="nav-item"><a href="/autos" class="nav-link">Autos</a></li>
             <li class="nav-item"><a href="/sobre" class="nav-link">Sobre nosotros</a></li>
             <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>
@@ -350,6 +350,7 @@
               </form>
             </div>
           </div>-->
+
           <!-- Paquetes que aparecen--->
           <div class="col heading-section">
             <h2 class="mb-5 p-2 pb-3 ftco-animate">Paquetes Recomendados</h2>

@@ -39,7 +39,7 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a href="/inicio" class="nav-link">Inicio</a></li>
             <li class="nav-item active"><a href="/paquetes" class="nav-link">Paquetes</a></li>
-            <li class="nav-item"><a href="/hotel" class="nav-link">Hoteles</a></li>
+            <li class="nav-item"><a href="/hoteles" class="nav-link">Hoteles</a></li>
             <li class="nav-item"><a href="/autos" class="nav-link">Autos</a></li>
             <li class="nav-item"><a href="/sobre" class="nav-link">Sobre nosotros</a></li>
             <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>

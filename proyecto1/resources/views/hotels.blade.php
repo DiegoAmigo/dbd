@@ -96,10 +96,10 @@
               <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
                 <a href="#" class="block-5" style="background-image: url('images/hotel-3.jpg');">
                   <div class="text">
-                    <span class="price">$29/night</span>
-                    <h3 class="heading">Luxe Hotel</h3>
+                    <span class="price">CLP 34.208</span>
+                    <h3 class="heading">Oxford Hotel</h3>
                     <div class="post-meta">
-                      <span>Ameeru Ahmed Magu Male’, Maldives</span>
+                      <span>Montevideo, Uruguay</span>
                     </div>
                     <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
                   </div>
@@ -108,10 +108,10 @@
               <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
                 <a href="#" class="block-5" style="background-image: url('images/hotel-4.jpg');">
                   <div class="text">
-                    <span class="price">$29/night</span>
-                    <h3 class="heading">Luxe Hotel</h3>
+                    <span class="price">CLP 40.391</span>
+                    <h3 class="heading">Hotel Quinta Santa Anita</h3>
                     <div class="post-meta">
-                      <span>Ameeru Ahmed Magu Male’, Maldives</span>
+                      <span>Playa del Carmen, Mexico</span>
                     </div>
                     <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
                   </div>
@@ -120,10 +120,10 @@
               <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
                 <a href="#" class="block-5" style="background-image: url('images/hotel-5.jpg');">
                   <div class="text">
-                    <span class="price">$29/night</span>
-                    <h3 class="heading">Luxe Hotel</h3>
+                    <span class="price">CLP 112.310</span>
+                    <h3 class="heading">Occidental Caribe</h3>
                     <div class="post-meta">
-                      <span>Ameeru Ahmed Magu Male’, Maldives</span>
+                      <span>Punta Cana, República Dominicana</span>
                     </div>
                     <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
                   </div>
@@ -132,10 +132,10 @@
               <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
                 <a href="#" class="block-5" style="background-image: url('images/hotel-6.jpg');">
                   <div class="text">
-                    <span class="price">$29/night</span>
-                    <h3 class="heading">Luxe Hotel</h3>
+                    <span class="price">CLP 116.345</span>
+                    <h3 class="heading">Mancora Beach Bungalows</h3>
                     <div class="post-meta">
-                      <span>Ameeru Ahmed Magu Male’, Maldives</span>
+                      <span>Máncora, Perú</span>
                     </div>
                     <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
                   </div>
@@ -144,10 +144,10 @@
               <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
                 <a href="#" class="block-5" style="background-image: url('images/hotel-7.jpg');">
                   <div class="text">
-                    <span class="price">$29/night</span>
-                    <h3 class="heading">Luxe Hotel</h3>
+                    <span class="price">CLP 40.204</span>
+                    <h3 class="heading">Selina Cartagena</h3>
                     <div class="post-meta">
-                      <span>Ameeru Ahmed Magu Male’, Maldives</span>
+                      <span>Cartagena de Indias</span>
                     </div>
                     <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
                   </div>
@@ -156,10 +156,10 @@
               <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
                 <a href="#" class="block-5" style="background-image: url('images/hotel-8.jpg');">
                   <div class="text">
-                    <span class="price">$29/night</span>
-                    <h3 class="heading">Luxe Hotel</h3>
+                    <span class="price">CLP 169.914</span>
+                    <h3 class="heading">Hotel El Cazar</h3>
                     <div class="post-meta">
-                      <span>Ameeru Ahmed Magu Male’, Maldives</span>
+                      <span>Buzios, Brasil</span>
                     </div>
                     <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
                   </div>
@@ -187,7 +187,7 @@
           <div class="col-lg-4 sidebar">
             <div class="sidebar-box ftco-animate">
               <div class="search-tours bg-light p-4">
-                <h3>Find your tour</h3>
+                <h3>Encuentra tu Hotel</h3>
                 <form action="" method="post">
                   <div class="fields">
                     <div class="row flex-column">
@@ -215,36 +215,6 @@
                 </form>
               </div>
             </div>
-
-            <div class="sidebar-box ftco-animate">
-              <div class="categories">
-                <h3>Categories</h3>
-                <li><a href="#">Tours <span>(12)</span></a></li>
-                <li><a href="#">Hotels <span>(22)</span></a></li>
-                <li><a href="#">Cruises <span>(37)</span></a></li>
-                <li><a href="#">Restaurant <span>(42)</span></a></li>
-                <li><a href="#">Destination <span>(14)</span></a></li>
-              </div>
-            </div>
-
-            <div class="sidebar-box ftco-animate">
-              <h3>Tag Cloud</h3>
-              <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">Life</a>
-                <a href="#" class="tag-cloud-link">Sport</a>
-                <a href="#" class="tag-cloud-link">Tech</a>
-                <a href="#" class="tag-cloud-link">Travel</a>
-                <a href="#" class="tag-cloud-link">Life</a>
-                <a href="#" class="tag-cloud-link">Sport</a>
-                <a href="#" class="tag-cloud-link">Tech</a>
-                <a href="#" class="tag-cloud-link">Travel</a>
-              </div>
-            </div>
-
-            <div class="sidebar-box ftco-animate">
-              <h3>Paragraph</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-            </div>
           </div>
         </div>
       </div>
@@ -252,68 +222,11 @@
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
-        <div class="row mb-5">
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Voyage Fellow Tourist</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            </div>
-          </div>
-          <div class="col-md">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Book Now</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Flight</a></li>
-                <li><a href="#" class="py-2 d-block">Hotels</a></li>
-                <li><a href="#" class="py-2 d-block">Tour</a></li>
-                <li><a href="#" class="py-2 d-block">Car Rent</a></li>
-                <li><a href="#" class="py-2 d-block">Beach &amp; Resorts</a></li>
-                <li><a href="#" class="py-2 d-block">Mountains</a></li>
-                <li><a href="#" class="py-2 d-block">Cruises</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Top Deals</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Luxe Hotel</a></li>
-                <li><a href="#" class="py-2 d-block">Venice Tours</a></li>
-                <li><a href="#" class="py-2 d-block">Deluxe Hotels</a></li>
-                <li><a href="#" class="py-2 d-block">Boracay Beach &amp; Resorts</a></li>
-                <li><a href="#" class="py-2 d-block">Beach &amp; Resorts</a></li>
-                <li><a href="#" class="py-2 d-block">Fuente Villa</a></li>
-                <li><a href="#" class="py-2 d-block">Japan Tours</a></li>
-                <li><a href="#" class="py-2 d-block">Philippines Tours</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Contact Information</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">198 West 21th Street, Suite 721 New York NY 10016</a></li>
-                <li><a href="#" class="py-2 d-block">+ 1235 2355 98</a></li>
-                <li><a href="#" class="py-2 d-block">info@yoursite.com</a></li>
-                <li><a href="#" class="py-2 d-block">email@email.com</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <ul class="ftco-footer-social list-unstyled float-md-right float-lft">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
         <div class="row">
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Esto se hizo con amor <i class="icon-heart" aria-hidden="true"></i>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>

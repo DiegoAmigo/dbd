@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Voyage - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Autos- LOTOM</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -30,20 +30,19 @@
     
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Voyage</a>
+        <a class="navbar-brand" href="index.html">LOTOM</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
 
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="services.html" class="nav-link">Tours</a></li>
-            <li class="nav-item"><a href="hotels.html" class="nav-link">Hotels</a></li>
-            <li class="nav-item active"><a href="services.html" class="nav-link">Services</a></li>
-            <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            <li class="nav-item active"><a href="/inicio" class="nav-link">Inicio</a></li>
+            <li class="nav-item"><a href="/paquetes" class="nav-link">Paquetes</a></li>
+            <li class="nav-item"><a href="/hoteles" class="nav-link">Hoteles</a></li>
+            <li class="nav-item"><a href="/autos" class="nav-link">Autos</a></li>
+            <li class="nav-item"><a href="/sobre" class="nav-link">Sobre nosotros</a></li>
+            <li class="nav-item"><a href="/contacto" class="nav-link">Contacto</a></li>
           </ul>
         </div>
       </div>
@@ -56,8 +55,8 @@
         <div class="container">
           <div class="row slider-text align-items-center">
             <div class="col-md-7 col-sm-12 ftco-animate">
-              <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Services</span></p>
-              <h1 class="mb-3">Services</h1>
+              <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Autos</span></p>
+              <h1 class="mb-3">Autos</h1>
             </div>
           </div>
         </div>
@@ -65,39 +64,165 @@
     </section>
     <!-- END slider -->
 
-    <section class="ftco-section">
+        <section class="ftco-section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-3 promo ftco-animate">
-            <a href="#" class="promo-img mb-4" style="background-image: url(images/promo-1.jpg);"></a>
-            <div class="text text-center">
-              <h2>Group Cruises</h2>
-              <h3 class="price"><span>from</span> $299</h3>
-              <a href="#" class="read">Read more</a>
+          <div class="col-lg-8">
+            <div class="row">
+              <!-- Aquí empiezan cada bloque con las ventas--->
+              <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
+                <a href="#" class="block-5" style="background-image: url('images/tour-1.jpg');">
+                  <div class="text">
+                    <span class="price">CLP 394.630</span>
+                    <h3 class="heading">Buzios</h3>
+                    <div class="post-meta">
+                      <span>Brasil</span>
+                    </div>
+                    <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
+                  </div>
+                </a>
+              </div>
+              <!--bloque ventas--->
+              <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
+                <a href="#" class="block-5" style="background-image: url('images/tour-2.jpg');">
+                  <div class="text">
+                    <span class="price">CLP 468.330</span>
+                    <h3 class="heading">Cartagena de Indias</h3>
+                    <div class="post-meta">
+                      <span>Colombia</span>
+                    </div>
+                    <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
+                  </div>
+                </a>
+              </div>
+              <!--bloque ventas--->
+              <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
+                <a href="#" class="block-5" style="background-image: url('images/tour-3.jpg');">
+                  <div class="text">
+                    <span class="price">CLP 444.565</span>
+                    <h3 class="heading">Máncora</h3>
+                    <div class="post-meta">
+                      <span>Perú</span>
+                    </div>
+                    <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
+                  </div>
+                </a>
+              </div>
+              <!--bloque ventas--->
+              <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
+                <a href="#" class="block-5" style="background-image: url('images/tour-4.jpg');">
+                  <div class="text">
+                    <span class="price">CLP 595.000</span>
+                    <h3 class="heading">Punta Cana</h3>
+                    <div class="post-meta">
+                      <span>República Dominicana</span>
+                    </div>
+                    <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
+                  </div>
+                </a>
+              </div>
+              <!--bloque ventas--->
+              <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
+                <a href="#" class="block-5" style="background-image: url('images/tour-5.jpg');">
+                  <div class="text">
+                    <span class="price">CLP 668.640</span>
+                    <h3 class="heading">Playa del carmen</h3>
+                    <div class="post-meta">
+                      <span>México</span>
+                    </div>
+                    <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
+                  </div>
+                </a>
+              </div>
+              <!--bloque ventas--->
+              <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
+                <a href="#" class="block-5" style="background-image: url('images/tour-6.jpg');">
+                  <div class="text">
+                    <span class="price">CLP 190.400</span>
+                    <h3 class="heading">Montevideo</h3>
+                    <div class="post-meta">
+                      <span>Uruguay</span>
+                    </div>
+                    <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
+                  </div>
+                </a>
+              </div>
+              <!--bloque ventas--->
+              <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
+                <a href="#" class="block-5" style="background-image: url('images/tour-7.jpg');">
+                  <div class="text">
+                    <span class="price">$399</span>
+                    <h3 class="heading">Group Tour in Maldives</h3>
+                    <div class="post-meta">
+                      <span>Ameeru Ahmed Magu Male’, Maldives</span>
+                    </div>
+                    <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
+                  </div>
+                </a>
+              </div>
+              <!--bloque ventas--->
+              <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
+                <a href="#" class="block-5" style="background-image: url('images/tour-8.jpg');">
+                  <div class="text">
+                    <span class="price">$399</span>
+                    <h3 class="heading">Group Tour in Maldives</h3>
+                    <div class="post-meta">
+                      <span>Ameeru Ahmed Magu Male’, Maldives</span>
+                    </div>
+                    <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!--Indice de abajo --->
+            <div class="row mt-5">
+              <div class="col text-center">
+                <div class="block-27">
+                  <ul>
+                    <li><a href="#">&lt;</a></li>
+                    <li class="active"><span>1</span></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&gt;</a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-lg-3 promo ftco-animate">
-            <a href="#" class="promo-img mb-4" style="background-image: url(images/promo-2.jpg);"></a>
-            <div class="text text-center">
-              <h2>Beach Tours</h2>
-              <h3 class="price"><span>from</span> $199</h3>
-              <a href="#" class="read">Read more</a>
-            </div>
-          </div>
-          <div class="col-lg-3 promo ftco-animate">
-            <a href="#" class="promo-img mb-4" style="background-image: url(images/promo-3.jpg);"></a>
-            <div class="text text-center">
-              <h2>Mountain Tours</h2>
-              <h3 class="price"><span>from</span> $179</h3>
-              <a href="#" class="read">Read more</a>
-            </div>
-          </div>
-          <div class="col-lg-3 promo ftco-animate">
-            <a href="#" class="promo-img mb-4" style="background-image: url(images/promo-3.jpg);"></a>
-            <div class="text text-center">
-              <h2>Family Tours</h2>
-              <h3 class="price"><span>from</span> $599</h3>
-              <a href="#" class="read">Read more</a>
+          <!-- END -->
+          <!--- Formulario lateral--->
+          <div class="col-lg-4 sidebar">
+            <div class="sidebar-box ftco-animate">
+              <div class="search-tours bg-light p-4">
+                <h3>Encuentra tu Paquete ideal</h3>
+                <form action="" method="post">
+                  <div class="fields">
+                    <div class="row flex-column">
+
+                      <div class="textfield-search col-sm-12 group mb-3"><input type="text" class="form-control" placeholder="Busca la ubicación"></div>
+
+                      <div class="check-in col-sm-12 group mb-3"><input type="text" id="checkin_date" class="form-control" placeholder="Check-in date"></div>
+
+                      <div class="check-out col-sm-12 group mb-3"><input type="text" id="checkout_date" class="form-control" placeholder="Check-out date"></div>
+                      <div class="select-wrap col-sm-12 group mb-3">
+                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                        <select name="" id="" class="form-control">
+                          <option value="">Guest</option>
+                          <option value="">1</option>
+                          <option value="">2</option>
+                          <option value="">3</option>
+                          <option value="">4+</option>
+                        </select>
+                      </div>
+                      <div class="col-sm-12 group mb-3">
+                        <input type="submit" class="search-submit btn btn-primary" value="Find Flights">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
