@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Vuelo_Aeropuerto;
 use App\Vuelo;
 use App\Http\Requests\Vuelo_AeropuertoRequest;
+use App\Http\Controllers\AeropuertoController;
 
 class Vuelo_AeropuertoController extends Controller
 {
@@ -95,7 +96,7 @@ class Vuelo_AeropuertoController extends Controller
 
 
 
-    public function encontrar_vuelos($id_aeropuerto_salida,$id_aeropuerto_destino)
+    public static function encontrar_vuelos($id_aeropuerto_salida,$id_aeropuerto_destino)
     {
         $vuelos = Vuelo_Aeropuerto::where([
     ['id_aeropuerto',$id_aeropuerto_salida],
@@ -145,6 +146,26 @@ class Vuelo_AeropuertoController extends Controller
         }
 
         return [];
+    }
+
+
+    public static function encontrar_vuelos_ciudad($id_ciudad_salida,$id_ciudad_destino)
+    {
+        $aeropuertos_salida = AeropuertoController::obtenerAeropuertos($id_ciudad_salida);
+        $aeropuertos_destino = AeropuertoController::obtenerAeropuertos($id_ciudad_destino);
+        $vuelos = [];
+        foreach ($aeropuertos_salida as $salida) 
+        {
+            foreach ($aeropuertos_destino as $destino)
+            {
+                $vuelos = array_collapse([$vuelos,Vuelo_AeropuertoController::encontrar_vuelos($salida->id,$destino->id)]);
+            }
+        }
+        $vueloFinal = [];
+        foreach ($vuelos as $vuelo) {
+            $vueloFinal = array_collapse([$vueloFinal,Vuelo::where('id',$vuelo->id_vuelo)->get()]);
+        }
+        return $vueloFinal;
     }
 
 }

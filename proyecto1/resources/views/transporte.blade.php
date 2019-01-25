@@ -37,61 +37,54 @@
             <a class="btn btn-light action-button" role="button" href="#">iniciar sesión</a>
      </nav>
     <!-- opciones de las cajas-->
+    @inject('transporteController', 'App\Http\Controllers\TransporteController')
+                                <?php 
+                                    $datos =  $transporteController->Transport_city($id_ciudad_llegada);
+                                ?>
+
     <section class="features-icons bg-white text-center">
       <div class="container" style="margin-top: 10%">
         <div class="row" style="margin-left: 10%">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="/images/auto1.png" alt="Card image cap">
-          <div class="card-body ">
-            <h5 class="card-title">Antofagasta</h5>
-            <p class="card-text">Super vuelo.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-          </div>
-         </div>
-         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="/images/auto1.png" alt="Card image cap">
-          <div class="card-body ">
-            <h5 class="card-title">Arica</h5>
-            <p class="card-text">Otro vuelo</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-          </div>
-         </div>
-         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="/images/auto1.png" alt="Card image cap">
-          <div class="card-body ">
-            <h5 class="card-title">Pto Montt</h5>
-            <p class="card-text">Wen vuelo</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-          </div>
-         </div>
-       </div>  
-      </div>
-      <div class="container" style="margin-top: auto;">
-        <div class="row" style="margin-left: 10%;">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="/images/auto1.png" alt="Card image cap">
-          <div class="card-body ">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-          </div>
-         </div>
-         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="/images/auto1.png" alt="Card image cap">
-          <div class="card-body ">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-          </div>
-         </div>
-         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="/images/auto1.png" alt="Card image cap">
-          <div class="card-body ">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-          </div>
-         </div>
+        <?php 
+          $cantidad = 0
+          ?>
+         @foreach((array)$datos as $dato)
+          @if (empty ($dato) == false )
+            <form method="POST" action="{{ route('siguiente') }}">
+              @csrf
+              {{$cantidad = $cantidad + 1}}
+             <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="/images/auto1.png" alt="Card image cap">
+              <div class="card-body ">
+                <h5 class="card-title">Arica</h5>
+                <p class="card-text">{{$dato}}</p>
+                <input href="#" value = "{{$dato->id}}" class="btn btn-primary" style="display:none">
+                <a href="#" class="btn btn-primary">Comprar</a>
+                <button type="submit" class="btn btn-primary">
+                                        
+                                        {{ __('Comprar') }}
+                                    </button>
+
+              </div>
+             </div>
+         @endif
+
+         @endforeach
+
+         @if ($cantidad == 0 )
+            <div class="card" style="width: 18rem;">
+              
+              <div class="card-body ">
+                <h5 class="card-title">No hay transportes disponibles</h5>
+                <p class="card-text"></p>
+                
+
+              </div>
+             </div>
+            
+
+         @endif
+      
        </div>  
       </div>
      </section>

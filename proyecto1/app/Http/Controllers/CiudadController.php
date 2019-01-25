@@ -99,4 +99,20 @@ class CiudadController extends Controller
         }
         return $datos;
     }
+
+    public static function obtener_ciudad_pais($nombreCiudad,$nombrePais)
+    {
+        $ciudades = Ciudad::where('nombre_ciudad',$nombreCiudad)->get();
+        $paises = Pais::where('nombre_pais',$nombrePais)->get();
+        foreach ($ciudades as $ciudad) {
+            foreach ($paises as $pais) {
+                if ($pais->id == $ciudad->id_pais ) {
+                    return $ciudad->id;
+                }
+            }
+            
+        }
+        
+    }
+
 }

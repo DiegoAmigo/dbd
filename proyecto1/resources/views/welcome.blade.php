@@ -63,15 +63,25 @@
             function mostrar_vuelta2() {
                 element = document.getElementById("fecha_vuelta");
                 element2 = document.getElementById("fecha_vuelta_frase");
+                element3 = document.getElementById("selectores_ida_vuelta");
                 check1 = document.getElementById("vuelo_hotel");
                 check2 = document.getElementById("vuelo_transporte");
                 check3 = document.getElementById("vuelo_transporte_hotel");
+                check4 = document.getElementById("vuelo");
                 if (check1.checked || check2.checked || check3.checked ) {
                     element.style.display='block';
                     element2.style.display='block';
+                    element3.style.display='none';
                     mostrar_vuelta();
                 }
                 else {
+                    if(check4.checked)
+                    {
+                        element3.style.display='block';
+                    }
+                    else{
+                        element3.style.display='none';
+                    }
                     element.style.display='none';
                     element2.style.display='none';
                     ocultar_vuelta();
@@ -299,33 +309,43 @@
          <div class="container">
             <div class="row" style="margin: 163px;margin-top: 17px;">
                 <div class="col-md-12" style="width: 1096px;height: 330px;">
-                    <form method="post" style="width: 748px;height: 326px;">
+                    <form method="POST"  action="{{ route('iniciar_reserva') }}" style="width: 748px;height: 326px;">
+                        {{ csrf_field() }}
                         <h2 class="sr-only">Login Form</h2>
                         <div class="illustration"></div>
                         <div class="form-group">
                             <div class="form-check">
                                 
-                                <input type=radio id="vuelo" name="opciones" onchange="mostrar_vuelta2()">
+                                <input type=radio id="vuelo" name="opciones"  value = "1" onchange="mostrar_vuelta2()">
                                 <label for="vuelo"><span>Vuelo</span></label>
                             </div>
                             <div class="form-check">
                                 
-                                <input type=radio id="vuelo_hotel" name="opciones" onchange="mostrar_vuelta2()">
+                                <input type=radio id="vuelo_hotel" name="opciones"  value = "2" onchange="mostrar_vuelta2()">
                                 <label for="vuelo_hotel"><span>Vuelo + Hotel</span></label>
                             </div>
                             <div class="form-check">
                                 
-                                <input type=radio id="vuelo_transporte" name="opciones" onchange="mostrar_vuelta2()">
+                                <input type=radio id="vuelo_transporte" name="opciones"  value = "3" onchange="mostrar_vuelta2()">
                                 <label for="vuelo_transporte"><span>Vuelo + Transporte</span></label>
                             </div>
                             <div class="form-check">
                                 
-                                <input type=radio id="vuelo_transporte_hotel" name="opciones" onchange="mostrar_vuelta2()">
+                                <input type=radio id="vuelo_transporte_hotel" name="opciones"  value = "4" onchange="mostrar_vuelta2()">
                                 <label for="vuelo_transporte_hotel"><span>Vuelo + Transpote + Hotel</span></label>
                             </div>
                         </div>
+
+                        <div id = "selectores_ida_vuelta">
+                            <label for="ida"><span>Solo Ida</span></label>
+                            <input type=radio id="ida" name="ida_vuelta"  value = "1" onchange="ocultar_vuelta()">
+                            <label for="vuelta"><span>Ida y vuelta</span></label>
+                            <input type=radio id="vuelta" name="ida_vuelta"  value = "2" onchange="mostrar_vuelta()">
+                        </div>
+
+
                         <label>origen</label>
-                        <select id="pais_origen" onchange="myFunction()" class="form-control" style="margin-top: 0px;">
+                        <select id="pais_origen" name="pais_origen" onchange="myFunction()" class="form-control" style="margin-top: 0px;">
                             <optgroup  label="This is a group">
                                 @foreach((array)$datos as $dato)
                                     <option>{{last($dato)->nombre_pais}}</option>
@@ -333,10 +353,8 @@
                             </optgroup>
                         </select>
 
-                        <select  class="form-control" style="margin-top: 0px;">
-                            <optgroup id="ciudad_origen" label="This is a group">
-                                
-                            </optgroup>
+                        <select id="ciudad_origen" name="ciudad_origen"  class="form-control" style="margin-top: 0px;">
+                            
                         </select>
 
                         <p >Fecha Ida </p>
@@ -391,7 +409,7 @@
 
 
                         <label style="margin-top: 1px;padding-top: -14px;">Destino</label>
-                        <select id="pais_destino" onchange="myFunction2()" class="form-control" style="margin-top: -5px;height: 38px;">
+                        <select id="pais_destino" name ="pais_destino" onchange="myFunction2()" class="form-control" style="margin-top: -5px;height: 38px;">
                             <optgroup  label="This is a group">
                                 @foreach((array)$datos as $dato)
                                     <option>{{last($dato)->nombre_pais}}</option>
@@ -399,8 +417,8 @@
                             </optgroup>
                         </select>
 
-                        <select  class="form-control" style="margin-top: 0px;">
-                            <optgroup id="ciudad_destino" label="This is a group">
+                        <select  class="form-control" name ="ciudad_destino" style="margin-top: 0px;">
+                            <optgroup id="ciudad_destino"  label="This is a group">
                                 
                             </optgroup>
                         </select>

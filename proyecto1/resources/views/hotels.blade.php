@@ -64,11 +64,26 @@
     </section>
     <!-- END slider -->
 
+    @inject('hotelController', 'App\Http\Controllers\HotelController')
+    <?php 
+        $datos =  $hotelController->obtener_hotel($id_ciudad_llegada);
+    ?>
+
     <section class="ftco-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-8">
             <div class="row">
+
+
+              <?php 
+          $cantidad = 0
+          ?>
+         @foreach((array)$datos as $dato)
+          @if (empty ($dato) == false )
+            <form method="POST" action="{{ route('siguiente') }}">
+              @csrf
+              {{$cantidad = $cantidad + 1}}
               <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
                 <a href="#" class="block-5" style="background-image: url('images/hotel-1.jpg');">
                   <div class="text">
@@ -80,7 +95,16 @@
                     <p class="star-rate"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star-half-full"></span> <span>500 reviews</span></p>
                   </div>
                 </a>
+                <button type="submit" class="btn btn-primary">
+                                        
+                                        {{ __('Comprar') }}
+                                    </button>
+                
               </div>
+              @endif
+
+         @endforeach
+
               <div class="col-md-6 col-lg-6 mb-4 ftco-animate">
                 <a href="#" class="block-5" style="background-image: url('images/hotel-2.jpg');">
                   <div class="text">

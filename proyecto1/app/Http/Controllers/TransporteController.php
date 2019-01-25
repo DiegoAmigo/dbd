@@ -18,6 +18,12 @@ class TransporteController extends Controller
         return Transporte::all();
     }
 
+
+    public static function obtener_transporte()
+    {
+        return Transporte::all();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -96,4 +102,9 @@ class TransporteController extends Controller
         return $transport;
 	}
 	
+    public function Transport_city($id_ciudad){
+        $transport = Transporte::where('id_ciudad', $id_ciudad)->get();
+        return $transport;
+    }
+
 }

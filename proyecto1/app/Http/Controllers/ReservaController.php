@@ -10,9 +10,16 @@ use App\Vuelo_Aeropuerto;
 use App\Aeropuerto;
 use App\Vuelo_Reservado;
 use App\Http\Requests\ReservaRequest;
+use App\Http\Controllers\VueloController;
 
 class ReservaController extends Controller
 {
+
+
+    static $tipoReserva;
+    static $idCiudadOrigen;
+    static $idCiudadDestino;
+
     /**
      * Display a listing of the resource.
      *
@@ -129,5 +136,50 @@ class ReservaController extends Controller
         return $disponible;
     }
 
-    
+    public function iniciar_reserva(Request $request)
+    {
+        //$datos = $request->all():
+        ReservaController::$tipoReserva = $_POST["opciones"];
+        if( ($_POST["opciones"] == "1") || ($_POST["opciones"] == "2") || ($_POST["opciones"] == "3") || ($_POST["opciones"] == "4") ) 
+        { 
+            $ciudad_origen = $_POST["ciudad_origen"];
+            $pais_origen = $_POST["pais_origen"];
+            $ciudad_destino = $_POST["ciudad_destino"];
+            $pais_destino = $_POST["pais_destino"];
+            $idOrigen = CiudadController::obtener_ciudad_pais($ciudad_origen,$pais_origen);
+            $idLlegada = CiudadController::obtener_ciudad_pais($ciudad_destino,$pais_destino);
+            ReservaController::$idCiudadOrigen = $idOrigen;
+            ReservaController::$idCiudadDestino = $idLlegada;
+            return view('vuelo')->with('idOrigen', $idOrigen)->with('idLlegada', $idLlegada);
+        } 
+        //return view('cliente', compact('clientes'));
+        return view('transporte');
+    }
+
+
+    public function continuar_reserva(Request $request)
+    {
+        if( (ReservaController::$tipoReserva == "3") || (ReservaController::$tipoReserva == "4") ) 
+        { 
+            
+            return view('transporte')->with('id_ciudad_llegada', ReservaController::$idCiudadDestino);
+        } 
+        
+        if( (ReservaController::$tipoReserva == "2")  ) 
+        { 
+            
+            return view('hotels')->with('id_ciudad_llegada', ReservaController::$idCiudadDestino);
+        }
+
+        if( (ReservaController::$tipoReserva == "1")  ) 
+        { 
+            //falta la vista de verificacion
+            //return view('hotels')->with('id_ciudad_llegada', ReservaController::$idCiudadDestino);
+        }
+
+    }
+
+
+
+
 }

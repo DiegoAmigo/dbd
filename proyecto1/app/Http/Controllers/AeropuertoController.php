@@ -83,4 +83,13 @@ class AeropuertoController extends Controller
         $aeropuerto->delete();
         return 'eliminado';
     }
+
+
+    public static function obtenerAeropuertos($idCiudad)
+    {
+        $aeropuertos = Aeropuerto::where('id_ciudad', $idCiudad)->get();
+        return $aeropuertos;
+    }
+
+
 }
