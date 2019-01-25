@@ -37,6 +37,7 @@
             <a class="btn btn-light action-button" role="button" href="#">iniciar sesión</a>
      </nav>
     <!-- opciones de las cajas-->
+    
     <section class="features-icons bg-white text-center">
       <div class="container" style="margin-top: 10%">
         <div class="row" style="margin-left: 10%">

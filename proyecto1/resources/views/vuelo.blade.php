@@ -20,6 +20,13 @@
             <a class="navbar-brand mr-auto h1" href="#">Disabled</a>
     </nav>
     <!-- opciones de las cajas-->
+
+    @inject('vuelo_aeropuertoController', 'App\Http\Controllers\Vuelo_AeropuertoController')
+    <?php 
+      $datos =  $vuelo_aeropuertoController->encontrar_vuelos_ciudad($idOrigen,$idLlegada);
+    ?>
+
+    
     <section class="features-icons bg-white text-center">
       <div class="container" style="margin-top: 20%">
         <div class="row" style="margin-left: 10%">
@@ -31,6 +38,26 @@
             <a href="#" class="btn btn-primary">Comprar</a>
           </div>
          </div>
+         @foreach((array)$datos as $dato)
+            <form method="POST" action="{{ route('siguiente') }}">
+              @csrf
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="../img/antofa.jpg" alt="Card image cap">
+              <div class="card-body ">
+                <h5 class="card-title">Antofagasta</h5>
+                
+                <p class="card-text" >{{$dato->hora_inicio}}</p>
+                <input href="#" value = "{{$dato->id}}" class="btn btn-primary" style="display:none">
+                <a href="#" class="btn btn-primary">Comprar</a>
+                <button type="submit" class="btn btn-primary">
+                                    
+                                    {{ __('Comprar') }}
+                                </button>
+              </div>
+             </div>
+             </form>
+            
+          @endforeach
          <div class="card" style="width: 18rem;">
           <img class="card-img-top" alt="Card image cap">
           <div class="card-body ">

@@ -22,8 +22,8 @@ Route::get('/', function () {
 
 
 
-Route::get('/ayuda', function(){
-	return view('ayuda');
+Route::get('/vuelo', function(){
+	return view('vuelo');
 });
 
 Route::get('/#', function(){
@@ -153,6 +153,10 @@ Route::get('/reserva/transporte/{id_transporte}/{fecha_inicio}/{fecha_fin}', 'Re
 Route::get('/reserva/reservar_habitacion/{id_habitacion}/{fecha_inicio}/{fecha_fin}', 'ReservaController@reservar_habitacion');
 Route::get('/reserva/reservar/{id_cliente}/{id_habitacion}/{id_paquete}/{id_transporte}','ReservaController@reservar');
 Route::get('/reserva/viaje/{nombre_cl}/{nombre_ciudad}', 'ReservaController@Reserva_Viaje');
+
+
+Route::post('iniciar_reserva', 'ReservaController@iniciar_reserva')->name('iniciar_reserva');
+Route::post('siguiente', 'ReservaController@continuar_reserva')->name('siguiente');
 
 Route::get('/seguro/all', 'Seguro_viajeController@index');
 Route::get('/seguro/show/{id}', 'Seguro_viajeController@show');

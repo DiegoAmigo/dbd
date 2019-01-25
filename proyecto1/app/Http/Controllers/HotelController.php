@@ -94,4 +94,10 @@ class HotelController extends Controller
         $ciudad = Hotel::where('id_ciudad',$id)->get();
         return $ciudad;
     }
+
+    public static function obtener_hotel($id)
+    {
+        $ciudad = Hotel::where('id_ciudad',$id)->get();
+        return $ciudad;
+    }
 }
