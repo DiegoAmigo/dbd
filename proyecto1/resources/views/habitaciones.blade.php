@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
   <head>
-    @inject('hotelController', 'App\Http\Controllers\HotelController')
-    <?php 
-        $datos =  $hotelController->obtener_hotel($idLlegada);
-    ?>
-
     
+
+    @inject('habitacionController', 'App\Http\Controllers\HabitacionController')
+    <?php 
+        $datos =  $habitacionController->habitaciones($idHotel);
+    ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,13 +55,12 @@
           ?>
          @foreach((array)$datos as $dato)
           @if (empty ($dato) == false )
-            
               <form method="POST" action="{{ route('habitacion') }}">
               @csrf
               <input id= "tipoReserva" name = "tipoReserva" value = "{{$tipoReserva}}" style="display:none">
               <input id= "idDestino" name = "idDestino" value = "{{$idLlegada}}" style="display:none">
               <input id= "idOrigen" name = "idOrigen" value = "{{$idOrigen}}" style="display:none">
-              <input id= "idVuelo" name = "idVuelo" value = "{{$idVuelo}}" style="display:none">
+              
               {{$cantidad = $cantidad + 1}}
               
               
@@ -69,13 +68,13 @@
         <div class="card" style="width: 18rem;">
           <img class="card-img-top" src="/images/hotel1.jpg" alt="Card image cap">
           <div class="card-body ">
-            <input id= "idHotel" name= "idHotel" value = "{{head($dato)->id}}"  style="display:none">
-            <h5 class="card-title">{{head($dato)->nombre_hotel}}</h5>
+            <input id= "idHotel" name= "idHabitacion" value = "{{head($dato)->id}}"  style="display:none">
+            <h5 class="card-title">{{head($dato)->monto}}</h5>
             <p class="card-text">{{head($dato)}}</p>
             
               <button type="submit" class="btn btn-primary">
                                         
-                                        {{ __('Seleccionar hotel') }}
+                                        {{ __('Seleccionar habitacion') }}
                                     </button>
           </div>
          </div>

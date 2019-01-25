@@ -88,7 +88,7 @@ class HabitacionController extends Controller
     }
 
 
-    public function habitaciones($id)
+    public static function habitaciones($id)
     {
         $habitacions = Habitacion::where('id_hotel',$id)->get();
         return $habitacions;

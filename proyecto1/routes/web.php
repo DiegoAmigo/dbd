@@ -157,6 +157,8 @@ Route::get('/reserva/viaje/{nombre_cl}/{nombre_ciudad}', 'ReservaController@Rese
 
 Route::post('iniciar_reserva', 'ReservaController@iniciar_reserva')->name('iniciar_reserva');
 Route::post('siguiente', 'ReservaController@continuar_reserva')->name('siguiente');
+Route::post('habitacion', 'ReservaController@reserva_habitacion')->name('habitacion');
+
 
 Route::get('/seguro/all', 'Seguro_viajeController@index');
 Route::get('/seguro/show/{id}', 'Seguro_viajeController@show');

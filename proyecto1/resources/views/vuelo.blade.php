@@ -41,13 +41,16 @@
          @foreach((array)$datos as $dato)
             <form method="POST" action="{{ route('siguiente') }}">
               @csrf
+              <input id= "tipoReserva" name = "tipoReserva" value = "{{$tipoReserva}}" style="display:none">
+              <input id= "idDestino" name = "idDestino" value = "{{$idLlegada}}" style="display:none">
+              <input id= "idOrigen" name = "idOrigen" value = "{{$idOrigen}}" style="display:none">
             <div class="card" style="width: 18rem;">
               <img class="card-img-top" src="../img/antofa.jpg" alt="Card image cap">
               <div class="card-body ">
                 <h5 class="card-title">Antofagasta</h5>
                 
                 <p class="card-text" >{{$dato->hora_inicio}}</p>
-                <input href="#" value = "{{$dato->id}}" class="btn btn-primary" style="display:none">
+                <input id= "idVuelo" name= "idVuelo" value = "{{$dato->id}}" class="btn btn-primary" style="display:none">
                 <a href="#" class="btn btn-primary">Comprar</a>
                 <button type="submit" class="btn btn-primary">
                                     

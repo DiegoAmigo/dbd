@@ -15,10 +15,25 @@ use App\Http\Controllers\VueloController;
 class ReservaController extends Controller
 {
 
+    
+    public $tipoReserva;
+    public $idCiudadOrigen;
+    public $idCiudadDestino;
 
-    static $tipoReserva;
-    static $idCiudadOrigen;
-    static $idCiudadDestino;
+
+    public function getTipoReserva()
+    {
+        return $this->tipoReserva;
+    }
+
+    public function getIdCiudadOrigen()
+    {
+        return $this->tipoReserva;
+    }
+    public function getIdCiudadDestino()
+    {
+        return $this->tipoReserva;
+    }
 
     /**
      * Display a listing of the resource.
@@ -138,8 +153,8 @@ class ReservaController extends Controller
 
     public function iniciar_reserva(Request $request)
     {
-        //$datos = $request->all():
-        ReservaController::$tipoReserva = $_POST["opciones"];
+        //$datos->tipoReserva = $_POST["opciones"];
+        $tipoReserva = $_POST["opciones"];
         if( ($_POST["opciones"] == "1") || ($_POST["opciones"] == "2") || ($_POST["opciones"] == "3") || ($_POST["opciones"] == "4") ) 
         { 
             $ciudad_origen = $_POST["ciudad_origen"];
@@ -148,9 +163,11 @@ class ReservaController extends Controller
             $pais_destino = $_POST["pais_destino"];
             $idOrigen = CiudadController::obtener_ciudad_pais($ciudad_origen,$pais_origen);
             $idLlegada = CiudadController::obtener_ciudad_pais($ciudad_destino,$pais_destino);
-            ReservaController::$idCiudadOrigen = $idOrigen;
-            ReservaController::$idCiudadDestino = $idLlegada;
-            return view('vuelo')->with('idOrigen', $idOrigen)->with('idLlegada', $idLlegada);
+            //$datos->idCiudadOrigen = $idOrigen;
+            //$datos->idCiudadDestino = $idLlegada;
+            $this->idCiudadOrigen = $idOrigen;
+            $this->idCiudadDestino = CiudadController::obtener_ciudad_pais($ciudad_destino,$pais_destino);
+            return view('vuelo',['idOrigen' => $idOrigen, 'idLlegada' => $idLlegada , 'tipoReserva'  => $tipoReserva]);
         } 
         //return view('cliente', compact('clientes'));
         return view('transporte');
@@ -159,27 +176,43 @@ class ReservaController extends Controller
 
     public function continuar_reserva(Request $request)
     {
-        if( (ReservaController::$tipoReserva == "3") || (ReservaController::$tipoReserva == "4") ) 
+        $tipoReserva = $_POST["tipoReserva"]; //$request->tipoReserva;
+        $idLlegada = $request->idDestino;
+        $idOrigen = $request->idOrigen;
+        $idVuelo = $request->idVuelo;
+        if( ($tipoReserva == "3") || ($tipoReserva == "4") ) 
         { 
             
-            return view('transporte')->with('id_ciudad_llegada', ReservaController::$idCiudadDestino);
+            return view('transporte')->with('id_ciudad_llegada', $this->idCiudadDestino);
         } 
         
-        if( (ReservaController::$tipoReserva == "2")  ) 
+        if( ( $tipoReserva == "2")  ) 
         { 
             
-            return view('hotels')->with('id_ciudad_llegada', ReservaController::$idCiudadDestino);
+            return view('hoteles',['idOrigen' => $idOrigen, 'idLlegada' => $idLlegada , 'tipoReserva'  => $tipoReserva, 'idVuelo' => $idVuelo]);
         }
 
-        if( (ReservaController::$tipoReserva == "1")  ) 
+        if( ($tipoReserva == "1")  ) 
         { 
             //falta la vista de verificacion
             //return view('hotels')->with('id_ciudad_llegada', ReservaController::$idCiudadDestino);
         }
 
+        //return view('hotels')->with('id_ciudad_llegada', $this->idCiudadDestino);
     }
 
+    public function reserva_habitacion(Request $request)
+    {
+        $tipoReserva = $_POST["tipoReserva"]; //$request->tipoReserva;
+        $idLlegada = $request->idDestino;
+        $idOrigen = $request->idOrigen;
+        $idVuelo = $request->idVuelo;
+        $idHotel = $request->idHotel;
 
+        return view('habitaciones',['idOrigen' => $idOrigen, 'idLlegada' => $idLlegada , 'tipoReserva'  => $tipoReserva, 'idVuelo' => $idVuelo, 'idHotel' => $idHotel]);
+
+
+    }
 
 
 }
