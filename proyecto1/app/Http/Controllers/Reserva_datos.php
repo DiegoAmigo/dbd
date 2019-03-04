@@ -18,9 +18,9 @@ class Reserva_datos
     return true;
   }
     
-    public function getTipoReserva()
+    public static function getTipoReserva()
     {
-        return $this->tipoReserva;
+        return self::$tipoReserva;
     }
 
     public function getIdCiudadOrigen()
@@ -32,9 +32,9 @@ class Reserva_datos
         return $this->tipoReserva;
     }
 
-    public function setTipoReserva($tipoReserva)
+    public static function setTipoReserva($tipoReserva)
     {
-        $this->tipoReserva = $tipoReserva;
+        self::$tipoReserva = $tipoReserva;
     }
 
     public function setIdCiudadOrigen($idCiudadOrigen)

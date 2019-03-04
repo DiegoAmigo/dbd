@@ -39,7 +39,7 @@
     <!-- opciones de las cajas-->
     @inject('transporteController', 'App\Http\Controllers\TransporteController')
                                 <?php 
-                                    $datos =  $transporteController->Transport_city($id_ciudad_llegada);
+                                    $datos =  $transporteController->Transport_city($idDestino);
                                 ?>
 
     <section class="features-icons bg-white text-center">
@@ -50,16 +50,21 @@
           ?>
          @foreach((array)$datos as $dato)
           @if (empty ($dato) == false )
-            <form method="POST" action="{{ route('siguiente') }}">
+            <form method="POST" action="{{ route('siguiente_2') }}">
               @csrf
               {{$cantidad = $cantidad + 1}}
              <div class="card" style="width: 18rem;">
               <img class="card-img-top" src="/images/auto1.png" alt="Card image cap">
               <div class="card-body ">
-                <h5 class="card-title">Arica</h5>
-                <p class="card-text">{{$dato}}</p>
-                <input href="#" value = "{{$dato->id}}" class="btn btn-primary" style="display:none">
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <h5 class="card-title">{{head($dato)->empresa_transporte}}</h5>
+                <p class="card-text">capacidad: {{head($dato)->capacidad_transporte}} personas</p>
+                <input id= "tipoReserva" name = "tipoReserva" value = "{{$tipoReserva}}" style="display:none">
+              <input id= "idDestino" name = "idDestino" value = "{{$idDestino}}" style="display:none">
+              <input id= "idOrigen" name = "idOrigen" value = "{{$idOrigen}}" style="display:none">
+              <input id= "idVuelo" name = "idVuelo" value = "{{$idVuelo}}" style="display:none">
+              <input id= "idHotel" name = "idHotel" value = "{{$idHotel}}" style="display:none">
+              <input id= "idHabitacion" name = "idHabitacion" value = "{{$idHabitacion}}" style="display:none">
+                <input id= "idTransporte" name = "idTransporte" value = "{{head($dato)->id}}" class="btn btn-primary" style="display:none">
                 <button type="submit" class="btn btn-primary">
                                         
                                         {{ __('Comprar') }}
@@ -72,15 +77,27 @@
          @endforeach
 
          @if ($cantidad == 0 )
-            <div class="card" style="width: 18rem;">
-              
+
+            <form method="POST" action="{{ route('siguiente') }}">
+              @csrf
+             <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="/images/auto1.png" alt="Card image cap">
               <div class="card-body ">
                 <h5 class="card-title">No hay transportes disponibles</h5>
                 <p class="card-text"></p>
                 
-
+                <input id= "tipoReserva" name = "tipoReserva" value = "{{$tipoReserva}}" style="display:none">
+              <input id= "idDestino" name = "idDestino" value = "{{$idDestino}}" style="display:none">
+              <input id= "idOrigen" name = "idOrigen" value = "{{$idOrigen}}" style="display:none">
+              <input id= "idVuelo" name = "idVuelo" value = "{{$idVuelo}}" style="display:none">
+                <input id= "idTransporte" name = "idTransporte" value = "0" class="btn btn-primary" style="display:none">
+                <button type="submit" class="btn btn-primary">
+                                        
+                                        {{ __('Omitir') }}
+                                    </button>
               </div>
              </div>
+            
             
 
          @endif

@@ -162,8 +162,13 @@ class Vuelo_AeropuertoController extends Controller
             }
         }
         $vueloFinal = [];
+        $idVueloAnterior = 0;
         foreach ($vuelos as $vuelo) {
-            $vueloFinal = array_collapse([$vueloFinal,Vuelo::where('id',$vuelo->id_vuelo)->get()]);
+            if ($idVueloAnterior != $vuelo->id_vuelo) {
+                $vueloFinal = array_collapse([$vueloFinal,Vuelo::where('id',$vuelo->id_vuelo)->get()]);
+                $idVueloAnterior = $vuelo->id_vuelo;
+            }
+            
         }
         return $vueloFinal;
     }

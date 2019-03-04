@@ -1,6 +1,5 @@
 <!doctype html>
 
-
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -368,7 +367,8 @@
                               uiLibrary: 'bootstrap4',
                               locale: 'es-es',
                               minDate: today,
-                              maxDate: fin
+                              maxDate: fin,
+                              format: 'yyyy-mm-dd'
                                 
                             });
                         </script>
@@ -385,7 +385,8 @@
                               uiLibrary: 'bootstrap4',
                               locale: 'es-es',
                               minDate: today,
-                              maxDate: fin
+                              maxDate: fin,
+                              format: 'yyyy-mm-dd'
                                 
                             });
 
@@ -435,15 +436,6 @@
         </div>
 
 
-
-
-        
-
-        
-
-        
-
-        
 
         
         <div id = "selectores_ida_vuelta">

@@ -11,6 +11,7 @@ use App\Aeropuerto;
 use App\Vuelo_Reservado;
 use App\Http\Requests\ReservaRequest;
 use App\Http\Controllers\VueloController;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class ReservaController extends Controller
 {
@@ -19,6 +20,7 @@ class ReservaController extends Controller
     public $tipoReserva;
     public $idCiudadOrigen;
     public $idCiudadDestino;
+    public $datos;
 
 
     public function getTipoReserva()
@@ -153,21 +155,23 @@ class ReservaController extends Controller
 
     public function iniciar_reserva(Request $request)
     {
-        //$datos->tipoReserva = $_POST["opciones"];
+        //$this->datos = new Reserva_datos();
         $tipoReserva = $_POST["opciones"];
-        if( ($_POST["opciones"] == "1") || ($_POST["opciones"] == "2") || ($_POST["opciones"] == "3") || ($_POST["opciones"] == "4") ) 
+        Reserva_datos::setTipoReserva($tipoReserva);
+        
+        if( (Reserva_datos::getTipoReserva() == "1") || (Reserva_datos::getTipoReserva() == "2") || (Reserva_datos::getTipoReserva() == "3") || (Reserva_datos::getTipoReserva() == "4") ) 
         { 
             $ciudad_origen = $_POST["ciudad_origen"];
             $pais_origen = $_POST["pais_origen"];
             $ciudad_destino = $_POST["ciudad_destino"];
             $pais_destino = $_POST["pais_destino"];
             $idOrigen = CiudadController::obtener_ciudad_pais($ciudad_origen,$pais_origen);
-            $idLlegada = CiudadController::obtener_ciudad_pais($ciudad_destino,$pais_destino);
+            $idDestino = CiudadController::obtener_ciudad_pais($ciudad_destino,$pais_destino);
             //$datos->idCiudadOrigen = $idOrigen;
             //$datos->idCiudadDestino = $idLlegada;
             $this->idCiudadOrigen = $idOrigen;
             $this->idCiudadDestino = CiudadController::obtener_ciudad_pais($ciudad_destino,$pais_destino);
-            return view('vuelo',['idOrigen' => $idOrigen, 'idLlegada' => $idLlegada , 'tipoReserva'  => $tipoReserva]);
+            return view('vuelo',['idOrigen' => $idOrigen, 'idDestino' => $idDestino , 'tipoReserva'  => $tipoReserva]);
         } 
         //return view('cliente', compact('clientes'));
         return view('transporte');
@@ -177,19 +181,23 @@ class ReservaController extends Controller
     public function continuar_reserva(Request $request)
     {
         $tipoReserva = $_POST["tipoReserva"]; //$request->tipoReserva;
-        $idLlegada = $request->idDestino;
-        $idOrigen = $request->idOrigen;
-        $idVuelo = $request->idVuelo;
+        $idDestino = $_POST["idDestino"];
+        $idOrigen = $_POST["idOrigen"];
+        $idVuelo = $_POST["idVuelo"];
+        $idTransporte = "0";
+        $idHotel = "0";
+        $idHabitacion = "0";
+
         if( ($tipoReserva == "3") || ($tipoReserva == "4") ) 
         { 
             
-            return view('transporte')->with('id_ciudad_llegada', $this->idCiudadDestino);
+            return view('transporte',['idOrigen' => $idOrigen, 'idDestino' => $idDestino , 'tipoReserva'  => $tipoReserva, 'idVuelo' => $idVuelo , 'idTransporte' => $idTransporte, 'idHotel' => $idHotel , 'idHabitacion' => $idHabitacion]);
         } 
         
         if( ( $tipoReserva == "2")  ) 
         { 
             
-            return view('hoteles',['idOrigen' => $idOrigen, 'idLlegada' => $idLlegada , 'tipoReserva'  => $tipoReserva, 'idVuelo' => $idVuelo]);
+            return view('hoteles',['idOrigen' => $idOrigen, 'idDestino' => $idDestino , 'tipoReserva'  => $tipoReserva, 'idVuelo' => $idVuelo , 'idTransporte' => $idTransporte, 'idHotel' => $idHotel , 'idHabitacion' => $idHabitacion]);
         }
 
         if( ($tipoReserva == "1")  ) 
@@ -201,15 +209,120 @@ class ReservaController extends Controller
         //return view('hotels')->with('id_ciudad_llegada', $this->idCiudadDestino);
     }
 
+
+
+    public function continuar_reserva_transporte(Request $request)
+    {
+        $tipoReserva = $_POST["tipoReserva"];
+        $idDestino = $_POST["idDestino"];
+        $idOrigen = $_POST["idOrigen"];
+        $idVuelo = $_POST["idVuelo"];
+        $idTransporte = $_POST["idTransporte"];
+        $idHotel = $_POST["idHotel"];
+        $idHabitacion = $_POST["idHabitacion"];
+        
+        
+        if( ( $tipoReserva == "4")  ) 
+        { 
+            
+            return view('hoteles',['idOrigen' => $idOrigen, 'idDestino' => $idDestino , 'tipoReserva'  => $tipoReserva, 'idVuelo' => $idVuelo, 'idTransporte' => $idTransporte , 'idHotel' => $idHotel , 'idHabitacion' => $idHabitacion ]);
+        }
+
+        if( ($tipoReserva == "3")  ) 
+        { 
+
+            $idHabitacion = "0";
+            return view('reservar' ,['idOrigen' => $idOrigen, 'idDestino' => $idDestino , 'tipoReserva'  => $tipoReserva, 'idVuelo' => $idVuelo, 'idTransporte' => $idTransporte , 'idHotel' => $idHotel , 'idHabitacion' => $idHabitacion ]);
+        }
+
+    }
+
     public function reserva_habitacion(Request $request)
     {
-        $tipoReserva = $_POST["tipoReserva"]; //$request->tipoReserva;
-        $idLlegada = $request->idDestino;
-        $idOrigen = $request->idOrigen;
-        $idVuelo = $request->idVuelo;
-        $idHotel = $request->idHotel;
+        $tipoReserva = $_POST["tipoReserva"];
+        $idDestino = $_POST["idDestino"];
+        $idOrigen = $_POST["idOrigen"];
+        $idVuelo = $_POST["idVuelo"];
+        $idTransporte = $_POST["idTransporte"];
+        $idHotel = $_POST["idHotel"];
+        $idHabitacion = $_POST["idHabitacion"];
 
-        return view('habitaciones',['idOrigen' => $idOrigen, 'idLlegada' => $idLlegada , 'tipoReserva'  => $tipoReserva, 'idVuelo' => $idVuelo, 'idHotel' => $idHotel]);
+        return view('habitaciones',['idOrigen' => $idOrigen, 'idDestino' => $idDestino , 'tipoReserva'  => $tipoReserva, 'idVuelo' => $idVuelo , 'idTransporte' => $idTransporte, 'idHotel' => $idHotel , 'idHabitacion' => $idHabitacion]);
+
+
+    }
+
+    public function reserva_verificar(Request $request)
+    {
+        $tipoReserva = $_POST["tipoReserva"];
+        $idDestino = $_POST["idDestino"];
+        $idOrigen = $_POST["idOrigen"];
+        $idVuelo = $_POST["idVuelo"];
+        $idTransporte = $_POST["idTransporte"];
+        $idHotel = $_POST["idHotel"];
+        $idHabitacion = $_POST["idHabitacion"];
+        $correo = $_POST["email"];
+        $telefono = $_POST["numero_telefono"];
+
+        return view('reservar',['idOrigen' => $idOrigen, 'idDestino' => $idDestino , 'tipoReserva'  => $tipoReserva, 'idVuelo' => $idVuelo , 'idTransporte' => $idTransporte, 'idHotel' => $idHotel , 'idHabitacion' => $idHabitacion]);
+
+
+    }
+
+    public function finalizar_reserva(Request $request)
+    {
+        $tipoReserva = $_POST["tipoReserva"];
+        $idDestino = $_POST["idDestino"];
+        $idOrigen = $_POST["idOrigen"];
+        $idVuelo = $_POST["idVuelo"];
+        $idTransporte = $_POST["idTransporte"];
+        $idHotel = $_POST["idHotel"];
+        $idHabitacion = $_POST["idHabitacion"];
+        $idUsuario = $_POST["idUsuario"];
+        if (Auth::check()) {
+            $idUsuario = auth()->user()->id;
+        }
+        
+
+        if ($idVuelo == "0") {
+            $idVuelo = NULL;
+        }
+        if ($idTransporte == "0") {
+            $idTransporte = NULL;
+        }
+
+        if ($idHabitacion == "0") {
+            $idHabitacion = NULL;
+        }
+
+
+$checkin = FALSE;
+$pagado = FALSE;
+$total = 100;
+$idPaquete = NULL;
+$idSeguro = NULL;
+$fechaITransporte = NULL;
+$fechaFTransporte = NULL;
+$fechaIHabitacion = NULL;
+$fechaFHabitacion = NULL;
+        return Reserva::create([
+            'tipo_reserva' => $tipoReserva,
+            'checkin' => $checkin,
+            'pagado' => $pagado,
+            'total_reserva' => $total,
+            'correo_cliente' => $correo,
+            'telefono_cliente' => $telefono,
+            'id_paquete' => $idPaquete,
+            'id_cliente' => $idUsuario,
+            'id_seguro' => $idSeguro,
+            'id_transporte' => $idTransporte,
+            'fecha_i_t' => $fechaITransporte,
+            'fecha_f_t' => $fechaFTransporte,
+            'id_habitacion' => $idHabitacion,
+            'fecha_inicio_h' => $fechaIHabitacion,
+            'fecha_fin_h' => $fechaFHabitacion,
+
+        ]);
 
 
     }

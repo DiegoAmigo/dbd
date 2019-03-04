@@ -88,6 +88,18 @@
 
                             <div class="col-md-6">
                                 <input id="fecha_nacimiento" type="text" class="form-control{{ $errors->has('fecha_nacimiento') ? ' is-invalid' : '' }}" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" required>
+                                
+                        <script>
+                            var date = new Date(); 
+                            var fin = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+                            var entrada = document.getElementById("fecha_nacimiento");
+                            $(entrada).datepicker({
+                              uiLibrary: 'bootstrap4',
+                              locale: 'es-es',
+                              maxDate: fin
+                                
+                            });
+                        </script>
 
                                 @if ($errors->has('fecha_nacimiento'))
                                     <span class="invalid-feedback" role="alert">

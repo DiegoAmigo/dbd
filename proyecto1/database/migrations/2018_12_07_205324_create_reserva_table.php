@@ -21,16 +21,16 @@ class CreateReservaTable extends Migration
             $table->integer('total_reserva');
             $table->string('correo_cliente',60);
             $table->string('telefono_cliente');
-            $table->unsignedInteger('id_paquete');
-            $table->unsignedInteger('id_cliente');
-            $table->unsignedInteger('id_seguro');
-            $table->unsignedInteger('id_transporte');
-            $table->date('fecha_i_t');
-            $table->date('fecha_f_t');
+            $table->unsignedInteger('id_paquete')->nullable();
+            $table->unsignedInteger('id_cliente')->nullable();
+            $table->unsignedInteger('id_seguro')->nullable();
+            $table->unsignedInteger('id_transporte')->nullable();
+            $table->date('fecha_i_t')->nullable();
+            $table->date('fecha_f_t')->nullable();
             //segun yo deberia ser alverre
-            $table->unsignedInteger('id_habitacion');
-            $table->date('fecha_inicio_h');
-            $table->date('fecha_fin_h');
+            $table->unsignedInteger('id_habitacion')->nullable();
+            $table->date('fecha_inicio_h')->nullable();
+            $table->date('fecha_fin_h')->nullable();
             $table->timestamps();
 
             $table->foreign('id_cliente')

@@ -55,12 +55,14 @@
           ?>
          @foreach((array)$datos as $dato)
           @if (empty ($dato) == false )
-              <form method="POST" action="{{ route('habitacion') }}">
+              <form method="POST" action="{{ route('reservar') }}">
               @csrf
               <input id= "tipoReserva" name = "tipoReserva" value = "{{$tipoReserva}}" style="display:none">
-              <input id= "idDestino" name = "idDestino" value = "{{$idLlegada}}" style="display:none">
+              <input id= "idDestino" name = "idDestino" value = "{{$idDestino}}" style="display:none">
               <input id= "idOrigen" name = "idOrigen" value = "{{$idOrigen}}" style="display:none">
-              
+              <input id= "idVuelo" name = "idVuelo" value = "{{$idVuelo}}" style="display:none">
+              <input id= "idTransporte" name = "idTransporte" value = "{{$idTransporte}}" style="display:none">
+              <input id= "idHotel" name = "idHotel" value = "{{$idHotel}}" style="display:none">
               {{$cantidad = $cantidad + 1}}
               
               

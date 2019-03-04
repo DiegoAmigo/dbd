@@ -3,7 +3,7 @@
   <head>
     @inject('hotelController', 'App\Http\Controllers\HotelController')
     <?php 
-        $datos =  $hotelController->obtener_hotel($idLlegada);
+        $datos =  $hotelController->obtener_hotel($idDestino);
     ?>
 
     
@@ -59,9 +59,11 @@
               <form method="POST" action="{{ route('habitacion') }}">
               @csrf
               <input id= "tipoReserva" name = "tipoReserva" value = "{{$tipoReserva}}" style="display:none">
-              <input id= "idDestino" name = "idDestino" value = "{{$idLlegada}}" style="display:none">
+              <input id= "idDestino" name = "idDestino" value = "{{$idDestino}}" style="display:none">
               <input id= "idOrigen" name = "idOrigen" value = "{{$idOrigen}}" style="display:none">
               <input id= "idVuelo" name = "idVuelo" value = "{{$idVuelo}}" style="display:none">
+              <input id= "idTransporte" name = "idTransporte" value = "{{$idTransporte}}" style="display:none">
+              <input id= "idHabitacion" name = "idHabitacion" value = "{{$idHabitacion}}" style="display:none">
               {{$cantidad = $cantidad + 1}}
               
               

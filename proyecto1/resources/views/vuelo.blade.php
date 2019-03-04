@@ -23,35 +23,28 @@
 
     @inject('vuelo_aeropuertoController', 'App\Http\Controllers\Vuelo_AeropuertoController')
     <?php 
-      $datos =  $vuelo_aeropuertoController->encontrar_vuelos_ciudad($idOrigen,$idLlegada);
+      $datos =  $vuelo_aeropuertoController->encontrar_vuelos_ciudad($idOrigen,$idDestino);
     ?>
 
     
     <section class="features-icons bg-white text-center">
       <div class="container" style="margin-top: 20%">
-        <div class="row" style="margin-left: 10%">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="../img/antofa.jpg" alt="Card image cap">
-          <div class="card-body ">
-            <h5 class="card-title">Antofagasta</h5>
-            <p class="card-text">Super vuelo.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-          </div>
-         </div>
+        <div class="row" align = "center">
+        
          @foreach((array)$datos as $dato)
+         <div class="container" style="margin-top: auto;">
             <form method="POST" action="{{ route('siguiente') }}">
-              @csrf
+              {{ csrf_field() }}
               <input id= "tipoReserva" name = "tipoReserva" value = "{{$tipoReserva}}" style="display:none">
-              <input id= "idDestino" name = "idDestino" value = "{{$idLlegada}}" style="display:none">
+              <input id= "idDestino" name = "idDestino" value = "{{$idDestino}}" style="display:none">
               <input id= "idOrigen" name = "idOrigen" value = "{{$idOrigen}}" style="display:none">
             <div class="card" style="width: 18rem;">
               <img class="card-img-top" src="../img/antofa.jpg" alt="Card image cap">
               <div class="card-body ">
                 <h5 class="card-title">Antofagasta</h5>
                 
-                <p class="card-text" >{{$dato->hora_inicio}}</p>
+                <p class="card-text" >Hora salida: {{$dato->hora_inicio}}</p>
                 <input id= "idVuelo" name= "idVuelo" value = "{{$dato->id}}" class="btn btn-primary" style="display:none">
-                <a href="#" class="btn btn-primary">Comprar</a>
                 <button type="submit" class="btn btn-primary">
                                     
                                     {{ __('Comprar') }}
@@ -59,54 +52,12 @@
               </div>
              </div>
              </form>
-            
+          </div>
           @endforeach
-         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" alt="Card image cap">
-          <div class="card-body ">
-            <h5 class="card-title">Arica</h5>
-            <p class="card-text">Otro vuelo</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-          </div>
-         </div>
-         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" alt="Card image cap">
-          <div class="card-body ">
-            <h5 class="card-title">Pto Montt</h5>
-            <p class="card-text">Wen vuelo</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-          </div>
-         </div>
+         
        </div>  
       </div>
-      <div class="container" style="margin-top: auto;">
-        <div class="row" style="margin-left: 10%;">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" alt="Card image cap">
-          <div class="card-body ">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-          </div>
-         </div>
-         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" alt="Card image cap">
-          <div class="card-body ">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-          </div>
-         </div>
-         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" alt="Card image cap">
-          <div class="card-body ">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Comprar</a>
-          </div>
-         </div>
-       </div>  
-      </div>
+      
      </section>
 
 
