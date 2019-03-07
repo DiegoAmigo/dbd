@@ -12,7 +12,7 @@ use App\Vuelo_Reservado;
 use App\Http\Requests\ReservaRequest;
 use App\Http\Controllers\VueloController;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use App\Mail\mailCompra;
 class ReservaController extends Controller
 {
 
@@ -305,7 +305,7 @@ $fechaITransporte = NULL;
 $fechaFTransporte = NULL;
 $fechaIHabitacion = NULL;
 $fechaFHabitacion = NULL;
-        return Reserva::create([
+$reservaFinal = Reserva::create([
             'tipo_reserva' => $tipoReserva,
             'checkin' => $checkin,
             'pagado' => $pagado,
@@ -324,7 +324,8 @@ $fechaFHabitacion = NULL;
 
         ]);
 
-
+    \Mail::to($correo)->send(new mailCompra($reserva));
+    return $reservaFinal;
     }
 
 

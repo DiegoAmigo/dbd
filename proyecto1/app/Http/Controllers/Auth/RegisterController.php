@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Mail\mailBienvenida;
 
 class RegisterController extends Controller
 {
@@ -74,7 +75,7 @@ class RegisterController extends Controller
     {
         $puntos = 0;
         $pais = 1;
-        return User::create([
+        $user = User::create([
             'tipo_documento' => $data['tipo_documento'],
             'numero_documento' => $data['numero_documento'],
             'nombre_cliente' => $data['nombre_cliente'],
@@ -85,5 +86,7 @@ class RegisterController extends Controller
             'puntos_millas' => $puntos,
             'id_pais' => PaisController::getId($data['pais']),
         ]);
+        \Mail::to($user)->send(new mailBienvenida($user));
+        return $user;
     }
 }

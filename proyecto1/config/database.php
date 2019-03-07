@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -32,7 +32,7 @@ return [
     */
 
     'connections' => [
-/*
+
         'sqlite' => [
             'driver' => 'sqlite',
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
@@ -55,7 +55,7 @@ return [
             'strict' => true,
             'engine' => null,
         ],
-*/
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -69,7 +69,7 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
-/*
+
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'host' => env('DB_HOST', 'localhost'),
@@ -81,7 +81,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
-*/
+
     ],
 
     /*
