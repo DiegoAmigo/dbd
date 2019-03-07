@@ -23,7 +23,7 @@
 
     @inject('vuelo_aeropuertoController', 'App\Http\Controllers\Vuelo_AeropuertoController')
     <?php 
-      $datos =  $vuelo_aeropuertoController->encontrar_vuelos_ciudad($idOrigen,$idDestino,$fecha_ida);
+      $datos =  $vuelo_aeropuertoController->encontrar_vuelos_ciudad($idDestino,$idOrigen,$fecha_vuelta);
     ?>
 
     
@@ -33,22 +33,26 @@
         
          @foreach((array)$datos as $dato)
          <div class="container" style="margin-top: auto;">
-            <form method="POST" action="{{ route('siguiente') }}">
+            <form method="POST" action="{{ route('siguiente_1') }}">
               {{ csrf_field() }}
               <input id= "tipoReserva" name = "tipoReserva" value = "{{$tipoReserva}}" style="display:none">
-              <input id= "ida_vuelta" name = "ida_vuelta" value = "{{$ida_vuelta}}" style="display:none">
               <input id= "idDestino" name = "idDestino" value = "{{$idDestino}}" style="display:none">
               <input id= "idOrigen" name = "idOrigen" value = "{{$idOrigen}}" style="display:none">
               <input id= "fecha_ida" name = "fecha_ida" value = "{{$fecha_ida}}" style="display:none">
               <input id= "fecha_vuelta" name = "fecha_vuelta" value = "{{$fecha_vuelta}}" style="display:none">
+              <input id= "idHotel" name = "idHotel" value = "{{$idHotel}}" style="display:none">
+              <input id= "idHabitacion" name = "idHabitacion" value = "{{$idHabitacion}}" style="display:none">
+              <input id= "idTransporte" name = "idTransporte" value = "{{$idTransporte}}" style="display:none">
             <div class="card" style="width: 18rem;">
               <img class="card-img-top" src="../img/antofa.jpg" alt="Card image cap">
               <div class="card-body ">
                 <h5 class="card-title">Antofagasta</h5>
                 
                 <p class="card-text" >Hora salida: {{$dato->hora_inicio}}</p>
-                
-                <input id= "idVuelo" name= "idVuelo[]" value = "{{($dato->id)}}" class="btn btn-primary" style="display:none">
+                <?php 
+                array_push($idVuelo,$dato->id);
+                ?>
+                <input id= "idVuelo" name= "idVuelo" value = "{{json_encode($idVuelo,TRUE)}}" class="btn btn-primary" style="display:none">
                 <button type="submit" class="btn btn-primary">
                                     
                                     {{ __('Comprar') }}

@@ -1,23 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
-    
-
-    @inject('habitacionController', 'App\Http\Controllers\HabitacionController')
-    <?php 
-        $datos =  $habitacionController->habitaciones($idHotel,$fecha_ida,$fecha_vuelta);
-    ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
     <title>Compra Pasajes</title>
-
-    
-
   </head>
   <body>
     <!--imagenes-->
@@ -39,63 +31,76 @@
         <a class="navbar-brand mb-auto h1" href="/">LON</a>
         <a class="navbar-brand mr-6 h1" href="ayuda2">Inicio</a>
             
-            <a class="navbar-brand mr-6 h1" href="hotel">Hoteles</a>
+            <a class="navbar-brand mr-6 h1" href="Check-in">Check-In</a>
             <a class="navbar-brand mr-6 h1" href="#">Transportes</a>
             <a class="navbar-brand mr-auto h1" href="#">Disabled</a>
             <a class="btn btn-light action-button mr-2" role="button" href="#">Registrarse</a>
             <a class="btn btn-light action-button" role="button" href="#">iniciar sesión</a>
      </nav>
     <!-- opciones de las cajas-->
-    
+    @inject('reservaController', 'App\Http\Controllers\ReservaController')
+                                
+
     <section class="features-icons bg-white text-center">
       <div class="container" style="margin-top: 10%">
         <div class="row" style="margin-left: 10%">
-          <?php 
-          $cantidad = 0
-          ?>
-         @foreach((array)$datos as $dato)
-          @if (empty ($dato) == false )
-              <form method="POST" action="{{ route('reservar') }}">
-              @csrf
-              <input id= "tipoReserva" name = "tipoReserva" value = "{{$tipoReserva}}" style="display:none">
-              <input id= "idDestino" name = "idDestino" value = "{{$idDestino}}" style="display:none">
-              <input id= "idOrigen" name = "idOrigen" value = "{{$idOrigen}}" style="display:none">
-              <input id= "idVuelo" name = "idVuelo" value = "{{$idVuelo}}" style="display:none">
-              <input id= "idTransporte" name = "idTransporte" value = "{{$idTransporte}}" style="display:none">
-              <input id= "idHotel" name = "idHotel" value = "{{$idHotel}}" style="display:none">
-              <input id= "fecha_ida" name = "fecha_ida" value = "{{$fecha_ida}}" style="display:none">
-              <input id= "fecha_vuelta" name = "fecha_vuelta" value = "{{$fecha_vuelta}}" style="display:none">
-              {{$cantidad = $cantidad + 1}}
-              
-              
-              
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="/images/hotel1.jpg" alt="Card image cap">
-          <div class="card-body ">
-            <input id= "idHotel" name= "idHabitacion" value = "{{($dato)->id}}"  style="display:none">
-            <h5 class="card-title">{{($dato)->monto}}</h5>
-            <p class="card-text">{{($dato)}}</p>
-            
-              <button type="submit" class="btn btn-primary">
-                                        
-                                        {{ __('Seleccionar habitacion') }}
-                                    </button>
-          </div>
-         </div>
-         
-                
-              
-              @endif
 
-         @endforeach
-         
+          @auth
+          // enviarlo a la otra pagina 
+              <?php 
+                $reservas =  $reservaController->obtener_reservas_cliente(Auth::user()->id);
+              ?>
+            
+
+          @else
+            <form method="POST" action="{{ route('realizar_checkIn') }}">
+            <div class="form-group row">
+                            <label for="codigo" class="col-md-4 col-form-label text-md-right">{{ __('código de reserva') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="codigo" type="int" class="form-control{{ $errors->has('codigo') ? ' is-invalid' : '' }}" name="codigo" value="{{ old('codigo') }}" required autofocus>
+
+                                @if ($errors->has('codigo'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('codigo') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+            
+
+
+            <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo electrónico') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+            <button id="busqueda" type="submit" class="btn btn-primary">
+                                        
+                                        {{ __('Buscar') }}
+                                    </button>
+                                   
+                                    
+                          
+              
+                            
+          @endauth
+
+        
+      
        </div>  
       </div>
-
-      
-
      </section>
-
 
 
 

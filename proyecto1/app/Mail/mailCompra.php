@@ -13,15 +13,15 @@ class mailCompra extends Mailable
     use Queueable, SerializesModels;
 
 
-    public $reserva;
+    public $idReserva;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct( Reserva $reserva)
+    public function __construct( Reserva $idReserva)
     {
-        $this->reserva= $reserva;
+        $this->idReserva= $idReserva;
     }
 
     /**

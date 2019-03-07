@@ -64,6 +64,8 @@
               <input id= "idVuelo" name = "idVuelo" value = "{{$idVuelo}}" style="display:none">
               <input id= "idTransporte" name = "idTransporte" value = "{{$idTransporte}}" style="display:none">
               <input id= "idHabitacion" name = "idHabitacion" value = "{{$idHabitacion}}" style="display:none">
+              <input id= "fecha_ida" name = "fecha_ida" value = "{{$fecha_ida}}" style="display:none">
+              <input id= "fecha_vuelta" name = "fecha_vuelta" value = "{{$fecha_vuelta}}" style="display:none">
               {{$cantidad = $cantidad + 1}}
               
               

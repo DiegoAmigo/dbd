@@ -1,12 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    
-
-    @inject('habitacionController', 'App\Http\Controllers\HabitacionController')
-    <?php 
-        $datos =  $habitacionController->habitaciones($idHotel,$fecha_ida,$fecha_vuelta);
-    ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,9 +9,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <title>Compra Pasajes</title>
-
-    
-
   </head>
   <body>
     <!--imagenes-->
@@ -46,56 +37,74 @@
             <a class="btn btn-light action-button" role="button" href="#">iniciar sesión</a>
      </nav>
     <!-- opciones de las cajas-->
-    
+    @inject('transporteController', 'App\Http\Controllers\TransporteController')
+                                <?php 
+                                    $datos =  $transporteController->Transport_city($idDestino);
+                                ?>
+
     <section class="features-icons bg-white text-center">
       <div class="container" style="margin-top: 10%">
         <div class="row" style="margin-left: 10%">
-          <?php 
+        <?php 
           $cantidad = 0
           ?>
          @foreach((array)$datos as $dato)
           @if (empty ($dato) == false )
-              <form method="POST" action="{{ route('reservar') }}">
+            <form method="POST" action="{{ route('siguiente_2') }}">
               @csrf
-              <input id= "tipoReserva" name = "tipoReserva" value = "{{$tipoReserva}}" style="display:none">
+              {{$cantidad = $cantidad + 1}}
+             <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="/images/auto1.png" alt="Card image cap">
+              <div class="card-body ">
+                <h5 class="card-title">{{head($dato)->empresa_transporte}}</h5>
+                <p class="card-text">capacidad: {{head($dato)->capacidad_transporte}} personas</p>
+                <input id= "tipoReserva" name = "tipoReserva" value = "{{$tipoReserva}}" style="display:none">
               <input id= "idDestino" name = "idDestino" value = "{{$idDestino}}" style="display:none">
               <input id= "idOrigen" name = "idOrigen" value = "{{$idOrigen}}" style="display:none">
               <input id= "idVuelo" name = "idVuelo" value = "{{$idVuelo}}" style="display:none">
-              <input id= "idTransporte" name = "idTransporte" value = "{{$idTransporte}}" style="display:none">
               <input id= "idHotel" name = "idHotel" value = "{{$idHotel}}" style="display:none">
-              <input id= "fecha_ida" name = "fecha_ida" value = "{{$fecha_ida}}" style="display:none">
-              <input id= "fecha_vuelta" name = "fecha_vuelta" value = "{{$fecha_vuelta}}" style="display:none">
-              {{$cantidad = $cantidad + 1}}
-              
-              
-              
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="/images/hotel1.jpg" alt="Card image cap">
-          <div class="card-body ">
-            <input id= "idHotel" name= "idHabitacion" value = "{{($dato)->id}}"  style="display:none">
-            <h5 class="card-title">{{($dato)->monto}}</h5>
-            <p class="card-text">{{($dato)}}</p>
-            
-              <button type="submit" class="btn btn-primary">
+              <input id= "idHabitacion" name = "idHabitacion" value = "{{$idHabitacion}}" style="display:none">
+                <input id= "idTransporte" name = "idTransporte" value = "{{head($dato)->id}}" class="btn btn-primary" style="display:none">
+                <button type="submit" class="btn btn-primary">
                                         
-                                        {{ __('Seleccionar habitacion') }}
+                                        {{ __('Comprar') }}
                                     </button>
-          </div>
-         </div>
-         
-                
-              
-              @endif
+
+              </div>
+             </div>
+         @endif
 
          @endforeach
-         
+
+         @if ($cantidad == 0 )
+
+            <form method="POST" action="{{ route('siguiente') }}">
+              @csrf
+             <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="/images/auto1.png" alt="Card image cap">
+              <div class="card-body ">
+                <h5 class="card-title">No hay transportes disponibles</h5>
+                <p class="card-text"></p>
+                
+                <input id= "tipoReserva" name = "tipoReserva" value = "{{$tipoReserva}}" style="display:none">
+              <input id= "idDestino" name = "idDestino" value = "{{$idDestino}}" style="display:none">
+              <input id= "idOrigen" name = "idOrigen" value = "{{$idOrigen}}" style="display:none">
+              <input id= "idVuelo" name = "idVuelo" value = "{{$idVuelo}}" style="display:none">
+                <input id= "idTransporte" name = "idTransporte" value = "0" class="btn btn-primary" style="display:none">
+                <button type="submit" class="btn btn-primary">
+                                        
+                                        {{ __('Omitir') }}
+                                    </button>
+              </div>
+             </div>
+            
+            
+
+         @endif
+      
        </div>  
       </div>
-
-      
-
      </section>
-
 
 
 

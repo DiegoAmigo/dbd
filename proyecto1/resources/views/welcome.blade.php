@@ -67,6 +67,8 @@
                 check2 = document.getElementById("vuelo_transporte");
                 check3 = document.getElementById("vuelo_transporte_hotel");
                 check4 = document.getElementById("vuelo");
+                check5 = document.getElementById("ida");
+                check6 = document.getElementById("vuelta");
                 if (check1.checked || check2.checked || check3.checked ) {
                     element.style.display='block';
                     element2.style.display='block';
@@ -77,6 +79,15 @@
                     if(check4.checked)
                     {
                         element3.style.display='block';
+                        if (check5.checked) 
+                        {
+                            ocultar_vuelta();
+                        }
+                        if (check6.checked) 
+                        {
+                            mostrar_vuelta();
+                        }
+
                     }
                     else{
                         element3.style.display='none';
@@ -103,6 +114,7 @@
 
             span#content {
                 display:none;
+
             }
 
             div#selectores_origen {
@@ -117,6 +129,8 @@
 
             span#selectores {
                 display:none;
+                myFunction();
+                myFunction();
             }
 
             input#vuelo:checked ~ input#content  {
@@ -257,7 +271,7 @@
             
         </style>
     </head>
-    <body>
+    <body onLoad= "myFunction();myFunction2();mostrar_vuelta2()" >
 
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
          <div class="carousel-inner">
@@ -278,7 +292,7 @@
             <a class="navbar-brand mb-auto h1" href="/">LON</a>
             <a class="navbar-brand mr-6 h1" href="ayuda2">Home</a>
                 
-                <a class="navbar-brand mr-6 h1" href="hotel">Hoteles</a>
+                <a class="navbar-brand mr-6 h1" href="check-in">Check-In</a>
                 <a class="navbar-brand mr-6 h1" href="transporte">Transportes</a>
                 <a class="navbar-brand mr-auto h1" href="#">Disabled</a>
                 
@@ -314,8 +328,7 @@
                         <div class="illustration"></div>
                         <div class="form-group">
                             <div class="form-check">
-                                
-                                <input type=radio id="vuelo" name="opciones"  value = "1" onchange="mostrar_vuelta2()">
+                                <input type=radio id="vuelo" name="opciones"  value = "1" onchange="mostrar_vuelta2()" required checked>
                                 <label for="vuelo"><span>Vuelo</span></label>
                             </div>
                             <div class="form-check">
@@ -337,14 +350,14 @@
 
                         <div id = "selectores_ida_vuelta">
                             <label for="ida"><span>Solo Ida</span></label>
-                            <input type=radio id="ida" name="ida_vuelta"  value = "1" onchange="ocultar_vuelta()">
+                            <input type=radio id="ida" name="ida_vuelta"  value = "1" onchange="ocultar_vuelta()" checked>
                             <label for="vuelta"><span>Ida y vuelta</span></label>
                             <input type=radio id="vuelta" name="ida_vuelta"  value = "2" onchange="mostrar_vuelta()">
                         </div>
 
 
                         <label>origen</label>
-                        <select id="pais_origen" name="pais_origen" onchange="myFunction()" class="form-control" style="margin-top: 0px;">
+                        <select id="pais_origen" name="pais_origen" onchange="myFunction()" class="form-control" style="margin-top: 0px;" required>
                             <optgroup  label="This is a group">
                                 @foreach((array)$datos as $dato)
                                     <option>{{last($dato)->nombre_pais}}</option>
@@ -352,13 +365,13 @@
                             </optgroup>
                         </select>
 
-                        <select id="ciudad_origen" name="ciudad_origen"  class="form-control" style="margin-top: 0px;">
+                        <select id="ciudad_origen" name="ciudad_origen"  class="form-control" style="margin-top: 0px;" required>
                             
                         </select>
 
                         <p >Fecha Ida </p>
 
-                        <input id="fecha_ida" width="276"  />
+                        <input id="fecha_ida" name="fecha_ida" width="276"  required/>
                         <script>
                             var date = new Date(); 
                             var today = new Date(date.getFullYear(), date.getMonth(), date.getDate()); 
@@ -376,7 +389,7 @@
 
                         <p id="fecha_vuelta_frase" >Fecha vuelta </p>
 
-                        <input id="fecha_vuelta" width="276"  />
+                        <input id="fecha_vuelta" name="fecha_vuelta" width="276"  />
                         <script>
                             var date = new Date(); 
                             var today = new Date(date.getFullYear(), date.getMonth(), date.getDate()); 
@@ -393,9 +406,11 @@
                             function ocultar_vuelta(){
                                 $( '#fecha_vuelta' ).datepicker( 'destroy' );
                                 $( '#fecha_vuelta' ).hide();
+                                $( "#fecha_vuelta_frase" ).hide();
                             }
 
                             function mostrar_vuelta(){
+                                $( "#fecha_vuelta_frase" ).show();
                                 $( "#fecha_vuelta" ).show();
                                 $( "#fecha_vuelta" ).datepicker({
                               uiLibrary: 'bootstrap4',
@@ -410,25 +425,41 @@
 
 
                         <label style="margin-top: 1px;padding-top: -14px;">Destino</label>
-                        <select id="pais_destino" name ="pais_destino" onchange="myFunction2()" class="form-control" style="margin-top: -5px;height: 38px;">
-                            <optgroup  label="This is a group">
+                        <select id="pais_destino" name ="pais_destino" onchange="myFunction2()" class="form-control" style="margin-top: -5px;height: 38px;" required>
+                            <optgroup  label="Pais destino">
                                 @foreach((array)$datos as $dato)
                                     <option>{{last($dato)->nombre_pais}}</option>
                                 @endforeach
                             </optgroup>
                         </select>
 
-                        <select  class="form-control" name ="ciudad_destino" style="margin-top: 0px;">
-                            <optgroup id="ciudad_destino"  label="This is a group">
+                        
+
+
+                        <select  class="form-control" name ="ciudad_destino" style="margin-top: 0px;"  required>
+                            <optgroup id="ciudad_destino"  label="Ciudad destino">
                                 
                             </optgroup>
                         </select>
                         
 
+                        <label style="margin-top: 1px;padding-top: -14px;">Cantidad de viajeros</label>
+                        <select id="cantidad_personas" name ="cantidad_personas" class="form-control" style="margin-top: -5px;height: 38px;">
+                            
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            
+                        </select>
+
                         <div class="form-group">
                             <button class="btn btn-primary bg-info btn-block" type="submit">Viajar</button>
                         </div>
-                        <a href="#" class="forgot">Forgot your email or password?</a>
+                        
                     </form>
                 </div>
             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transporte;
+use App\Reserva;
 use App\Http\Requests\TransporteRequest;
 
 class TransporteController extends Controller
@@ -102,9 +103,28 @@ class TransporteController extends Controller
         return $transport;
 	}
 	
-    public function Transport_city($id_ciudad){
+    public function Transport_city($id_ciudad,$fecha_inicio,$fecha_fin){
         $transport = Transporte::where('id_ciudad', $id_ciudad)->get();
-        return $transport;
+        $transportes = [];
+        foreach ($transport as $transporte) {
+            if ( count(Reserva::where([['id_transporte',$transporte->id],])->get()) != 0 ) {
+                $reservas = Reserva::where([['id_transporte',$transporte->id],])->get();
+                foreach ($reservas as $reserva) {
+                    if( ($reserva->fecha_f_t < $fecha_inicio)  &&  ($reserva->fecha_i_t > $fecha_fin) )
+                    {
+                        array_push ($transportes,$transporte);
+                    }
+                }
+
+            }
+            else
+            {
+                array_push ($transportes,$transporte);
+            }
+
+        }
+
+        return $transportes;
     }
 
 }
