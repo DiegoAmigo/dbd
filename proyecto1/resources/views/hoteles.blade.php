@@ -75,8 +75,8 @@
           <div class="card-body ">
             <input id= "idHotel" name= "idHotel" value = "{{head($dato)->id}}"  style="display:none">
             <h5 class="card-title">{{head($dato)->nombre_hotel}}</h5>
-            <p class="card-text">{{head($dato)}}</p>
-            
+            <p class="card-text">estrellas: {{head($dato)->cantidad_estrellas}}</p>
+            <p class="card-text">direccion: {{head($dato)->direccion_hotel}}</p>
               <button type="submit" class="btn btn-primary">
                                         
                                         {{ __('Seleccionar hotel') }}

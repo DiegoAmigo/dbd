@@ -243,75 +243,11 @@
          <div class="container">
             <div class="row" style="margin: 163px;margin-top: 17px;">
                 <div class="col-md-12" style="width: 1096px;height: 330px;">
-                    <form method="POST"  action="{{ route('finalizar_reserva') }}" style="width: 748px;height: 326px;">
-                        {{ csrf_field() }}
-                        <h2 class="sr-only">Login Form  </h2>
-                        <div class="illustration"></div>
-                        <input id= "tipoReserva" name = "tipoReserva" value = "{{$tipoReserva}}" style="display:none">
-                        <input id= "idDestino" name = "idDestino" value = "{{$idDestino}}" style="display:none">
-              <input id= "idOrigen" name = "idOrigen" value = "{{$idOrigen}}" style="display:none">
-              <input id= "idVuelo" name = "idVuelo" value = "{{$idVuelo}}" style="display:none">
-              <input id= "idHotel" name = "idHotel" value = "{{$idHotel}}" style="display:none">
-              <input id= "idHabitacion" name = "idHabitacion" value = "{{$idHabitacion}}" style="display:none">
-              <input id= "idTransporte" name = "idTransporte" value = "{{$idTransporte}}" style="display:none">
-              <input id= "fecha_ida" name = "fecha_ida" value = "{{$fecha_ida}}" style="display:none">
-              <input id= "fecha_vuelta" name = "fecha_vuelta" value = "{{$fecha_vuelta}}" style="display:none">
-                        @auth
-                            <input id= "idUsuario" name = "idUsuario" value = "{{ Auth::user()->id }}" style="display:none">
-                        @else
-                            <input id= "idUsuario" name = "idUsuario" value = "0" style="display:none">
-                            
-                        @endauth
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="numero_telefono" class="col-md-4 col-form-label text-md-right">{{ __('numero telefono') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="numero_telefono" type="int" class="form-control{{ $errors->has('numero_telefono') ? ' is-invalid' : '' }}" name="numero_telefono" value="{{ old('numero_telefono') }}" required autofocus>
-
-                                @if ($errors->has('numero_telefono'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('numero_telefono') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">
-                                        
-                                        {{ __('realizar reserva') }}
-                                    </button>
-                        
-                    </form>
-                    
-
-                    
-                    <div class="form-group">
-                            <div class="form-check">
-                                <input type=radio id="seguro" name="opciones"  value = "1" onchange="mostrar_vuelta2()" required checked>
-                                <label for="seguro"><span>Seguro de viaje</span></label>
-                            </div>
-                            
-                        </div>
-
-
+                    <div class="alert alert-success">
+                        <a href="{{ route('inicio') }}" class="alert-link">se ha realizado Check-in exitosamente, click aqui para regresar a la pagina principal</a>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
 
         

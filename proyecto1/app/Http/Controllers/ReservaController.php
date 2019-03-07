@@ -133,6 +133,16 @@ class ReservaController extends Controller
     }
 
 
+    public function obtener_destino($idDestino)
+    {
+        $destino= Ciudad::where('id',$idDestino)->get();
+        foreach ($destino as $des) {
+            return $des->nombre_ciudad;
+        }
+
+        return ""
+    }
+
     public function obtener_reservas_cliente($idCliente)
     {
         $reserva= Reserva::where('id_cliente',$id_cliente)->get();
@@ -142,6 +152,17 @@ class ReservaController extends Controller
         }
 
         return $reservas;
+    }
+
+
+    public function realizar_checkIn(Request $request)
+    {
+        $idReserva = $_POST["idReserva"];
+        $reserva= Reserva::find($idReserva);
+        $reserva->checkin = true;
+        $reserva->save();
+
+        return view('checkin_exitosa');
     }
 
 
@@ -392,7 +413,12 @@ $pagado = FALSE;
 $total = 100;
 $idPaquete = NULL;
 $idSeguro = NULL;
-
+    $reservasEncontradas = Reserva::all();
+    $codigosReservas = [];
+        foreach ($reservasEncontradas as $res) {
+            array_push($codigosReservas, $res->codigo);
+        }
+    $codigoActual = max($codigosReservas) + 12;
 
         $idReserva = Reserva::create([
             'tipo_reserva' => $tipoReserva,
@@ -410,6 +436,8 @@ $idSeguro = NULL;
             'id_habitacion' => $idHabitacion,
             'fecha_inicio_h' => $fechaIHabitacion,
             'fecha_fin_h' => $fechaFHabitacion,
+            'id_destino' => $idDestino,
+            'codigo' => $codigoActual,
 
         ])->id;
 

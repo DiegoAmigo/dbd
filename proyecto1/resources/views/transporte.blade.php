@@ -59,6 +59,7 @@
               <div class="card-body ">
                 <h5 class="card-title">{{$dato->empresa_transporte}}</h5>
                 <p class="card-text">capacidad: {{($dato)->capacidad_transporte}} personas</p>
+                <p class="card-text">valor diario: {{($dato)->monto}} USD</p>
                 <input id= "tipoReserva" name = "tipoReserva" value = "{{$tipoReserva}}" style="display:none">
               <input id= "idDestino" name = "idDestino" value = "{{$idDestino}}" style="display:none">
               <input id= "idOrigen" name = "idOrigen" value = "{{$idOrigen}}" style="display:none">

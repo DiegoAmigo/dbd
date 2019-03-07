@@ -73,8 +73,10 @@
           <img class="card-img-top" src="/images/hotel1.jpg" alt="Card image cap">
           <div class="card-body ">
             <input id= "idHotel" name= "idHabitacion" value = "{{($dato)->id}}"  style="display:none">
-            <h5 class="card-title">{{($dato)->monto}}</h5>
-            <p class="card-text">{{($dato)}}</p>
+            <h5 class="card-title">Numero de habitacion: {{($dato)->numero_habitacion}}</h5>
+            <p class="card-text">Valor por dia: {{($dato)->monto}} USD</p>
+            <p class="card-text">Capacidad: {{($dato)->capacidad_habitacion}} personas</p>
+            
             
               <button type="submit" class="btn btn-primary">
                                         

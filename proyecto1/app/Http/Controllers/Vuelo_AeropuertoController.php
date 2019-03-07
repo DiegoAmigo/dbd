@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Vuelo_Aeropuerto;
 use App\Vuelo;
+use App\Ciudad;
 use App\Http\Requests\Vuelo_AeropuertoRequest;
 use App\Http\Controllers\AeropuertoController;
 
@@ -173,6 +174,15 @@ class Vuelo_AeropuertoController extends Controller
             
         }
         return $vueloFinal;
+    }
+
+
+
+    public function ciudad_obtener($id)
+    {
+        $ciudad = Ciudad::find($id);
+        
+        return $ciudad->nombre_ciudad;
     }
 
 }

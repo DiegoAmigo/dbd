@@ -13,7 +13,7 @@ class Reserva extends Model
     protected $fillable=[
     	'tipo_reserva', 'checkin', 'pagado', 'total_reserva', 'correo_cliente', 'telefono_cliente', 
 		'id_cliente', 'id_habitacion', 'fecha_inicio_h', 'fecha_fin_h', 'id_paquete', 'id_transporte', 'fecha_i_t', 'fecha_f_t', 
-		'id_seguro'
+		'id_seguro', 'id_destino', 'codigo'
     ];
     //relacion con otra tabla
     //poner nombre en plural si se relaciona con muchos
@@ -43,5 +43,8 @@ class Reserva extends Model
     }
 	public function pasajero_reserva(){
     	return $this->hasMany('App\Pasajero_Reserva');
+    }
+    public function destino(){
+        return $this->hasOne('App\Ciudad');
     }
 }

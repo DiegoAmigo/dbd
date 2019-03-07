@@ -31,6 +31,9 @@ class CreateReservaTable extends Migration
             $table->unsignedInteger('id_habitacion')->nullable();
             $table->date('fecha_inicio_h')->nullable();
             $table->date('fecha_fin_h')->nullable();
+            $table->date('id_destino')->nullable();
+            $table->date('codigo')->nullable();
+            
             $table->timestamps();
 
             $table->foreign('id_cliente')
@@ -56,6 +59,11 @@ class CreateReservaTable extends Migration
             $table->foreign('id_habitacion')
                 ->references('id')
                 ->on('habitacions')
+                ->onDelete('cascade');
+
+            $table->foreign('id_destino')
+                ->references('id')
+                ->on('ciudads')
                 ->onDelete('cascade');
         });
     }

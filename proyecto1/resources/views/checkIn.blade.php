@@ -46,11 +46,33 @@
         <div class="row" style="margin-left: 10%">
 
           @auth
-          // enviarlo a la otra pagina 
+            <form method="POST" action="{{ route('guardar_checkIn') }}">
+          
               <?php 
                 $reservas =  $reservaController->obtener_reservas_cliente(Auth::user()->id);
               ?>
-            
+            @foreach((array)$reservas as $dato)
+                @if (empty ($dato) == false )
+            <form method="POST" action="{{ route('siguiente_2') }}">
+              @csrf
+              {{$cantidad = $cantidad + 1}}
+             <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="/images/auto1.png" alt="Card image cap">
+              <div class="card-body ">
+                <h5 class="card-title">codigo reserva: {{$dato->id}}</h5>
+                <p class="card-text">destino: {{$reservaController->obtener_destino(($dato)->id_destino)}}</p>
+                
+                <input id= "idReserva" name = "idReserva" value = "{{($dato)->id}}" class="btn btn-primary" style="display:none">
+                <button type="submit" class="btn btn-primary">
+                                        
+                                        {{ __('Check-in') }}
+                                    </button>
+
+                  </div>
+                </div>
+              @endif
+
+            @endforeach
 
           @else
             <form method="POST" action="{{ route('realizar_checkIn') }}">
