@@ -39,12 +39,13 @@
     <!-- opciones de las cajas-->
     @inject('transporteController', 'App\Http\Controllers\TransporteController')
                                 <?php 
-                                    $datos =  $transporteController->Transport_city($idDestino);
+                                    $datos =  $transporteController->Transport_city($idDestino,$fecha_ida,$fecha_vuelta);
                                 ?>
 
     <section class="features-icons bg-white text-center">
       <div class="container" style="margin-top: 10%">
         <div class="row" style="margin-left: 10%">
+          
         <?php 
           $cantidad = 0
           ?>
@@ -56,15 +57,17 @@
              <div class="card" style="width: 18rem;">
               <img class="card-img-top" src="/images/auto1.png" alt="Card image cap">
               <div class="card-body ">
-                <h5 class="card-title">{{head($dato)->empresa_transporte}}</h5>
-                <p class="card-text">capacidad: {{head($dato)->capacidad_transporte}} personas</p>
+                <h5 class="card-title">{{$dato->empresa_transporte}}</h5>
+                <p class="card-text">capacidad: {{($dato)->capacidad_transporte}} personas</p>
                 <input id= "tipoReserva" name = "tipoReserva" value = "{{$tipoReserva}}" style="display:none">
               <input id= "idDestino" name = "idDestino" value = "{{$idDestino}}" style="display:none">
               <input id= "idOrigen" name = "idOrigen" value = "{{$idOrigen}}" style="display:none">
               <input id= "idVuelo" name = "idVuelo" value = "{{$idVuelo}}" style="display:none">
               <input id= "idHotel" name = "idHotel" value = "{{$idHotel}}" style="display:none">
               <input id= "idHabitacion" name = "idHabitacion" value = "{{$idHabitacion}}" style="display:none">
-                <input id= "idTransporte" name = "idTransporte" value = "{{head($dato)->id}}" class="btn btn-primary" style="display:none">
+              <input id= "fecha_ida" name = "fecha_ida" value = "{{$fecha_ida}}" style="display:none">
+              <input id= "fecha_vuelta" name = "fecha_vuelta" value = "{{$fecha_vuelta}}" style="display:none">
+                <input id= "idTransporte" name = "idTransporte" value = "{{($dato)->id}}" class="btn btn-primary" style="display:none">
                 <button type="submit" class="btn btn-primary">
                                         
                                         {{ __('Comprar') }}
@@ -78,7 +81,7 @@
 
          @if ($cantidad == 0 )
 
-            <form method="POST" action="{{ route('siguiente') }}">
+            <form method="POST" action="{{ route('siguiente_2') }}">
               @csrf
              <div class="card" style="width: 18rem;">
               <img class="card-img-top" src="/images/auto1.png" alt="Card image cap">
@@ -90,6 +93,10 @@
               <input id= "idDestino" name = "idDestino" value = "{{$idDestino}}" style="display:none">
               <input id= "idOrigen" name = "idOrigen" value = "{{$idOrigen}}" style="display:none">
               <input id= "idVuelo" name = "idVuelo" value = "{{$idVuelo}}" style="display:none">
+              <input id= "idHotel" name = "idHotel" value = "{{$idHotel}}" style="display:none">
+              <input id= "idHabitacion" name = "idHabitacion" value = "{{$idHabitacion}}" style="display:none">
+              <input id= "fecha_ida" name = "fecha_ida" value = "{{$fecha_ida}}" style="display:none">
+              <input id= "fecha_vuelta" name = "fecha_vuelta" value = "{{$fecha_vuelta}}" style="display:none">
                 <input id= "idTransporte" name = "idTransporte" value = "0" class="btn btn-primary" style="display:none">
                 <button type="submit" class="btn btn-primary">
                                         

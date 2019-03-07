@@ -15,13 +15,16 @@
                             <label for="tipo_documento" class="col-md-4 col-form-label text-md-right">{{ __('tipo documento') }}</label>
 
                             <div class="col-md-6">
-                                <input id="tipo_documento" type="int" class="form-control{{ $errors->has('tipo_documento') ? ' is-invalid' : '' }}" name="tipo_documento" value="{{ old('tipo_documento') }}" required autofocus>
 
-                                @if ($errors->has('tipo_documento'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('tipo_documento') }}</strong>
-                                    </span>
-                                @endif
+                                <select id="tipo_documento" class="form-control" name = "tipo_documento">
+                                        
+                                        
+                                                <option value = 1>Cedula de identidad</option>
+                                                <option value = 2>Pasaporte</option>
+                                            
+                                </select>
+
+                                
                             </div>
                         </div>
 

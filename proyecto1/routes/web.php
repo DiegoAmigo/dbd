@@ -30,6 +30,15 @@ Route::get('/#', function(){
 	return view('welcome');
 });
 
+Route::get('/check-in', function(){
+	return view('checkIn');
+})->name('check-in');
+
+Route::get('inicio', function(){
+	$datos =  CiudadController::ciudad_con_pais();
+	return View::make('welcome')->with("datos",$datos);
+})->name('inicio');
+
 Route::get('/ayuda2', function(){
 	return view('ayuda2');
 });
@@ -53,9 +62,7 @@ Route::get('/blog', function(){
 	return view('blog');
 });
 
-Route::get('/inicio', function(){
-	return view('inicio');
-});
+
 
 Route::get('/servicios', function(){
 	return view('servicios');
@@ -157,10 +164,11 @@ Route::get('/reserva/viaje/{nombre_cl}/{nombre_ciudad}', 'ReservaController@Rese
 
 Route::post('iniciar_reserva', 'ReservaController@iniciar_reserva')->name('iniciar_reserva');
 Route::post('siguiente', 'ReservaController@continuar_reserva')->name('siguiente');
+Route::post('siguiente_1', 'ReservaController@continuar_reserva_vuelo')->name('siguiente_1');
 Route::post('siguiente_2', 'ReservaController@continuar_reserva_transporte')->name('siguiente_2');
 Route::post('habitacion', 'ReservaController@reserva_habitacion')->name('habitacion');
 Route::post('reservar', 'ReservaController@reserva_verificar')->name('reservar');
-Route::post('finalizar_reserva', 'ReservaController@reserva_habitacion')->name('finalizar_reserva');
+Route::post('finalizar_reserva', 'ReservaController@finalizar_reserva')->name('finalizar_reserva');
 
 
 Route::get('/seguro/all', 'Seguro_viajeController@index');
@@ -185,7 +193,7 @@ Route::get('/transporte/show/{id}', 'TransporteController@show');
 Route::get('/transporte/destroy/{id}', 'TransporteController@destroy');
 Route::get('/transporte/store', 'TransporteController@store');
 
-Route::get('/transporte/ciudad/{id_ciudad}', 'TransporteController@Transport_city');
+Route::get('/transporte/ciudad/{id_ciudad}/{fecha_inicio}/{fecha_fin}', 'TransporteController@Transport_city');
 
 
 
@@ -208,9 +216,9 @@ Route::get('/aeropuerto/store', 'AeropuertoController@store');
 
 Route::get('/vuelo_aeropuerto/all', 'Vuelo_AeropuertoController@index');
 Route::get('/vuelo_aeropuerto/vuelos/{id}', 'Vuelo_AeropuertoController@vuelos');
-Route::get('/vuelo_aeropuerto/encontrar_vuelos/{id_aeropuerto_salida}/{id_aeropuerto_destino}', 'Vuelo_AeropuertoController@encontrar_vuelos');
+Route::get('/vuelo_aeropuerto/encontrar_vuelos/{id_aeropuerto_salida}/{id_aeropuerto_destino}/{fecha}', 'Vuelo_AeropuertoController@encontrar_vuelos');
 
-Route::get('/vuelo_aeropuerto/encontrar_vuelos_ciudad/{id_aeropuerto_salida}/{id_aeropuerto_destino}', 'Vuelo_AeropuertoController@encontrar_vuelos_ciudad');
+Route::get('/vuelo_aeropuerto/encontrar_vuelos_ciudad/{id_aeropuerto_salida}/{id_aeropuerto_destino}/{fecha}', 'Vuelo_AeropuertoController@encontrar_vuelos_ciudad');
 
 Route::get('/asientos_vuelos/disponibles/{id}', 'Asiento_VueloController@asientos_disponibles');
 Route::get('/asientos_vuelos/all', 'Asiento_VueloController@index');

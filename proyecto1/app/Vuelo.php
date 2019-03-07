@@ -11,7 +11,7 @@ class Vuelo extends Model
     //atributos
     //rellenar con atributos
     protected $fillable=[
-    	'hora_inicio', 'hora_fin', 'cupos_disponibles', 'disponible_vuelo', 'atraso', 'id_aerolinea'
+    	'hora_inicio', 'hora_fin', 'cupos_disponibles', 'disponible_vuelo', 'atraso', 'id_aerolinea','fecha_salida'
     ];
     //relacion con otra tabla
     // poner nombre en singular si se relaciona con 1

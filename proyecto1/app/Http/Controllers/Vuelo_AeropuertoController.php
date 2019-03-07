@@ -96,7 +96,7 @@ class Vuelo_AeropuertoController extends Controller
 
 
 
-    public static function encontrar_vuelos($id_aeropuerto_salida,$id_aeropuerto_destino)
+    public static function encontrar_vuelos($id_aeropuerto_salida,$id_aeropuerto_destino,$fecha)
     {
         $vuelos = Vuelo_Aeropuerto::where([
     ['id_aeropuerto',$id_aeropuerto_salida],
@@ -105,7 +105,9 @@ class Vuelo_AeropuertoController extends Controller
         foreach ($vuelos as $vuelo) {
             if (count(Vuelo_Aeropuerto::where([
     ['id_vuelo',$vuelo->id_vuelo],
-    ['origen',false],])->get()) != 0) {
+    ['origen',false],])->get()) != 0 && (count(Vuelo::where([
+    ['id',$vuelo->id_vuelo],
+    ['fecha_salida',$fecha],])->get()) != 0) ) {
                 $datosVuelos = array_collapse([$datosVuelos,[array_collapse([[$vuelo],Vuelo_Aeropuerto::where([
                     ['id_vuelo',$vuelo->id_vuelo],
                     ['origen',false],])->get()])]]);
@@ -149,7 +151,7 @@ class Vuelo_AeropuertoController extends Controller
     }
 
 
-    public static function encontrar_vuelos_ciudad($id_ciudad_salida,$id_ciudad_destino)
+    public static function encontrar_vuelos_ciudad($id_ciudad_salida,$id_ciudad_destino,$fecha)
     {
         $aeropuertos_salida = AeropuertoController::obtenerAeropuertos($id_ciudad_salida);
         $aeropuertos_destino = AeropuertoController::obtenerAeropuertos($id_ciudad_destino);
@@ -158,7 +160,7 @@ class Vuelo_AeropuertoController extends Controller
         {
             foreach ($aeropuertos_destino as $destino)
             {
-                $vuelos = array_collapse([$vuelos,Vuelo_AeropuertoController::encontrar_vuelos($salida->id,$destino->id)]);
+                $vuelos = array_collapse([$vuelos,Vuelo_AeropuertoController::encontrar_vuelos($salida->id,$destino->id,$fecha)]);
             }
         }
         $vueloFinal = [];

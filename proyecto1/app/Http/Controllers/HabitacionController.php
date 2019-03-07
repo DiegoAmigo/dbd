@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Habitacion;
+use App\Reserva;
 use App\Http\Requests\HabitacionRequest;
 
 class HabitacionController extends Controller
@@ -88,9 +89,29 @@ class HabitacionController extends Controller
     }
 
 
-    public static function habitaciones($id)
+    public static function habitaciones($id,$fecha_inicio,$fecha_fin)
     {
         $habitacions = Habitacion::where('id_hotel',$id)->get();
-        return $habitacions;
+
+        $habitaciones = [];
+        foreach ($habitacions as $habitacion) {
+            if ( count(Reserva::where([['id_habitacion',$habitacion->id],])->get()) != 0 ) {
+                $reservas = Reserva::where([['id_habitacion',$habitacion->id],])->get();
+                foreach ($reservas as $reserva) {
+                    if( ($reserva->fecha_fin_h < $fecha_inicio)  &&  ($reserva->fecha_inicio_h > $fecha_fin) )
+                    {
+                        array_push($habitaciones,$habitacion);
+                    }
+                }
+
+            }
+            else
+            {
+                array_push($habitaciones,$habitacion);
+            }
+
+        }
+
+        return $habitaciones;
     }
 }

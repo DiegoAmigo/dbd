@@ -15,6 +15,7 @@ class Vuelo extends Migration
     {
         Schema::create('vuelos', function (Blueprint $table) {
             $table->increments('id');
+            $table->date('fecha_salida');
             $table->time('hora_fin');
             $table->time('hora_inicio');
             $table->integer('cupos_disponibles');
